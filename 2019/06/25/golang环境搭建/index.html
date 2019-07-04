@@ -97,8 +97,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/06/25/golang环境搭建/go_environment.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/25/golang环境搭建/go_src.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/25/golang环境搭建/go_command.png">
-<meta property="og:image" content="http://yoursite.com/Users/wangyang/Desktop/go_extension.png">
-<meta property="og:updated_time" content="2019-06-25T03:20:37.065Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/25/golang环境搭建/go_extension.png">
+<meta property="og:updated_time" content="2019-07-04T11:14:52.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang环境搭建">
 <meta name="twitter:description" content="golang 环境搭建步骤:(windows)">
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  448 字
+                  449 字
                 </span>
               
 
@@ -390,11 +390,10 @@
 
       
         <h3 id="golang-环境搭建步骤-windows"><a href="#golang-环境搭建步骤-windows" class="headerlink" title="golang 环境搭建步骤:(windows)"></a>golang 环境搭建步骤:(windows)</h3><a id="more"></a>
-<h4 id="一-安装Go语言-go1-7-1-windows-amd64-msi"><a href="#一-安装Go语言-go1-7-1-windows-amd64-msi" class="headerlink" title="一 .安装Go语言,go1.7.1.windows-amd64.msi"></a>一 .安装Go语言,go1.7.1.windows-amd64.msi</h4><blockquote>
+<h4 id="一-安装-Go-语言-go1-7-1-windows-amd64-msi"><a href="#一-安装-Go-语言-go1-7-1-windows-amd64-msi" class="headerlink" title="一 .安装 Go 语言,go1.7.1.windows-amd64.msi"></a>一 .安装 Go 语言,go1.7.1.windows-amd64.msi</h4><blockquote>
 <p>下载地址<a href="https://studygolang.com/dl" target="_blank" rel="noopener">https://studygolang.com/dl</a></p>
 </blockquote>
-<p>####二.Go环境变量:</p>
-<p>1.安装go 的时候，安装程序会自动把相关目录写到系统环境。但是如果是zip 的安装，需要自己手动添加。</p>
+<h4 id="二-Go-环境变量"><a href="#二-Go-环境变量" class="headerlink" title="二 .Go 环境变量:"></a>二 .Go 环境变量:</h4><p>1.安装 go 的时候，安装程序会自动把相关目录写到系统环境。但是如果是 zip 的安装，需要自己手动添加。</p>
 <blockquote>
 <p>主要配置以下几个：</p>
 <ul>
@@ -406,37 +405,32 @@
 <p>2.计算机-&gt;属性-&gt;高级系统设置-&gt;环境变量</p>
 <blockquote>
 <p>注意：</p>
-<p>1.需要将GOPATH 路径，手动写入到系统环境变量。(重点)</p>
+<p>1.需要将 GOPATH 路径，手动写入到系统环境变量。(重点)</p>
 <p>2.不要把 GOPATH 设置成 Go 的安装路径</p>
-<p>3.你自己创建依赖的package，也要放到GOPATH 目录下，这样才能够被引用到。</p>
+<p>3.你自己创建依赖的 package，也要放到 GOPATH 目录下，这样才能够被引用到。</p>
 </blockquote>
 <p><img src="/2019/06/25/golang环境搭建/go_environment.png" alt=""></p>
-<p>####三.Go工作空间(代码目录):</p>
-<p>1.GOPATH : Go 的工作空间，就是我们的开发和依赖包的目录（eg： C:\Go1.2） ，此目录需要手动配置到系统环境变量</p>
+<h4 id="三-Go-工作空间-代码目录"><a href="#三-Go-工作空间-代码目录" class="headerlink" title="三 .Go 工作空间(代码目录):"></a>三 .Go 工作空间(代码目录):</h4><p>1.GOPATH : Go 的工作空间，就是我们的开发和依赖包的目录（eg： C:\Go1.2） ，此目录需要手动配置到系统环境变量</p>
 <blockquote>
 <p>GOPATH 工作空间是一个目录层次结构，其根目录包含三个子目录：</p>
 <ul>
-<li>src：包含 Go 源文件，注意：你自己创建依赖的package，也要放到GOPATH 目录下，这样才能够被引用到。</li>
+<li>src：包含 Go 源文件，注意：你自己创建依赖的 package，也要放到 GOPATH 目录下，这样才能够被引用到。</li>
 <li>pkg：包含包对象，编译好的库文件</li>
 <li>bin：包含可执行命令</li>
 </ul>
 </blockquote>
 <p>2.工程如下:</p>
 <p><img src="/2019/06/25/golang环境搭建/go_src.png" alt=""></p>
-<p>####四.验证Go是否安装成功:</p>
-<p>打开cmd输入go version:</p>
+<h4 id="四-验证-Go-是否安装成功"><a href="#四-验证-Go-是否安装成功" class="headerlink" title="四 .验证 Go 是否安装成功:"></a>四 .验证 Go 是否安装成功:</h4><p>打开 cmd 输入 go version:</p>
 <p><img src="/2019/06/25/golang环境搭建/go_command.png" alt="你想输入的替代文字"></p>
-<p>如图,go安装成功!</p>
-<p>####五.安装vsCode</p>
-<blockquote>
+<p>如图,go 安装成功!</p>
+<h4 id="五-安装-vsCode"><a href="#五-安装-vsCode" class="headerlink" title="五 .安装 vsCode"></a>五 .安装 vsCode</h4><blockquote>
 <p><a href="https://code.visualstudio.com" target="_blank" rel="noopener">https://code.visualstudio.com</a></p>
 </blockquote>
-<p>####六.打开VSCode,安装Go扩展</p>
-<p><img src="/Users/wangyang/Desktop/go_extension.png" alt=""></p>
-<p>####至此结束</p>
-<h3 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料:"></a>相关资料:</h3><blockquote>
-<p>1.学习资料:<a href="https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md" target="_blank" rel="noopener">https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md</a>  </p>
-<p>2.golang中文网:<a href="https://studygolang.com" target="_blank" rel="noopener">https://studygolang.com</a></p>
+<h4 id="六-打开-VSCode-安装-Go-扩展"><a href="#六-打开-VSCode-安装-Go-扩展" class="headerlink" title="六 .打开 VSCode,安装 Go 扩展"></a>六 .打开 VSCode,安装 Go 扩展</h4><p><img src="/2019/06/25/golang环境搭建/go_extension.png" alt=""></p>
+<h4 id="至此结束"><a href="#至此结束" class="headerlink" title="至此结束"></a>至此结束</h4><h3 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料:"></a>相关资料:</h3><blockquote>
+<p>1.学习资料:<a href="https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md" target="_blank" rel="noopener">https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md</a></p>
+<p>2.golang 中文网:<a href="https://studygolang.com" target="_blank" rel="noopener">https://studygolang.com</a></p>
 </blockquote>
 
       
@@ -622,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#golang-环境搭建步骤-windows"><span class="nav-number">1.</span> <span class="nav-text">golang 环境搭建步骤:(windows)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-安装Go语言-go1-7-1-windows-amd64-msi"><span class="nav-number">1.1.</span> <span class="nav-text">一 .安装Go语言,go1.7.1.windows-amd64.msi</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资料"><span class="nav-number">2.</span> <span class="nav-text">相关资料:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#golang-环境搭建步骤-windows"><span class="nav-number">1.</span> <span class="nav-text">golang 环境搭建步骤:(windows)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-安装-Go-语言-go1-7-1-windows-amd64-msi"><span class="nav-number">1.1.</span> <span class="nav-text">一 .安装 Go 语言,go1.7.1.windows-amd64.msi</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-Go-环境变量"><span class="nav-number">1.2.</span> <span class="nav-text">二 .Go 环境变量:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-Go-工作空间-代码目录"><span class="nav-number">1.3.</span> <span class="nav-text">三 .Go 工作空间(代码目录):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-验证-Go-是否安装成功"><span class="nav-number">1.4.</span> <span class="nav-text">四 .验证 Go 是否安装成功:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-安装-vsCode"><span class="nav-number">1.5.</span> <span class="nav-text">五 .安装 vsCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-打开-VSCode-安装-Go-扩展"><span class="nav-number">1.6.</span> <span class="nav-text">六 .打开 VSCode,安装 Go 扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#至此结束"><span class="nav-number">1.7.</span> <span class="nav-text">至此结束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资料"><span class="nav-number">2.</span> <span class="nav-text">相关资料:</span></a></li></ol></div>
             
 
           </div>
