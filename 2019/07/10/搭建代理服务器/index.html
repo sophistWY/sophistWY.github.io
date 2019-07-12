@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/10/搭建代理服务器/delegate_server_3.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/10/搭建代理服务器/delegate_server_4.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/10/搭建代理服务器/delegate_server_5.png">
-<meta property="og:updated_time" content="2019-07-12T13:31:39.647Z">
+<meta property="og:updated_time" content="2019-07-12T14:01:46.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建代理服务器 ">
 <meta name="twitter:description" content="想要看看外面的世界吗?">
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  583 字
+                  623 字
                 </span>
               
 
@@ -394,7 +394,8 @@
 <a id="more"></a>
 <h3 id="搭建代理服务器"><a href="#搭建代理服务器" class="headerlink" title="搭建代理服务器"></a>搭建代理服务器</h3><h4 id="一-购买代理服务器"><a href="#一-购买代理服务器" class="headerlink" title="一.购买代理服务器:"></a>一.购买代理服务器:</h4><p>1.为了性价比选择vultr,进入官网注册充值</p>
 <blockquote>
-<p>官网地址: <a href="https://my.vultr.com/" target="_blank" rel="noopener">https://my.vultr.com</a></p>
+<p>官网地址: <a href="https://www.vultr.com/?ref=8193606" target="_blank" rel="noopener">https://www.vultr.com/?ref=8193606</a> </p>
+<p><strong>(注:这是我的邀请地址,您注册使用的同时我会获得奖励金,但您的首单赠送不会受到任何影响)</strong></p>
 </blockquote>
 <p><img src="/2019/07/10/搭建代理服务器/delegate_server_1.png" alt=""></p>
 <h4 id="二-安装BBR加速"><a href="#二-安装BBR加速" class="headerlink" title="二.安装BBR加速:"></a>二.安装BBR加速:</h4><p>1.介绍BBR:</p>
@@ -411,7 +412,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
 <p>查看内核版本，含有 4.9 就表示 OK 了</p>
 <p>5.按顺序执行以下命令验证是否安装成功:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
+<p>$ sysctl net.ipv4.tcp_available_congestion_control</p>
 <blockquote>
 <p>返回值一般为：net.ipv4.tcp_available_congestion_control = bbr cubic reno</p>
 </blockquote>
@@ -419,7 +420,7 @@
 <blockquote>
 <p>返回值一般为：<br>net.ipv4.tcp_congestion_control = bbr</p>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.core.default_qdisc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.core.default_qdisc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回值一般为：<br>net.core.default_qdisc = fq</p>
 </blockquote>
@@ -689,7 +690,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.7k字</span>
+  <span class="post-count">博客全站共15.8k字</span>
 </div>
 
         
