@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/10/搭建代理服务器/delegate_server_3.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/10/搭建代理服务器/delegate_server_4.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/10/搭建代理服务器/delegate_server_5.png">
-<meta property="og:updated_time" content="2019-07-12T14:01:46.436Z">
+<meta property="og:updated_time" content="2019-07-14T12:33:21.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建代理服务器 ">
 <meta name="twitter:description" content="想要看看外面的世界吗?">
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  623 字
+                  755 字
                 </span>
               
 
@@ -450,7 +450,28 @@
 <p>3.测试结果如图:</p>
 <p><img src="/2019/07/10/搭建代理服务器/delegate_server_5.png" alt=""></p>
 <p><strong>原文地址: <a href="https://q.115.com/wap/topic?gid=153332&amp;tid=78657" target="_blank" rel="noopener">https://q.115.com/wap/topic?gid=153332&amp;tid=78657</a></strong></p>
-<h4 id="五-相关文档"><a href="#五-相关文档" class="headerlink" title="五.相关文档:"></a>五.相关文档:</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">搭建SSR(ShadowsocksR)服务端:https://q.115.com/wap/topic?gid=153332&amp;tid=78657</span><br><span class="line">安装BBR: https://www.cnblogs.com/Eason1024/p/8177665.html</span><br><span class="line">测速:https://www.cnblogs.com/KevinJasmine/p/6700312.html</span><br></pre></td></tr></table></figure>
+<h4 id="五-SSR再次提速"><a href="#五-SSR再次提速" class="headerlink" title="五.SSR再次提速:"></a>五.SSR再次提速:</h4><p>原理:选择加密:chacha20,混淆:http_simple,速度更快,但<strong>可能</strong>加大被墙的风险.</p>
+<blockquote>
+<p>chacha20加密效率更高的同时安全性也没有降低,但需要安装<strong>libsoduim</strong>.</p>
+</blockquote>
+<p>centerOS6安装<strong>libsoduim</strong>:</p>
+<p>1.安装GCC(编译环境)</p>
+<blockquote>
+<p>yum -y groupinstall “Development Tools”</p>
+</blockquote>
+<p>2.下载最新稳定版本:</p>
+<blockquote>
+<p>wget <a href="https://download.libsodium.org/libsodium/releases/LATEST.tar.gz" target="_blank" rel="noopener">https://download.libsodium.org/libsodium/releases/LATEST.tar.gz</a></p>
+</blockquote>
+<p>3.解压:</p>
+<blockquote>
+<p>tar xf LATEST.tar.gz<br>cd libsodium-stable</p>
+</blockquote>
+<p>4.编译:</p>
+<blockquote>
+<p>./configure &amp;&amp; make -j2 &amp;&amp; make install<br>echo /usr/local/lib &gt; /etc/ld.so.conf.d/usr_local_lib.conf<br>ldconfig</p>
+</blockquote>
+<h4 id="六-相关文档"><a href="#六-相关文档" class="headerlink" title="六.相关文档:"></a>六.相关文档:</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">搭建SSR(ShadowsocksR)服务端:https://q.115.com/wap/topic?gid=153332&amp;tid=78657</span><br><span class="line">安装BBR: https://www.cnblogs.com/Eason1024/p/8177665.html</span><br><span class="line">测速:https://www.cnblogs.com/KevinJasmine/p/6700312.html</span><br><span class="line">chacha20加密:https://github.com/shadowsocksrr/shadowsocks-rss/wiki/libsodium</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -635,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建代理服务器"><span class="nav-number">1.</span> <span class="nav-text">搭建代理服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-购买代理服务器"><span class="nav-number">1.1.</span> <span class="nav-text">一.购买代理服务器:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-安装BBR加速"><span class="nav-number">1.2.</span> <span class="nav-text">二.安装BBR加速:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-搭建SSR-ShadowsocksR-服务端"><span class="nav-number">1.3.</span> <span class="nav-text">三.搭建SSR(ShadowsocksR)服务端:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-服务器测速"><span class="nav-number">1.4.</span> <span class="nav-text">四.服务器测速:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-相关文档"><span class="nav-number">1.5.</span> <span class="nav-text">五.相关文档:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建代理服务器"><span class="nav-number">1.</span> <span class="nav-text">搭建代理服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-购买代理服务器"><span class="nav-number">1.1.</span> <span class="nav-text">一.购买代理服务器:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-安装BBR加速"><span class="nav-number">1.2.</span> <span class="nav-text">二.安装BBR加速:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-搭建SSR-ShadowsocksR-服务端"><span class="nav-number">1.3.</span> <span class="nav-text">三.搭建SSR(ShadowsocksR)服务端:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-服务器测速"><span class="nav-number">1.4.</span> <span class="nav-text">四.服务器测速:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-SSR再次提速"><span class="nav-number">1.5.</span> <span class="nav-text">五.SSR再次提速:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-相关文档"><span class="nav-number">1.6.</span> <span class="nav-text">六.相关文档:</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -690,7 +711,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.8k字</span>
+  <span class="post-count">博客全站共15.9k字</span>
 </div>
 
         
