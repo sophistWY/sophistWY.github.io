@@ -263,6 +263,755 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/01/iOS知识整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/01/iOS知识整理/" itemprop="url">iOS 知识整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-01T11:31:43+08:00">
+                2020-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,820 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="iOS-知识整理-待完善"><a href="#iOS-知识整理-待完善" class="headerlink" title="iOS 知识整理(待完善)"></a>iOS 知识整理(待完善)</h2><h4 id="一-设计模式"><a href="#一-设计模式" class="headerlink" title="一.设计模式"></a>一.设计模式</h4><h5 id="面向对象特性"><a href="#面向对象特性" class="headerlink" title="面向对象特性:"></a>面向对象特性:</h5><p><strong><em>1.封装</em></strong></p>
+<blockquote>
+<p>封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。   <strong><em>封装是对象和类概念的主要特性</em></strong></p>
+</blockquote>
+<p><strong><em>2.继承</em></strong></p>
+<blockquote>
+<p>通过继承创建的新类称为“子类”或“派生类”，被继承的类称为“基类”、“父类”或“超类”。</p>
+</blockquote>
+<p><strong><em>3.多态</em></strong></p>
+<blockquote>
+<p>允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。    <strong><em>覆盖,重载</em></strong></p>
+</blockquote>
+<p>#####面向对象编程原则:</p>
+<table>
+<thead>
+<tr>
+<th>S</th>
+<th><a href="https://zh.wikipedia.org/wiki/%E5%8D%95%E4%B8%80%E5%8A%9F%E8%83%BD%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">单一功能原则</a></th>
+<th>认为<a href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E8%B1%A1_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" target="_blank" rel="noopener">对象</a>)应该仅具有一种单一功能的概念。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O</td>
+<td><a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">开闭原则</a></td>
+<td>认为“软件体应该是对于扩展开放的，但是对于修改封闭的”的概念。</td>
+</tr>
+<tr>
+<td>L</td>
+<td><a href="https://zh.wikipedia.org/wiki/%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">里氏替换原则</a></td>
+<td>认为“程序中的对象应该是可以在不改变程序正确性的前提下被它的子类所替换的”的概念。参考<a href="https://zh.wikipedia.org/wiki/%E5%A5%91%E7%BA%A6%E5%BC%8F%E8%AE%BE%E8%AE%A1" target="_blank" rel="noopener">契约式设计</a>。</td>
+</tr>
+<tr>
+<td>I</td>
+<td><a href="https://zh.wikipedia.org/wiki/%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">接口隔离原则</a></td>
+<td>认为“多个特定客户端接口要好于一个宽泛用途的接口”<a href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1" target="_blank" rel="noopener">[5]</a>#cite_note-martin-design-principles-5) 的概念。</td>
+</tr>
+<tr>
+<td>D</td>
+<td><a href="https://zh.wikipedia.org/wiki/%E4%BE%9D%E8%B5%96%E5%8F%8D%E8%BD%AC%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">依赖反转原则</a></td>
+<td>认为一个方法应该遵从“依赖于抽象而不是一个实例”<a href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1" target="_blank" rel="noopener">[5]</a>#cite_note-martin-design-principles-5) 的概念。 <a href="https://zh.wikipedia.org/wiki/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5" target="_blank" rel="noopener">依赖注入</a>是该原则的一种实现方式。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式:"></a>设计模式:</h5><p><img src="/2020/10/01/iOS知识整理/1.png" alt="设计模式"></p>
+<p>#####iOS常用设计模式:</p>
+<p><strong><em>1.单例</em></strong></p>
+<blockquote>
+<p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。该类需要跟踪单一的实例，并确保没有其它实例被创建。单例类适合于需要通过单个对象访问全局资源的场合。</p>
+<p>eg: 各种管理类,值传递,消息通信.(生命周期与应用程序绑定)</p>
+</blockquote>
+<p><strong><em>2.观察者</em></strong></p>
+<blockquote>
+<p>定义一种对象间一对多的依赖关系，使得当一个对象的状态发生变化时，其它具有依赖关系的对象可以自动地被通知和更新。</p>
+<p>eg:NSNotification、KVO</p>
+</blockquote>
+<p><strong><em>3.抽象工厂</em></strong></p>
+<blockquote>
+<p>提供一个接口，用于创建与某些对象相关或依赖于某些对象的类家族，而又不需要指定它们的具体类。</p>
+<p>eg:Foundation的NSString<code>、</code>NSData<code>、</code>NSDictionary<code>、</code>NSSet<code>、和</code>NSArray –&gt;NSMutableString<code>、</code>NSMutableData<code>、</code>NSMutableDictionary<code>、</code>NSMutableSet<code>、和</code>NSMutableArray</p>
+</blockquote>
+<p><strong><em>4.原型模式</em></strong></p>
+<blockquote>
+<p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+<p>eg:对象的深浅复制</p>
+</blockquote>
+<p><strong><em>5.适配器模式</em></strong></p>
+<blockquote>
+<p>将一个类的接口转换成另外一个客户希望的接口。Adapter 模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<p>eg:UITableView二次封装减少代码量</p>
+</blockquote>
+<p><strong><em>6.代理模式</em></strong></p>
+<blockquote>
+<p>为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p>eg:delegate,protocol</p>
+</blockquote>
+<p><strong><em>7.中介者模式</em></strong></p>
+<blockquote>
+<p>用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</p>
+<p>eg:组件化 Mediator </p>
+</blockquote>
+<p><strong><em>8.MVC</em></strong></p>
+<blockquote>
+<p>iOS 开发中，<strong>MVC（Model View Controller）</strong>是构建iOS App的标准模式，是苹果推荐的一个用来组织代码的权威范式。Apple甚至是这么说的。在<strong>MVC</strong>下，所有的对象被归类为一个<strong>Model</strong>，一个<strong>View</strong>，和一个<strong>Controller</strong>。( <strong>Massive View Controller</strong> )</p>
+</blockquote>
+<p><strong><em>9.MVVM</em></strong></p>
+<blockquote>
+<p><strong>MVC</strong>引申出来一种<strong>维护性较强</strong>、<strong>耦合性低</strong>的新的架构<strong>MVVM（Model View View-Mode）</strong>，<strong>MVVM</strong>正式规范了视图和控制器紧耦合的性质，并引入新的组件。</p>
+</blockquote>
+<p><strong><em>10.MVP</em></strong></p>
+<blockquote>
+<p>MVP 即 Modal View Presenter</p>
+</blockquote>
+<h4 id="二-数据结构"><a href="#二-数据结构" class="headerlink" title="二.数据结构"></a>二.数据结构</h4><p><img src="/2020/10/01/iOS知识整理/6.png" alt="数据逻辑结构"></p>
+<p>1.数组:按序排列的同类数据元素的集合称为数组</p>
+<p>2.栈:只能在某一端插入和删除的特殊线性表</p>
+<p>3.队列:一种特殊的线性表，它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作</p>
+<p>4.链表:一种物理存储单元上非连续、非顺序的存储结构，它既可以表示线性结构，也可以用于表示非线性结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的</p>
+<p>5.树:包含n（n&gt;0）个结点的有穷集合K，且在K中定义了一个关系N，N满足 以下条件：</p>
+<p>（1）有且仅有一个结点 K0，他对于关系N来说没有前驱，称K0为树的根结点。简称为根（root）。　 </p>
+<p>（2）除K0外，K中的每个结点，对于关系N来说有且仅有一个前驱。</p>
+<p>（3）K中各结点，对关系N来说可以有m个后继（m&gt;=0）。</p>
+<p>6.图:由结点的有穷集合V和边的集合E组成</p>
+<p>7.堆:堆是一种特殊的树形数据结构，每个结点都有一个值。通常我们所说的堆的数据结构，是指二叉堆。堆的特点是根结点的值最小（或最大），且根结点的两个子树也是一个堆</p>
+<p>8.哈希表(Hash table) : 若结构中存在关键字和K相等的记录，则必定在f(K)的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数(Hash function)，按这个思想建立的表为散列表。</p>
+<h4 id="三-算法"><a href="#三-算法" class="headerlink" title="三.算法"></a>三.算法</h4><p><img src="/2020/10/01/iOS知识整理/2.png" alt="常用排序算法复杂度"></p>
+<p><img src="/2020/10/01/iOS知识整理/3.png" alt="常见算法关系图"></p>
+<h4 id="四-应用的生命周期"><a href="#四-应用的生命周期" class="headerlink" title="四.应用的生命周期"></a>四.应用的生命周期</h4><p>1.main()之前经历什么:</p>
+<blockquote>
+<p>1.动态库链接库 dylib</p>
+<p>2.ImageLoader加载可执行文件, 里边是被编译过的符号,代码等</p>
+<p>3.runtime与+load</p>
+</blockquote>
+<h4 id="五-OC语言设计原理"><a href="#五-OC语言设计原理" class="headerlink" title="五. OC语言设计原理"></a>五. OC语言设计原理</h4><p><strong>1. synthesize , dynamic</strong></p>
+<blockquote>
+<p><code>@synthesize</code>的语义是如果你没有手动实现 <code>setter</code> 方法和 <code>getter</code> 方法，那么编译器会自动为你加上这两个方法。</p>
+<p><code>@dynamic</code>告诉编译器：属性的 <code>setter</code> 与 <code>getter</code> 方法由用户自己实现，不自动生成。（当然对于 <code>readonly</code> 的属性只需提供 <code>getter</code> 即可）。编译时没问题，运行时才执行相应的方法，这就是所谓的动态绑定。</p>
+</blockquote>
+<p><strong><em>2.copy on write</em></strong></p>
+<blockquote>
+<p>Swift 中的值类型,并不会在一开始赋值的时候就开辟新的内存空间,只有在需要改变这个值的时候才去开辟新的内存空间,以达到优化内存的目的.</p>
+</blockquote>
+<h4 id="六-Swift语言设计原理"><a href="#六-Swift语言设计原理" class="headerlink" title="六. Swift语言设计原理"></a>六. Swift语言设计原理</h4><p><strong><em>1.<a href="https://www.cnblogs.com/muzijie/p/6542650.html" target="_blank" rel="noopener">swift中高阶函数map、flatMap、filter、reduce</a></em></strong></p>
+<blockquote>
+<p> map：可以对数组中的每一个元素做一次处理.</p>
+<p>flatMap: 对元素进行操作同时 会解包和展开二维数组,且去除nil.</p>
+<p>filer：过滤，可以对数组中的元素按照某种规则进行一次过滤.</p>
+<p>reduce：计算，可以对数组的元素进行计算.</p>
+</blockquote>
+<p><strong><em>2.结构体和类对比</em></strong></p>
+<blockquote>
+<p>Swift 中结构体和类有很多共同点。两者都可以：</p>
+<ul>
+<li>定义属性用于存储值</li>
+<li>定义方法用于提供功能</li>
+<li>定义下标操作用于通过下标语法访问它们的值</li>
+<li>定义构造器用于设置初始值</li>
+<li>通过扩展以增加默认实现之外的功能</li>
+<li>遵循协议以提供某种标准功能</li>
+</ul>
+<p>更多信息请参见 <a href="">属性</a>、<a href="">方法</a>、<a href="">下标</a>、<a href="">构造过程</a>、<a href="">扩展</a> 和 <a href="">协议</a>。</p>
+<p>与结构体相比，类还有如下的附加功能：</p>
+<ul>
+<li>继承允许一个类继承另一个类的特征</li>
+<li>类型转换允许在运行时检查和解释一个类实例的类型</li>
+<li>析构器允许一个类实例释放任何其所被分配的资源</li>
+<li>引用计数允许对一个类的多次引用</li>
+</ul>
+</blockquote>
+<p><strong><em>3.值类型有哪些</em></strong></p>
+<blockquote>
+<p>枚举,结构体,基本数据类型 Double, Int </p>
+</blockquote>
+<p><strong><em>5.optiinal原理</em></strong></p>
+<blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">enum</span> <span class="title">Optional</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">case</span> some(<span class="type">T</span>)   <span class="comment">//对于所有成功的情况，我们用case some，并且把成功的结果保存在associated value里；</span></span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="keyword">none</span>        对于所有错误的情况，我们用<span class="keyword">case</span> <span class="keyword">none</span>来表示；</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="七-iOS各种机制和原理"><a href="#七-iOS各种机制和原理" class="headerlink" title="七.iOS各种机制和原理"></a>七.iOS各种机制和原理</h4><p><strong><em>1.Runloop</em></strong></p>
+<p><img src="/2020/10/01/iOS知识整理/7.png" alt="Runloop原理图"></p>
+<blockquote>
+<p>可以理解为字面意思：Run 表示运行，Loop 表示循环。结合在一起就是运行的循环的意思。哈哈，我更愿意翻译为『跑圈』。直观理解就像是不停的跑圈。</p>
+<ul>
+<li>RunLoop 实际上是一个对象，这个对象在循环中用来处理程序运行过程中出现的各种事件（比如说触摸事件、UI刷新事件、定时器事件、Selector事件），从而保持程序的持续运行。</li>
+<li>RunLoop 在没有事件处理的时候，会使线程进入睡眠模式，从而节省 CPU 资源，提高程序性能。</li>
+</ul>
+</blockquote>
+<p><strong><em>2.Runtime</em></strong></p>
+<h5 id=""><a href="#" class="headerlink" title=""></a><img src="/2020/10/01/iOS知识整理/8.png" alt="Runtime应用"></h5><blockquote>
+<h5 id="Runtime-API提供的接口基本都是C语言的，源码由C-C-汇编语言编写"><a href="#Runtime-API提供的接口基本都是C语言的，源码由C-C-汇编语言编写" class="headerlink" title="Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写."></a>Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写.</h5><h5 id="Objective-C成为动态性语言的基石"><a href="#Objective-C成为动态性语言的基石" class="headerlink" title="Objective-C成为动态性语言的基石."></a>Objective-C成为动态性语言的基石.</h5><ul>
+<li>动态方法解析  : 让你有机会提供一个函数实现</li>
+<li>备用接收者 : 给你把这个消息转发给其他对象的机会</li>
+<li>完整消息转发 :<code>-methodSignatureForSelector:</code>消息获得函数的参数和返回值,如果返回了一个函数签名，<code>Runtime</code>就会创建一个<code>NSInvocation</code> 对象并发送 <code>-forwardInvocation:</code>消息给目标对象</li>
+</ul>
+</blockquote>
+<p><strong><em>3.dsym符号表</em></strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">起始地址</span>&gt;</span> <span class="tag">&lt;<span class="name">结束地址</span>&gt;</span> <span class="tag">&lt;<span class="name">函数</span>&gt;</span> [<span class="tag">&lt;<span class="name">文件名:行号</span>&gt;</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="八-网络通信原理"><a href="#八-网络通信原理" class="headerlink" title="八.网络通信原理"></a>八.网络通信原理</h4><p>#####1.tcp的三次握手,4次挥手</p>
+<blockquote>
+<p><strong><em>三次握手确认双方收发功能都正常，四次也可以但是显得比较多余</em></strong></p>
+<p>SYN : 发起一个新连接 </p>
+<p>seq : packet的数据部分的第一位应该在整个data stream中所在的位置 .(sequence number)</p>
+<p>Ack : 确认序号有效. (acknowledge number)</p>
+<p>FIN : 释放一个连接。</p>
+</blockquote>
+<h5 id="2-三次握手实现的过程"><a href="#2-三次握手实现的过程" class="headerlink" title="2.三次握手实现的过程:"></a>2.三次握手实现的过程:</h5><p><img src="/2020/10/01/iOS知识整理/4.png" alt="三次握手"></p>
+<pre><code>第一次握手：建立连接时，客户端发送同步序列编号到服务器，并进入发送状态，等待服务器确认
+
+第二次握手：服务器收到同步序列编号，确认并同时自己也发送一个同步序列编号+确认标志，此时服务器进入接收状态
+
+第三次握手：客户端收到服务器发送的包，并向服务器发送确认标志，随后链接成功。
+</code></pre><h5 id="3-四次挥手"><a href="#3-四次挥手" class="headerlink" title="3.四次挥手:"></a>3.四次挥手:</h5><p><img src="/2020/10/01/iOS知识整理/5.png" alt="四次挥手"></p>
+<pre><code>第一次：客户端向服务器发送一个带有结束标记的报文
+
+第二次：服务器收到报文后，向客户端发送一个确认序号，同时通知自己相应的应用程序，对方要求关闭连接
+
+第三次：服务器向客户端发送一个带有结束标记的报文
+
+第四次：客户端收到报文后，向服务器发送一个确认序号，链接关闭。
+</code></pre><h5 id="4-Socket"><a href="#4-Socket" class="headerlink" title="4.Socket"></a>4.Socket</h5><blockquote>
+<p>socket是纯C语言的,跨平台</p>
+<p>应用层：TFTP，HTTP，SNMP，FTP，SMTP，DNS，Telnet 等等</p>
+<p>传输层：TCP，UDP</p>
+<p>网络层：IP，ICMP，OSPF，EIGRP，IGMP</p>
+<p>数据链路层：SLIP，CSLIP，PPP，MTU</p>
+</blockquote>
+<h5 id="5-单双工"><a href="#5-单双工" class="headerlink" title="5.单双工"></a>5.单双工</h5><blockquote>
+<p>单工:读卡器,打印机</p>
+<p>半双工:BB机</p>
+<p>全双工:电话机</p>
+</blockquote>
+<h4 id="九-iOS本地持久化"><a href="#九-iOS本地持久化" class="headerlink" title="九.iOS本地持久化"></a>九.iOS本地持久化</h4><h4 id="十-hybrid-app-开发原理-flutter原理"><a href="#十-hybrid-app-开发原理-flutter原理" class="headerlink" title="十.hybrid app 开发原理 , flutter原理"></a>十.hybrid app 开发原理 , flutter原理</h4><h4 id="十一-性能优化"><a href="#十一-性能优化" class="headerlink" title="十一.性能优化"></a>十一.性能优化</h4><h4 id="十二-常用框架原理"><a href="#十二-常用框架原理" class="headerlink" title="十二.常用框架原理"></a>十二.常用框架原理</h4><h4 id="十三-编译原理"><a href="#十三-编译原理" class="headerlink" title="十三.编译原理"></a>十三.编译原理</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/01/前端知识总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/01/前端知识总结/" itemprop="url">前端知识整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-01T09:30:22+08:00">
+                2020-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  251 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端知识整理-待完善"><a href="#前端知识整理-待完善" class="headerlink" title="前端知识整理(待完善)"></a>前端知识整理(待完善)</h2><h4 id="一-常见问题"><a href="#一-常见问题" class="headerlink" title="一.常见问题"></a>一.常见问题</h4><h5 id="1-懒加载-函数节流"><a href="#1-懒加载-函数节流" class="headerlink" title="1.懒加载,函数节流"></a>1.懒加载,函数节流</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imgs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>);</span><br><span class="line">	<span class="keyword">var</span> lazyload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">		<span class="keyword">var</span> winTop = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i &lt; imgs.length;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(imgs[i].offsetTop &lt; scrollTop + winTop )&#123;</span><br><span class="line">				imgs[i].src = imgs[i].getAttribute(<span class="string">'data-src'</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">method,delay</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> context = <span class="keyword">this</span>, args=<span class="built_in">arguments</span>;</span><br><span class="line">			clearTimeout(timer);</span><br><span class="line">			timer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				method.apply(context,args);</span><br><span class="line">			&#125;,delay);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">window</span>.onscroll = throttle(lazyload,<span class="number">200</span>);</span><br></pre></td></tr></table></figure>
+<p>#####2.前端组件实现:</p>
+<blockquote>
+<h5 id="1-HTML-组件-占位-组件文件引入到index-html"><a href="#1-HTML-组件-占位-组件文件引入到index-html" class="headerlink" title="1.HTML(组件)占位:(组件文件引入到index.html):"></a>1.HTML(组件)占位:(组件文件引入到index.html):</h5><p>写在body中即可:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; &#123;&#123;template "/erp/collegenew/inc/consult/templeteA.html" .&#125;&#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; &#123;&#123;template "/erp/collegenew/inc/consult/templeteB.html" .&#125;&#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;<br>&gt;<br>&gt;</p>
+<blockquote>
+<h5 id="2-组件实现"><a href="#2-组件实现" class="headerlink" title="2.组件实现:"></a>2.组件实现:</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">templete</span> <span class="attr">id</span>=<span class="string">"A"</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">templete</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">&gt;     <span class="keyword">var</span> templeteA = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">&gt;           el:<span class="string">'#A'</span>,</span></span><br><span class="line"><span class="undefined">&gt;           data:&#123;</span></span><br><span class="line"><span class="javascript">&gt;               first:<span class="string">'vue是什么?'</span></span></span><br><span class="line"><span class="undefined">&gt;           &#125;</span></span><br><span class="line"><span class="undefined">&gt;       &#125;)</span></span><br><span class="line"><span class="undefined">&gt; </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;<br>&gt;<br>&gt;<br>&gt;</p>
+<blockquote>
+<h5 id="3-index-html中组件使用"><a href="#3-index-html中组件使用" class="headerlink" title="3.index.html中组件使用:"></a>3.index.html中组件使用:</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; </span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">&gt;     <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">&gt;           el:<span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">&gt;           data:&#123;</span></span><br><span class="line"><span class="javascript">&gt;               first:<span class="string">'vue是什么?'</span></span></span><br><span class="line"><span class="undefined">&gt;           &#125;,</span></span><br><span class="line"><span class="undefined">&gt;         components: &#123;</span></span><br><span class="line"><span class="javascript">&gt;             <span class="string">"tabbarA"</span>:templeteA,</span></span><br><span class="line"><span class="javascript">&gt;             <span class="string">"tabbarB"</span>:templeteB</span></span><br><span class="line"><span class="undefined">&gt;         &#125;</span></span><br><span class="line"><span class="undefined">&gt;       &#125;)</span></span><br><span class="line"><span class="undefined">&gt; </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;<br>&gt;</p>
+<h4 id="二-框架流程图"><a href="#二-框架流程图" class="headerlink" title="二.框架流程图"></a>二.框架流程图</h4><p><img src="/2020/10/01/前端知识总结/1.gif" alt="Webpake打包过程"></p>
+<p><img src="/2020/10/01/前端知识总结/2.jpeg" alt="CSS常见功能整理"></p>
+<p><img src="/2020/10/01/前端知识总结/3.jpeg" alt="前端知识体系框架"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/18/NSObject/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/18/NSObject/" itemprop="url">iOS 对象原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-18T11:31:43+08:00">
+                2020-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  99 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="关于-NSobject"><a href="#关于-NSobject" class="headerlink" title="关于 NSobject"></a>关于 NSobject</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/18/NSObject/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/11/汪洋简历/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1056,7 +1805,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  10,578 字
+                  10,581 字
                 </span>
               
 
@@ -1325,183 +2074,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/关于SSR代理服务器的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sophistWY">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汪洋的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/10/关于SSR代理服务器的使用/" itemprop="url">关于SSR代理服务器的使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T16:01:37+08:00">
-                2019-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  184 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这是一篇拿到SSR配置后的使用教程</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/10/关于SSR代理服务器的使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/搭建代理服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1666,365 +2238,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/强制删除IP-GUARD的MAC客户端LAGENT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sophistWY">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汪洋的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/01/强制删除IP-GUARD的MAC客户端LAGENT/" itemprop="url">强制删除IP-GUARD的MAC客户端LAGENT</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T10:30:43+08:00">
-                2019-07-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Other/" itemprop="url" rel="index">
-                    <span itemprop="name">Other</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  358 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="强制删除-IP-GUARD-的-MAC-客户端-LAGENT"><a href="#强制删除-IP-GUARD-的-MAC-客户端-LAGENT" class="headerlink" title="强制删除 IP-GUARD 的 MAC 客户端 LAGENT"></a>强制删除 IP-GUARD 的 MAC 客户端 LAGENT</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/强制删除IP-GUARD的MAC客户端LAGENT/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/golang环境搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sophistWY">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汪洋的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/golang环境搭建/" itemprop="url">golang环境搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T10:30:43+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Golang/" itemprop="url" rel="index">
-                    <span itemprop="name">Golang</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  449 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="golang-环境搭建步骤-windows"><a href="#golang-环境搭建步骤-windows" class="headerlink" title="golang 环境搭建步骤:(windows)"></a>golang 环境搭建步骤:(windows)</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/25/golang环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2070,7 +2288,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2174,7 +2392,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.4k字</span>
+  <span class="post-count">博客全站共30.5k字</span>
 </div>
 
         
