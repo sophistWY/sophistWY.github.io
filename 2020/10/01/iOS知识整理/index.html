@@ -98,11 +98,12 @@
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/6.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/9.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/7.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/8.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/5.png">
-<meta property="og:updated_time" content="2020-10-12T04:03:36.462Z">
+<meta property="og:updated_time" content="2020-12-02T08:29:06.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 知识整理">
 <meta name="twitter:description" content="iOS 知识整理(待完善)">
@@ -356,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,820 字
+                  3,285 字
                 </span>
               
 
@@ -372,7 +373,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10 分钟
+                  12 分钟
                 </span>
               
             </div>
@@ -406,8 +407,7 @@
 <blockquote>
 <p>允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。    <strong><em>覆盖,重载</em></strong></p>
 </blockquote>
-<p>#####面向对象编程原则:</p>
-<table>
+<h5 id="面向对象编程原则"><a href="#面向对象编程原则" class="headerlink" title="面向对象编程原则:"></a>面向对象编程原则:</h5><table>
 <thead>
 <tr>
 <th>S</th>
@@ -439,8 +439,7 @@
 </tbody>
 </table>
 <h5 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式:"></a>设计模式:</h5><p><img src="/2020/10/01/iOS知识整理/1.png" alt="设计模式"></p>
-<p>#####iOS常用设计模式:</p>
-<p><strong><em>1.单例</em></strong></p>
+<h5 id="iOS常用设计模式"><a href="#iOS常用设计模式" class="headerlink" title="iOS常用设计模式:"></a>iOS常用设计模式:</h5><p><strong><em>1.单例</em></strong></p>
 <blockquote>
 <p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。该类需要跟踪单一的实例，并确保没有其它实例被创建。单例类适合于需要通过单个对象访问全局资源的场合。</p>
 <p>eg: 各种管理类,值传递,消息通信.(生命周期与应用程序绑定)</p>
@@ -501,21 +500,43 @@
 <p>8.哈希表(Hash table) : 若结构中存在关键字和K相等的记录，则必定在f(K)的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数(Hash function)，按这个思想建立的表为散列表。</p>
 <h4 id="三-算法"><a href="#三-算法" class="headerlink" title="三.算法"></a>三.算法</h4><p><img src="/2020/10/01/iOS知识整理/2.png" alt="常用排序算法复杂度"></p>
 <p><img src="/2020/10/01/iOS知识整理/3.png" alt="常见算法关系图"></p>
-<h4 id="四-应用的生命周期"><a href="#四-应用的生命周期" class="headerlink" title="四.应用的生命周期"></a>四.应用的生命周期</h4><p>1.main()之前经历什么:</p>
+<h4 id="四-应用的生命周期"><a href="#四-应用的生命周期" class="headerlink" title="四.应用的生命周期"></a>四.应用的生命周期</h4><p><strong>1.main()之前经历什么:</strong></p>
 <blockquote>
 <p>1.动态库链接库 dylib</p>
 <p>2.ImageLoader加载可执行文件, 里边是被编译过的符号,代码等</p>
 <p>3.runtime与+load</p>
+</blockquote>
+<p><img src="/2020/10/01/iOS知识整理/9.png" alt="main函数启动之前"></p>
+<h5 id="2-main-之后"><a href="#2-main-之后" class="headerlink" title="2.main()之后:"></a>2.main()之后:</h5><blockquote>
+<p>1.执行AppDelegate的代理方法，主要是didFinishLaunchingWithOptions</p>
+<p>2.初始化Window，初始化基础的ViewController结构(一般是UINavigationController+UITabViewController)</p>
+<p>3.获取数据(Local DB／Network)，展示给用户。</p>
+</blockquote>
+<h5 id="3-启动优化思路"><a href="#3-启动优化思路" class="headerlink" title="3.启动优化思路:"></a>3.启动优化思路:</h5><p><strong>能延迟初始化的尽量延迟初始化，不能延迟初始化的尽量放到后台初始化。</strong></p>
+<blockquote>
+<ul>
+<li><p>三方SDK初始化，比如Crash统计; 像分享之类的，可以等到第一次调用再出初始化。</p>
+</li>
+<li><p>初始化某些基础服务，比如WatchDog，远程参数。</p>
+</li>
+<li><p>启动相关日志，日志往往涉及到DB操作，一定要放到后台去做</p>
+</li>
+<li><p>业务方初始化，这个交由每个业务自己去控制初始化时间。</p>
+</li>
+</ul>
 </blockquote>
 <h4 id="五-OC语言设计原理"><a href="#五-OC语言设计原理" class="headerlink" title="五. OC语言设计原理"></a>五. OC语言设计原理</h4><p><strong>1. synthesize , dynamic</strong></p>
 <blockquote>
 <p><code>@synthesize</code>的语义是如果你没有手动实现 <code>setter</code> 方法和 <code>getter</code> 方法，那么编译器会自动为你加上这两个方法。</p>
 <p><code>@dynamic</code>告诉编译器：属性的 <code>setter</code> 与 <code>getter</code> 方法由用户自己实现，不自动生成。（当然对于 <code>readonly</code> 的属性只需提供 <code>getter</code> 即可）。编译时没问题，运行时才执行相应的方法，这就是所谓的动态绑定。</p>
 </blockquote>
-<p><strong><em>2.copy on write</em></strong></p>
-<blockquote>
-<p>Swift 中的值类型,并不会在一开始赋值的时候就开辟新的内存空间,只有在需要改变这个值的时候才去开辟新的内存空间,以达到优化内存的目的.</p>
+<h5 id="2-void-load和-void-initialize"><a href="#2-void-load和-void-initialize" class="headerlink" title="2.+(void)load和+(void)initialize"></a>2.<strong>+(void)load</strong>和<strong>+(void)initialize</strong></h5><blockquote>
+<ul>
+<li>当类被引用进项目的时候就会执行<strong><em>load</em></strong>函数(在main函数开始执行之前）,与这个类是否被用到无关,每个类的load函数只会自动调用一次</li>
+<li><strong><em>initialize</em></strong>在类或者其子类的第一个方法被调用前调用</li>
+</ul>
 </blockquote>
+<h5 id="3-load和-initialize"><a href="#3-load和-initialize" class="headerlink" title="3.+load和+initialize"></a>3.+load和+initialize</h5><p>&gt;</p>
 <h4 id="六-Swift语言设计原理"><a href="#六-Swift语言设计原理" class="headerlink" title="六. Swift语言设计原理"></a>六. Swift语言设计原理</h4><p><strong><em>1.<a href="https://www.cnblogs.com/muzijie/p/6542650.html" target="_blank" rel="noopener">swift中高阶函数map、flatMap、filter、reduce</a></em></strong></p>
 <blockquote>
 <p> map：可以对数组中的每一个元素做一次处理.</p>
@@ -547,10 +568,19 @@
 <blockquote>
 <p>枚举,结构体,基本数据类型 Double, Int </p>
 </blockquote>
+<p><strong><em>4.copy on write</em></strong></p>
+<blockquote>
+<p>Swift 中的值类型,并不会在一开始赋值的时候就开辟新的内存空间,只有在需要改变这个值的时候才去开辟新的内存空间,以达到优化内存的目的.</p>
+</blockquote>
 <p><strong><em>5.optiinal原理</em></strong></p>
 <blockquote>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">enum</span> <span class="title">Optional</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">case</span> some(<span class="type">T</span>)   <span class="comment">//对于所有成功的情况，我们用case some，并且把成功的结果保存在associated value里；</span></span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="keyword">none</span>        对于所有错误的情况，我们用<span class="keyword">case</span> <span class="keyword">none</span>来表示；</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
+<p><strong><em>6.Swift中如何使用runtime</em></strong></p>
+<p>Swift代码中已经没有了Objective-C的运行时消息机制, 在代码编译时即确定了其实际调用的方法. 所以纯粹的Swift类和对象没有办法使用runtime, 更不存在method swizzling.<br>为了兼容Objective-C, 凡是继承NSObject的类都会保留其动态性, 依然遵循Objective-C的运行时消息机制, 因此可以通过runtime获取其属性和方法, 实现method swizzling.</p>
+<p><strong><em>7.闭包</em></strong></p>
+<p>为了优化，如果一个值不会被闭包改变，或者在闭包创建后不会改变，Swift 可能会改为捕获并保存一份对值的拷贝。</p>
+<p>Swift 也会负责被捕获变量的所有内存管理工作，包括释放不再需要的变量。</p>
 <h4 id="七-iOS各种机制和原理"><a href="#七-iOS各种机制和原理" class="headerlink" title="七.iOS各种机制和原理"></a>七.iOS各种机制和原理</h4><p><strong><em>1.Runloop</em></strong></p>
 <p><img src="/2020/10/01/iOS知识整理/7.png" alt="Runloop原理图"></p>
 <blockquote>
@@ -570,8 +600,7 @@
 </blockquote>
 <p><strong><em>3.dsym符号表</em></strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">起始地址</span>&gt;</span> <span class="tag">&lt;<span class="name">结束地址</span>&gt;</span> <span class="tag">&lt;<span class="name">函数</span>&gt;</span> [<span class="tag">&lt;<span class="name">文件名:行号</span>&gt;</span>]</span><br></pre></td></tr></table></figure>
-<h4 id="八-网络通信原理"><a href="#八-网络通信原理" class="headerlink" title="八.网络通信原理"></a>八.网络通信原理</h4><p>#####1.tcp的三次握手,4次挥手</p>
-<blockquote>
+<h4 id="八-网络通信原理"><a href="#八-网络通信原理" class="headerlink" title="八.网络通信原理"></a>八.网络通信原理</h4><h5 id="1-tcp的三次握手-4次挥手"><a href="#1-tcp的三次握手-4次挥手" class="headerlink" title="1.tcp的三次握手,4次挥手"></a>1.tcp的三次握手,4次挥手</h5><blockquote>
 <p><strong><em>三次握手确认双方收发功能都正常，四次也可以但是显得比较多余</em></strong></p>
 <p>SYN : 发起一个新连接 </p>
 <p>seq : packet的数据部分的第一位应该在整个data stream中所在的位置 .(sequence number)</p>
@@ -784,7 +813,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-知识整理-待完善"><span class="nav-number">1.</span> <span class="nav-text">iOS 知识整理(待完善)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-设计模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">一.设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象特性"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">面向对象特性:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设计模式"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">设计模式:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-数据结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">二.数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-算法"><span class="nav-number">1.0.3.</span> <span class="nav-text">三.算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-应用的生命周期"><span class="nav-number">1.0.4.</span> <span class="nav-text">四.应用的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-OC语言设计原理"><span class="nav-number">1.0.5.</span> <span class="nav-text">五. OC语言设计原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-Swift语言设计原理"><span class="nav-number">1.0.6.</span> <span class="nav-text">六. Swift语言设计原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七-iOS各种机制和原理"><span class="nav-number">1.0.7.</span> <span class="nav-text">七.iOS各种机制和原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">1.0.7.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Runtime-API提供的接口基本都是C语言的，源码由C-C-汇编语言编写"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Objective-C成为动态性语言的基石"><span class="nav-number">1.0.7.3.</span> <span class="nav-text">Objective-C成为动态性语言的基石.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八-网络通信原理"><span class="nav-number">1.0.8.</span> <span class="nav-text">八.网络通信原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-三次握手实现的过程"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">2.三次握手实现的过程:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-四次挥手"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">3.四次挥手:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Socket"><span class="nav-number">1.0.8.3.</span> <span class="nav-text">4.Socket</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-单双工"><span class="nav-number">1.0.8.4.</span> <span class="nav-text">5.单双工</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九-iOS本地持久化"><span class="nav-number">1.0.9.</span> <span class="nav-text">九.iOS本地持久化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十-hybrid-app-开发原理-flutter原理"><span class="nav-number">1.0.10.</span> <span class="nav-text">十.hybrid app 开发原理 , flutter原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十一-性能优化"><span class="nav-number">1.0.11.</span> <span class="nav-text">十一.性能优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十二-常用框架原理"><span class="nav-number">1.0.12.</span> <span class="nav-text">十二.常用框架原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十三-编译原理"><span class="nav-number">1.0.13.</span> <span class="nav-text">十三.编译原理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-知识整理-待完善"><span class="nav-number">1.</span> <span class="nav-text">iOS 知识整理(待完善)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-设计模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">一.设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象特性"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">面向对象特性:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象编程原则"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">面向对象编程原则:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设计模式"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">设计模式:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS常用设计模式"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">iOS常用设计模式:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-数据结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">二.数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-算法"><span class="nav-number">1.0.3.</span> <span class="nav-text">三.算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-应用的生命周期"><span class="nav-number">1.0.4.</span> <span class="nav-text">四.应用的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-main-之后"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">2.main()之后:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-启动优化思路"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">3.启动优化思路:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-OC语言设计原理"><span class="nav-number">1.0.5.</span> <span class="nav-text">五. OC语言设计原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-void-load和-void-initialize"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">2.+(void)load和+(void)initialize</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-load和-initialize"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">3.+load和+initialize</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-Swift语言设计原理"><span class="nav-number">1.0.6.</span> <span class="nav-text">六. Swift语言设计原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七-iOS各种机制和原理"><span class="nav-number">1.0.7.</span> <span class="nav-text">七.iOS各种机制和原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">1.0.7.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Runtime-API提供的接口基本都是C语言的，源码由C-C-汇编语言编写"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Objective-C成为动态性语言的基石"><span class="nav-number">1.0.7.3.</span> <span class="nav-text">Objective-C成为动态性语言的基石.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八-网络通信原理"><span class="nav-number">1.0.8.</span> <span class="nav-text">八.网络通信原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-tcp的三次握手-4次挥手"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">1.tcp的三次握手,4次挥手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-三次握手实现的过程"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">2.三次握手实现的过程:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-四次挥手"><span class="nav-number">1.0.8.3.</span> <span class="nav-text">3.四次挥手:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Socket"><span class="nav-number">1.0.8.4.</span> <span class="nav-text">4.Socket</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-单双工"><span class="nav-number">1.0.8.5.</span> <span class="nav-text">5.单双工</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九-iOS本地持久化"><span class="nav-number">1.0.9.</span> <span class="nav-text">九.iOS本地持久化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十-hybrid-app-开发原理-flutter原理"><span class="nav-number">1.0.10.</span> <span class="nav-text">十.hybrid app 开发原理 , flutter原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十一-性能优化"><span class="nav-number">1.0.11.</span> <span class="nav-text">十一.性能优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十二-常用框架原理"><span class="nav-number">1.0.12.</span> <span class="nav-text">十二.常用框架原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十三-编译原理"><span class="nav-number">1.0.13.</span> <span class="nav-text">十三.编译原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -839,7 +868,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.5k字</span>
+  <span class="post-count">博客全站共31.2k字</span>
 </div>
 
         

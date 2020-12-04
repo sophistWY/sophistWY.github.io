@@ -96,7 +96,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/js_explain.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/js_instanceof.png">
-<meta property="og:updated_time" content="2019-06-25T03:31:43.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/1.jpeg">
+<meta property="og:updated_time" content="2020-12-03T03:56:55.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js原型链">
 <meta name="twitter:description" content="关于 js 原型链的简单理解">
@@ -361,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441 字
+                  445 字
                 </span>
               
 
@@ -412,6 +413,7 @@
 <h3 id="3、proto-prototype-constructor-联系："><a href="#3、proto-prototype-constructor-联系：" class="headerlink" title="3、proto prototype constructor 联系："></a>3、proto prototype constructor 联系：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> M = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name; &#125; (即 <span class="keyword">constructor</span>)</span><br><span class="line">var a = new M('o1')</span><br><span class="line">a.__proto__ === M.prototype (都指向原型对象)</span><br><span class="line">M.prototype 包含 M .</span><br></pre></td></tr></table></figure>
 <h3 id="4、instanceof-原理："><a href="#4、instanceof-原理：" class="headerlink" title="4、instanceof 原理："></a>4、instanceof 原理：</h3><p><img src="/2019/02/13/JS原型链/js_instanceof.png" alt="你想输入的替代文字"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> M = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> M(<span class="string">'o2'</span>)</span><br><span class="line">a.__proto__ === M.prototype <span class="comment">// instanceof 原理就是判断这个等式是否成立</span></span><br></pre></td></tr></table></figure>
+<h3 id="5、原理图："><a href="#5、原理图：" class="headerlink" title="5、原理图："></a>5、原理图：</h3><p><img src="/2019/02/13/JS原型链/1.jpeg" alt="你想输入的替代文字"></p>
 <h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>1.原型链详解 简书: <a href="https://www.jianshu.com/p/dee9f8b14771" target="_blank" rel="noopener">链接</a><br>2.__proto__和 prototype 详解: <a href="https://www.cnblogs.com/fydxx/p/6656278.html" target="_blank" rel="noopener">链接</a></p>
 
       
@@ -597,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-js-原型链的简单理解"><span class="nav-number">1.</span> <span class="nav-text">关于 js 原型链的简单理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、原型链设计的意义"><span class="nav-number">2.</span> <span class="nav-text">1、原型链设计的意义:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、js-是如何实现继承："><span class="nav-number">3.</span> <span class="nav-text">2、js 是如何实现继承：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、proto-prototype-constructor-联系："><span class="nav-number">4.</span> <span class="nav-text">3、proto prototype constructor 联系：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、instanceof-原理："><span class="nav-number">5.</span> <span class="nav-text">4、instanceof 原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-js-原型链的简单理解"><span class="nav-number">1.</span> <span class="nav-text">关于 js 原型链的简单理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、原型链设计的意义"><span class="nav-number">2.</span> <span class="nav-text">1、原型链设计的意义:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、js-是如何实现继承："><span class="nav-number">3.</span> <span class="nav-text">2、js 是如何实现继承：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、proto-prototype-constructor-联系："><span class="nav-number">4.</span> <span class="nav-text">3、proto prototype constructor 联系：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、instanceof-原理："><span class="nav-number">5.</span> <span class="nav-text">4、instanceof 原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、原理图："><span class="nav-number">6.</span> <span class="nav-text">5、原理图：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">7.</span> <span class="nav-text">Tips</span></a></li></ol></div>
             
 
           </div>
@@ -652,7 +654,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.5k字</span>
+  <span class="post-count">博客全站共31.2k字</span>
 </div>
 
         
