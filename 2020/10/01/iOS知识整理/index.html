@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/8.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/01/iOS知识整理/5.png">
-<meta property="og:updated_time" content="2020-12-02T08:29:06.505Z">
+<meta property="og:updated_time" content="2021-01-20T09:16:34.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 知识整理">
 <meta name="twitter:description" content="iOS 知识整理(待完善)">
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,285 字
+                  4,429 字
                 </span>
               
 
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12 分钟
+                  16 分钟
                 </span>
               
             </div>
@@ -566,11 +566,13 @@
 </blockquote>
 <p><strong><em>3.值类型有哪些</em></strong></p>
 <blockquote>
-<p>枚举,结构体,基本数据类型 Double, Int </p>
+<p>结构体,枚举</p>
+<p>Swift 中所有的基本类型：整数（integer）、浮点数（floating-point number）、布尔值（boolean）、字符串（string)、数组（array）和字典（dictionary），都是值类型，其底层也是使用结构体实现的.</p>
 </blockquote>
 <p><strong><em>4.copy on write</em></strong></p>
 <blockquote>
 <p>Swift 中的值类型,并不会在一开始赋值的时候就开辟新的内存空间,只有在需要改变这个值的时候才去开辟新的内存空间,以达到优化内存的目的.</p>
+<p>标准库定义的集合，例如数组，字典和字符串，都对复制进行了优化以降低性能成本。新集合不会立即复制，而是跟原集合共享同一份内存，共享同样的元素。在集合的某个副本要被修改前，才会复制它的元素。而你在代码中看起来就像是立即发生了复制。</p>
 </blockquote>
 <p><strong><em>5.optiinal原理</em></strong></p>
 <blockquote>
@@ -578,9 +580,16 @@
 </blockquote>
 <p><strong><em>6.Swift中如何使用runtime</em></strong></p>
 <p>Swift代码中已经没有了Objective-C的运行时消息机制, 在代码编译时即确定了其实际调用的方法. 所以纯粹的Swift类和对象没有办法使用runtime, 更不存在method swizzling.<br>为了兼容Objective-C, 凡是继承NSObject的类都会保留其动态性, 依然遵循Objective-C的运行时消息机制, 因此可以通过runtime获取其属性和方法, 实现method swizzling.</p>
-<p><strong><em>7.闭包</em></strong></p>
+<p><strong>7.闭包</strong></p>
 <p>为了优化，如果一个值不会被闭包改变，或者在闭包创建后不会改变，Swift 可能会改为捕获并保存一份对值的拷贝。</p>
 <p>Swift 也会负责被捕获变量的所有内存管理工作，包括释放不再需要的变量。</p>
+<p><strong><em>8.作用域修饰符</em></strong></p>
+<blockquote>
+<p><em>open</em> 和 <em>public</em> 级别可以让实体被同一模块源文件中的所有实体访问，在模块外也可以通过导入该模块来访问源文件里的所有实体。通常情况下，你会使用 open 或 public 级别来指定框架的外部接口。open 只能作用于类和类的成员，它和 public 的区别主要在于 open 限定的类和成员能够在模块外能被继承和重写.</p>
+<p><em>internal</em> 级别让实体被同一模块源文件中的任何实体访问，但是不能被模块外的实体访问。通常情况下，如果某个接口只在应用程序或框架内部使用，就可以将其设置为 internal 级别。</p>
+<p><em>fileprivate</em> 限制实体只能在其定义的文件内部访问。如果功能的部分实现细节只需要在文件内使用时，可以使用 fileprivate 来将其隐藏。</p>
+<p><em>private</em> 限制实体只能在其定义的作用域，以及同一文件内的 extension 访问。如果功能的部分细节只需要在当前作用域内使用时，可以使用 private 来将其隐藏。</p>
+</blockquote>
 <h4 id="七-iOS各种机制和原理"><a href="#七-iOS各种机制和原理" class="headerlink" title="七.iOS各种机制和原理"></a>七.iOS各种机制和原理</h4><p><strong><em>1.Runloop</em></strong></p>
 <p><img src="/2020/10/01/iOS知识整理/7.png" alt="Runloop原理图"></p>
 <blockquote>
@@ -600,6 +609,21 @@
 </blockquote>
 <p><strong><em>3.dsym符号表</em></strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">起始地址</span>&gt;</span> <span class="tag">&lt;<span class="name">结束地址</span>&gt;</span> <span class="tag">&lt;<span class="name">函数</span>&gt;</span> [<span class="tag">&lt;<span class="name">文件名:行号</span>&gt;</span>]</span><br></pre></td></tr></table></figure>
+<p><strong><em>4.NULL</em></strong></p>
+<blockquote>
+<p>标识                  值                          含义<br>NULL         (void *)0            C指针的字面零值<br>nil                  (id)0                Objective-C对象的字面零值<br>Nil               (Class)0            Objective-C类的字面零值<br>NSNull   [NSNull null]        用来表示零值的单独的对象</p>
+</blockquote>
+<p><strong><em>5.静态库和动态库</em></strong></p>
+<ul>
+<li><p>动态库和静态库介绍</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">首先静态库和动态库都是以二进制提供代码复用的代码库</span><br><span class="line">静态库 常见的是 .a</span><br><span class="line">动态库常见的是 .dll(windows)，.dylib(mac)，so(linux)</span><br><span class="line">framework(in Apple): Framework 是Cocoa/Cocoa Touch程序中使用的一种资源打包方式，可以将代码文件、头文件、资源文件、说明文档等集中在一起，方便开发者使用。也就是说我们的 framework其实是资源打包的方式，和静态库动态库的本质是没有关系的</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>静态库和动态库的区别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">静态库: 链接时会被完整的复制到可执行文件中，所以如果两个程序都用了某个静态库，那么每个二进制可执行文件里面其实都含有这份静态库的代码</span><br><span class="line">动态库: 链接时不复制，在程序启动后用dyld加载，然后再决议符号，所以理论上动态库只用存在一份，好多个程序都可以动态链接到这个动态库上面，达到了节省内存(不是磁盘是内存中只有一份动态库)，还有另外一个好处，由于动态库并不绑定到可执行程序上，所以我们想升级这个动态库就很容易，windows和linux上面一般插件和模块机制都是这样实现的。</span><br><span class="line">But我们的苹果爸爸在iOS平台上规定不允许存在动态库，并且所有的 IPA 都需要经过苹果爸爸的私钥加密后才能用，基本你用了动态库也会因为签名不对无法加载，(越狱和非 APP store 除外)。于是就把开发者自己开发动态库掐死在幻想中。</span><br><span class="line">直到有一天，苹果爸爸的iOS升级到了8，iOS出现了APP Extension，swift编程语言也诞生了，由于iOS主APP需要和Extension共享代码，Swift语言的机制也只能有动态库，于是苹果爸爸尴尬了，不过这难不倒我们的苹果爸爸，毕竟我是爸爸，规则是我来定，我想怎样就怎样，于是提出了一个概念Embedded Framework，这种动态库允许APP和APP Extension共享代码，但是这份动态库的生命被限定在一个APP进程内。简单点可以理解为被阉割的动态库。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>6.KVC 、KVO</em></strong></p>
+<p><strong><em>7.Notification</em></strong></p>
 <h4 id="八-网络通信原理"><a href="#八-网络通信原理" class="headerlink" title="八.网络通信原理"></a>八.网络通信原理</h4><h5 id="1-tcp的三次握手-4次挥手"><a href="#1-tcp的三次握手-4次挥手" class="headerlink" title="1.tcp的三次握手,4次挥手"></a>1.tcp的三次握手,4次挥手</h5><blockquote>
 <p><strong><em>三次握手确认双方收发功能都正常，四次也可以但是显得比较多余</em></strong></p>
 <p>SYN : 发起一个新连接 </p>
@@ -633,7 +657,15 @@
 <p>半双工:BB机</p>
 <p>全双工:电话机</p>
 </blockquote>
-<h4 id="九-iOS本地持久化"><a href="#九-iOS本地持久化" class="headerlink" title="九.iOS本地持久化"></a>九.iOS本地持久化</h4><h4 id="十-hybrid-app-开发原理-flutter原理"><a href="#十-hybrid-app-开发原理-flutter原理" class="headerlink" title="十.hybrid app 开发原理 , flutter原理"></a>十.hybrid app 开发原理 , flutter原理</h4><h4 id="十一-性能优化"><a href="#十一-性能优化" class="headerlink" title="十一.性能优化"></a>十一.性能优化</h4><h4 id="十二-常用框架原理"><a href="#十二-常用框架原理" class="headerlink" title="十二.常用框架原理"></a>十二.常用框架原理</h4><h4 id="十三-编译原理"><a href="#十三-编译原理" class="headerlink" title="十三.编译原理"></a>十三.编译原理</h4>
+<h4 id="九-iOS本地持久化"><a href="#九-iOS本地持久化" class="headerlink" title="九.iOS本地持久化"></a>九.iOS本地持久化</h4><p>&gt;</p>
+<h4 id="十-hybrid-app-开发原理-flutter原理"><a href="#十-hybrid-app-开发原理-flutter原理" class="headerlink" title="十.hybrid app 开发原理 , flutter原理"></a>十.hybrid app 开发原理 , flutter原理</h4><h4 id="十一-性能优化"><a href="#十一-性能优化" class="headerlink" title="十一.性能优化"></a>十一.性能优化</h4><h4 id="十二-常用框架原理"><a href="#十二-常用框架原理" class="headerlink" title="十二.常用框架原理"></a>十二.常用框架原理</h4><h4 id="十三-编译原理"><a href="#十三-编译原理" class="headerlink" title="十三.编译原理"></a>十三.编译原理</h4><blockquote>
+<p>if #available(iOS 11.0, *) {</p>
+<pre><code>self.tableView.contentInsetAdjustmentBehavior = .never
+</code></pre><p>  } else {</p>
+<pre><code>self.automaticallyAdjustsScrollViewInsets = false
+</code></pre><p>  }</p>
+</blockquote>
+
       
     </div>
     
@@ -672,6 +704,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/01/内卷、双循环与危机：中国经济的基本判断/" rel="prev" title="经济内卷">
+                经济内卷 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -748,7 +784,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -759,7 +795,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -770,7 +806,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -834,7 +870,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -868,7 +904,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共31.2k字</span>
+  <span class="post-count">博客全站共43.9k字</span>
 </div>
 
         
