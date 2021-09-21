@@ -94,13 +94,13 @@
 <meta property="og:site_name" content="汪洋的博客">
 <meta property="og:description" content="制作pod私有库">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/CocoaPods创建私有库/privatePod_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/CocoaPods创建私有库/privatePod_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/privatePod_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/privatePod_2.png">
 <meta property="og:updated_time" content="2019-08-19T12:43:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CocoaPods创建私有库">
 <meta name="twitter:description" content="制作pod私有库">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/CocoaPods创建私有库/privatePod_1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/privatePod_1.png">
 
 
 
@@ -398,12 +398,12 @@
 <p>查看命令:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.cocoapods/repos</span><br></pre></td></tr></table></figure>
 <p>如下图:</p>
-<p><img src="CocoaPods创建私有库/privatePod_1.png" alt=""></p>
+<p><img src="/2019/08/19/CocoaPods创建私有库/privatePod_1.png" alt=""></p>
 <h4 id="三-创建PodLib"><a href="#三-创建PodLib" class="headerlink" title="三.创建PodLib:"></a>三.创建PodLib:</h4><p><strong>1.创建存放的lib的目录:</strong></p>
 <p><strong>2.cd到该目录下执行下面命令:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod lib create BaseTool</span><br></pre></td></tr></table></figure>
 <p><strong>3.如下图交互:</strong></p>
-<p><img src="CocoaPods创建私有库/privatePod_2.png" alt=""></p>
+<p><img src="/2019/08/19/CocoaPods创建私有库/privatePod_2.png" alt=""></p>
 <p><strong>4.打开Example工程编辑BaseConfig.podspec文件:</strong></p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">s.name             = <span class="string">'BaseTool '</span> <span class="comment">##名字必须与libname相同</span></span><br><span class="line">s.version          = <span class="string">'0.1.0'</span>     <span class="comment">#版本必须为0.0.0格式</span></span><br><span class="line">s.summary          = <span class="string">'demo of BaseTool.'</span> <span class="comment">#关于库的一个简短描述</span></span><br><span class="line">s.description      = <span class="string">&lt;&lt;-DESC</span></span><br><span class="line"><span class="string">TODO: 备注文字(较长描述)</span></span><br><span class="line"><span class="string">                            DESC</span></span><br><span class="line"><span class="comment">#是否支持arc</span></span><br><span class="line">s.requires_arc = <span class="literal">true</span></span><br><span class="line"><span class="comment">#文件主页</span></span><br><span class="line">s.homepage         = <span class="string">'https://github.com/sophistWY/BaseTool '</span></span><br><span class="line"><span class="comment">#开源协议</span></span><br><span class="line">s.license          = &#123; <span class="symbol">:type</span> =&gt; <span class="string">'MIT'</span>, <span class="symbol">:file</span> =&gt; <span class="string">'LICENSE'</span> &#125;</span><br><span class="line"><span class="comment">#作者信息</span></span><br><span class="line">s.author           = = &#123; <span class="string">'sophistWY'</span> =&gt; <span class="string">'sophistwy@163.com'</span> &#125;</span><br><span class="line"><span class="comment">#源文件所在网络路径</span></span><br><span class="line">s.source           = &#123; <span class="symbol">:git</span> =&gt; <span class="string">'https://github.com/sophistWY/BaseTool.git'</span>, <span class="symbol">:tag</span> =&gt; s.version.to_s &#125;</span><br><span class="line"><span class="comment">#支持版本</span></span><br><span class="line">s.ios.deployment_target = <span class="string">'7.0'</span></span><br><span class="line"><span class="comment">#公开头文件名</span></span><br><span class="line">s.public_header_files = <span class="string">'Pod/Classes/**/*.h'</span></span><br><span class="line"><span class="comment">#依赖的框架</span></span><br><span class="line">s.frameworks = <span class="string">'UIKit'</span>, <span class="string">'MapKit'</span></span><br><span class="line"><span class="comment">#依赖库</span></span><br><span class="line">s.dependency <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.3'</span></span><br></pre></td></tr></table></figure>
 <p><strong>5.验证podspec:</strong></p>

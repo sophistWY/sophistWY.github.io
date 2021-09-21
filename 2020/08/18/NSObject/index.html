@@ -94,13 +94,13 @@
 <meta property="og:site_name" content="汪洋的博客">
 <meta property="og:description" content="关于 NSobject">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2020/08/18/NSObject/NSObject/1.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/18/NSObject/NSObject/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/18/NSObject/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/18/NSObject/3.png">
 <meta property="og:updated_time" content="2021-01-22T08:03:54.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 对象原理">
 <meta name="twitter:description" content="关于 NSobject">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/18/NSObject/NSObject/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/18/NSObject/1.png">
 
 
 
@@ -394,8 +394,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct A &#123;</span><br><span class="line">    ``Class NSObject_IMP NSObject_IVARS;</span><br><span class="line">    ``int` `_no;</span><br><span class="line">    ``int` `_age;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct A &#123;</span><br><span class="line">    ``Class isa;</span><br><span class="line">    ``int` `_no;</span><br><span class="line">    ``int` `_age;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@``interface` `B : A</span><br><span class="line">&#123;</span><br><span class="line">    ``int` `_birthday;</span><br><span class="line">&#125;</span><br><span class="line">struct B &#123;</span><br><span class="line">    ``Class NSObject_IMP NSObject_IVARS;</span><br><span class="line">    ``int` `_no;</span><br><span class="line">    ``int` `_age;</span><br><span class="line">&#125;;</span><br><span class="line">struct B &#123;</span><br><span class="line">    ``Class isa;   (Class NSObject_IMP) </span><br><span class="line">    ``int` `_no;   (NSObject_IVARS)</span><br><span class="line">    ``int` `_age;  (NSObject_IVARS)</span><br><span class="line">    ``int` `_birthday;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img src="NSObject/1.png" alt="内存结构"></p>
-<p><img src="NSObject/3.png" alt="官方解释图"></p>
+<p><img src="/2020/08/18/NSObject/1.png" alt="内存结构"></p>
+<p><img src="/2020/08/18/NSObject/3.png" alt="官方解释图"></p>
 <blockquote>
 <ul>
 <li><code>instance</code>的<code>isa</code>指向<code>class</code></li>

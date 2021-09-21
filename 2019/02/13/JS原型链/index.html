@@ -94,14 +94,14 @@
 <meta property="og:site_name" content="汪洋的博客">
 <meta property="og:description" content="关于 js 原型链的简单理解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/JS原型链/js_explain.png">
-<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/JS原型链/js_instanceof.png">
-<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/JS原型链/1.jpeg">
+<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/js_explain.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/js_instanceof.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/13/JS原型链/1.jpeg">
 <meta property="og:updated_time" content="2020-12-03T03:56:55.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js原型链">
 <meta name="twitter:description" content="关于 js 原型链的简单理解">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/13/JS原型链/JS原型链/js_explain.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/13/JS原型链/js_explain.png">
 
 
 
@@ -406,14 +406,14 @@
 <p>3.Object.assign(target,source1,source2,…)<br>该方法主要用于对象的合并，将源对象 source 的所有可枚举属性合并到目标对象 target 上,此方法只拷贝源对象的自身属性，不拷贝继承的属性。</p>
 <p>4.Object.keys(obj)<br>返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for…in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。</p>
 </blockquote>
-<h3 id="2、js-是如何实现继承："><a href="#2、js-是如何实现继承：" class="headerlink" title="2、js 是如何实现继承："></a>2、js 是如何实现继承：</h3><p><img src="JS原型链/js_explain.png" alt="你想输入的替代文字"></p>
+<h3 id="2、js-是如何实现继承："><a href="#2、js-是如何实现继承：" class="headerlink" title="2、js 是如何实现继承："></a>2、js 是如何实现继承：</h3><p><img src="/2019/02/13/JS原型链/js_explain.png" alt="你想输入的替代文字"></p>
 <blockquote>
 <p>1.对象有属性__proto__,指向对象的构造函数的原型对象.<br>2.函数除了有属性__proto__,还有属性 prototype，prototype 指向该方法的原型对象。<br>3.原型对象也有__proto__,指向原型对象的构造函数的原型对象.(这就是原型链!!!)<br>4.原型对象:包含构造函数,以及其他对象或者函数(共享的属性和方法).</p>
 </blockquote>
 <h3 id="3、proto-prototype-constructor-联系："><a href="#3、proto-prototype-constructor-联系：" class="headerlink" title="3、proto prototype constructor 联系："></a>3、proto prototype constructor 联系：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> M = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name; &#125; (即 <span class="keyword">constructor</span>)</span><br><span class="line">var a = new M('o1')</span><br><span class="line">a.__proto__ === M.prototype (都指向原型对象)</span><br><span class="line">M.prototype 包含 M .</span><br></pre></td></tr></table></figure>
-<h3 id="4、instanceof-原理："><a href="#4、instanceof-原理：" class="headerlink" title="4、instanceof 原理："></a>4、instanceof 原理：</h3><p><img src="JS原型链/js_instanceof.png" alt="你想输入的替代文字"></p>
+<h3 id="4、instanceof-原理："><a href="#4、instanceof-原理：" class="headerlink" title="4、instanceof 原理："></a>4、instanceof 原理：</h3><p><img src="/2019/02/13/JS原型链/js_instanceof.png" alt="你想输入的替代文字"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> M = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> M(<span class="string">'o2'</span>)</span><br><span class="line">a.__proto__ === M.prototype <span class="comment">// instanceof 原理就是判断这个等式是否成立</span></span><br></pre></td></tr></table></figure>
-<h3 id="5、原理图："><a href="#5、原理图：" class="headerlink" title="5、原理图："></a>5、原理图：</h3><p><img src="JS原型链/1.jpeg" alt="你想输入的替代文字"></p>
+<h3 id="5、原理图："><a href="#5、原理图：" class="headerlink" title="5、原理图："></a>5、原理图：</h3><p><img src="/2019/02/13/JS原型链/1.jpeg" alt="你想输入的替代文字"></p>
 <h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>1.原型链详解 简书: <a href="https://www.jianshu.com/p/dee9f8b14771" target="_blank" rel="noopener">链接</a><br>2.__proto__和 prototype 详解: <a href="https://www.cnblogs.com/fydxx/p/6656278.html" target="_blank" rel="noopener">链接</a></p>
 
       
