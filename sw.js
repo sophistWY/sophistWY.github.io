@@ -24,15 +24,15 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
-  precacheUrls.push('/2018/02/06/CSS-1/');
-
   precacheUrls.push('/2021/05/10/100+赚钱高手提供的2021年赚钱建议/');
 
-  precacheUrls.push('/2022/02/13/Flutter 插件发布私服  /');
+  precacheUrls.push('/2019/08/19/CocoaPods创建私有库/');
+
+  precacheUrls.push('/2018/02/06/CSS-1/');
 
   precacheUrls.push('/2022/07/21/Hexo添加pwa功能/');
 
-  precacheUrls.push('/2019/02/13/JS原型链/');
+  precacheUrls.push('/2022/01/10/Flutter 实战/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
