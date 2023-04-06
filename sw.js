@@ -26,9 +26,9 @@ var precacheUrls = [];
 
   precacheUrls.push('/2021/05/10/100+赚钱高手提供的2021年赚钱建议/');
 
-  precacheUrls.push('/2018/02/06/CSS-1/');
-
   precacheUrls.push('/2019/08/19/CocoaPods创建私有库/');
+
+  precacheUrls.push('/2018/02/06/CSS-1/');
 
   precacheUrls.push('/2022/01/10/Flutter 实战/');
 
