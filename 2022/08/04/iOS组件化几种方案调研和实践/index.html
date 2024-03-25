@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><link rel=manifest href=/manifest.json>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="方法总结," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="iOS组件化几种方案调研和实践">
+<meta name="keywords" content="方法总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS组件化几种方案调研和实践">
+<meta property="og:url" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/index.html">
+<meta property="og:site_name" content="汪洋的博客">
+<meta property="og:description" content="iOS组件化几种方案调研和实践">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/1.png">
+<meta property="og:image" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/2.png">
+<meta property="og:image" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/3.png">
+<meta property="og:image" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/4.png">
+<meta property="og:image" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/5.png">
+<meta property="og:updated_time" content="2022-08-04T02:56:15.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS组件化几种方案调研和实践">
+<meta name="twitter:description" content="iOS组件化几种方案调研和实践">
+<meta name="twitter:image" content="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/"/>
+
+
+
+
+
+  <title>iOS组件化几种方案调研和实践 | 汪洋的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+  
+  <a href="https://github.com/sophistWY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">汪洋的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep Hungry, keep Fool</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/08/04/iOS组件化几种方案调研和实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS组件化几种方案调研和实践</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-08-04T09:30:22+08:00">
+                2022-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,888 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="iOS组件化几种方案调研和实践"><a href="#iOS组件化几种方案调研和实践" class="headerlink" title="iOS组件化几种方案调研和实践"></a>iOS组件化几种方案调研和实践</h2><a id="more"></a>
+<h4 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h4><p><strong>1. 什么是组件化</strong></p>
+<p>将业务模块单独抽离、分层，并制定模块间通信的方式，从而实现解耦，以及适应团队开发。</p>
+<p><strong>2. 为什么要组件化</strong></p>
+<p>随着业务的发展，系统变得越来越复杂，App 内各子系统之间耦合严重, 边界越来越模糊，经常发生你中有我我中有你的情况（图一）。这对代码质量、功能扩展以及开发效率都会造成很大的影响。此时，一般会将各个子系统划分为相对独立的模块，通过中介者模式收敛交互代码，把模块间交互部分进行集中封装, 所有模块间调用均通过中介者来做（图二）。这时架构逻辑会清晰很多，但因为中介者仍然需要反向依赖业务模块，这并没有从根本上解除循坏依赖等问题。时不时发生一个模块进行改动，多个模块受影响编译不过的情况。进一步的，通过技术手段消除中介者对业务模块依赖，即形成了业务模块化架构设计（图三）。</p>
+<p><img src="/2022/08/04/iOS组件化几种方案调研和实践/1.png" alt="img"></p>
+<p>组件化可以明确模块职责及边界，提升代码质量，减少复杂依赖，优化编译速度，提升开发效率，方便单元测试</p>
+<p><strong>3. 组件化方案的理想指标</strong></p>
+<p>一个组件化方案需要达到怎样的效果,下面给出了几个理想情况下的指标：</p>
+<ol>
+<li>模块间没有直接耦合，一个模块内部的修改不会影响到另一个模块；</li>
+<li>模块可以被单独编译；</li>
+<li>模块间能够清晰地进行调用和数据传递；</li>
+<li>模块可以随时被另一个提供了相同功能的模块替换；</li>
+<li>模块的对外接口容易查找和维护，当模块的接口改变时，使用此模块的外部代码能够被高效地重构；</li>
+<li>尽量用最少的修改和代码，让现有的项目实现模块化；</li>
+<li>支持 Objective-C 和 Swift，以及混编。</li>
+</ol>
+<h4 id="二、组件化几种方案"><a href="#二、组件化几种方案" class="headerlink" title="二、组件化几种方案"></a>二、组件化几种方案</h4><p><strong>1.URL路由</strong></p>
+<p>URL路由是页面解耦的最常见方式，大量应用于前端页面。通过把一个 URL 与一个页面绑定，需要时通过 URL 可以方便的打开相应页面。</p>
+<p>代表框架：<a href="https://github.com/meili/MGJRouter" target="_blank" rel="noopener">MGJRouter</a>、<a href="https://github.com/joeldev/JLRoutes" target="_blank" rel="noopener">JLRoutes</a>、<a href="https://github.com/clayallsopp/routable-ios" target="_blank" rel="noopener">routable-ios</a>、<a href="https://github.com/lightory/HHRouter" target="_blank" rel="noopener">HHRouter</a></p>
+<p>代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 注册某个URL</span><br><span class="line"></span><br><span class="line">  [MGJRouter registerURLPattern:@&quot;lx://AMoudle&quot; toHandler:^(NSDictionary *routerParameters) &#123;</span><br><span class="line"></span><br><span class="line">    void (^completion)(UIViewController *) = routerParameters[MGJRouterParameterCompletion];</span><br><span class="line"></span><br><span class="line">    AModuleViewController *vc = [[AModuleViewController alloc] init];</span><br><span class="line"></span><br><span class="line">    if (completion) &#123;</span><br><span class="line"></span><br><span class="line">      completion(vc);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;];</span><br><span class="line">// 调用路由</span><br><span class="line"></span><br><span class="line">  [MGJRouter openURL:@&quot;lx://AMoudle&quot; completion:^(id result) &#123;</span><br><span class="line"></span><br><span class="line">    UIViewController *vc = (UIViewController *)result;</span><br><span class="line"></span><br><span class="line">    [self.navigationController pushViewController:vc animated:YES];</span><br><span class="line"></span><br><span class="line">  &#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>优点</strong></p>
+<ul>
+<li>极高的动态性，适合经常开展运营活动的 app，例如电商</li>
+<li>方便地统一管理多平台 (H5, iOS，Android，Weex和RN等)的路由规则</li>
+<li>易于适配 URL Scheme</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>传参方式有限，并且无法利用编译器进行参数类型检查，因此所有的参数都只能从字符串中转换而来</li>
+<li>只适用于界面模块，不适用于通用模块</li>
+<li>不能使用 designated initializer 声明必需参数</li>
+<li>要让 view controller 支持 url，需要为其新增初始化方法，因此需要对模块做出修改</li>
+<li>不支持 storyboard</li>
+<li>无法明确声明模块提供的接口，只能依赖于接口文档，重构时无法确保修改正确</li>
+<li>依赖于字符串硬编码，难以管理</li>
+<li>无法保证所使用的模块一定存在</li>
+<li>解耦能力有限，url 的”注册”、”实现”、”使用”必须用相同的字符规则，一旦任何一方做出修改都会导致其他方的代码失效，并且重构难度大</li>
+<li>部分功能使用此方案，存在被拒风险，例如调起支付功能</li>
+</ul>
+<p><strong>2. target-action方案</strong></p>
+<p>有一些模块管理工具基于 Objective-C 的 runtime、category 特性动态获取模块。例如通过<code>NSClassFromString</code>获取类并创建实例，通过<code>performSelector:</code> <code>NSInvocation</code>动态调用方法。</p>
+<p>代表框架 <a href="https://github.com/casatwy/CTMediator" target="_blank" rel="noopener">CTMediator</a>基于 target-action 模式的设计，大致是利用 category 为路由工具添加新接口，在接口中通过字符串获取对应的类，再用 runtime 创建实例，动态调用实例的方法。</p>
+<p><strong>代码示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">// 模块管理者，提供了动态调用 target-action 的基本功能</span><br><span class="line"></span><br><span class="line">@interface Mediator : NSObject</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance;</span><br><span class="line"></span><br><span class="line">- (id)performTarget:(NSString *)targetName action:(NSString *)actionName params:(NSDictionary *)params;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line">// 在 category 中定义新接口</span><br><span class="line"></span><br><span class="line">@interface Mediator (ModuleActions)</span><br><span class="line"></span><br><span class="line">- (UIViewController *)Mediator_editorViewController;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation Mediator (ModuleActions)</span><br><span class="line"></span><br><span class="line">- (UIViewController *)Mediator_editorViewController &#123;</span><br><span class="line"></span><br><span class="line">    // 使用字符串硬编码，通过 runtime 动态创建 Target_Editor，并调用 Action_viewController:</span><br><span class="line"></span><br><span class="line">    UIViewController *viewController = [self performTarget:@&quot;Editor&quot; action:@&quot;viewController&quot; params:@&#123;@&quot;key&quot;:@&quot;value&quot;&#125;];</span><br><span class="line"></span><br><span class="line">    return viewController;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">// 调用者通过 Mediator 的接口调用模块</span><br><span class="line"></span><br><span class="line">UIViewController *editor = [[Mediator sharedInstance] Mediator_editorViewController];</span><br><span class="line">// 模块提供者提供 target-action 的调用方式</span><br><span class="line"></span><br><span class="line">@interface Target_Editor : NSObject</span><br><span class="line"></span><br><span class="line">- (UIViewController *)Action_viewController:(NSDictionary *)params;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation Target_Editor</span><br><span class="line"></span><br><span class="line">- (UIViewController *)Action_viewController:(NSDictionary *)params &#123;</span><br><span class="line"></span><br><span class="line">    // 参数通过字典传递，无法保证类型安全</span><br><span class="line"></span><br><span class="line">    EditorViewController *viewController = [[EditorViewController alloc] init];</span><br><span class="line"></span><br><span class="line">    viewController.valueLabel.text = params[@&quot;key&quot;];</span><br><span class="line"></span><br><span class="line">    return viewController;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><strong>优点</strong></p>
+<ul>
+<li>利用 category 可以明确声明接口，进行编译检查</li>
+<li>实现方式轻量</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>需要在 mediator 和 target 中重新添加每一个接口，模块化时代码较为繁琐</li>
+<li>在 category 中仍然引入了字符串硬编码，内部使用字典传参，一定程度上也存在和 URL 路由相同的问题</li>
+<li>无法保证所使用的模块一定存在，target 模块在修改后，使用者只有在运行时才能发现错误</li>
+<li>过于依赖 runtime 特性，无法应用到纯 Swift 上。在 Swift 中扩展 mediator 时，无法使用纯 Swift 类型的参数</li>
+<li>可能会创建过多的 target 类</li>
+<li>使用 runtime 相关的接口调用任意类的任意方法，需要注意别被苹果的审核误伤。</li>
+</ul>
+<p><strong>3. 基于 protocol 匹配的方案</strong></p>
+<p>通过服务注册的方式来实现远程接口调用的。即每个模块提供自己对外服务的协议声明，然后将此声明注册到中间层。调用方能从中间层看到存在哪些服务接口，然后直接调用即可。</p>
+<p>代表框架：<a href="https://github.com/alibaba/BeeHive" target="_blank" rel="noopener">BeeHive</a>、<a href="https://github.com/youzan/Bifrost" target="_blank" rel="noopener">Bifrost</a>、<a href="https://git.mucang.cn/ios-mucang/MCProtocolRouter" target="_blank" rel="noopener">MCProtocolRouter</a></p>
+<p><strong>代码示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 注册模块 (protocol-class 匹配)</span><br><span class="line"></span><br><span class="line">[[BeeHive shareInstance] registerService:@protocol(EditorViewProtocol) service:[EditorViewController class]];</span><br><span class="line">// 获取模块 (用 runtime 创建 EditorViewController 实例)</span><br><span class="line"></span><br><span class="line">id&lt;EditorViewProtocol&gt; editor = [[BeeHive shareInstance] createService:@protocol(EditorViewProtocol)];</span><br></pre></td></tr></table></figure>
+<p><strong>优点</strong></p>
+<ul>
+<li>利用接口调用，实现了参数传递时的类型安全</li>
+<li>直接使用模块的 protocol 接口，无需再重复封装</li>
+<li>同时对外暴露的只有协议，符合团队协作的“面向协议编程”的思想</li>
+<li>可以快速实现项目中不同业务模块插拔</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>服务提供方和使用方依赖的是公共模块中的同一份协议（protocol）, 当协议内容改变时，会存在所有服务依赖模块编译失败的风险</li>
+<li>大量使用协议，协议方法名或者属性名更改后，实现协议地方只能依赖警告提示变更，不会显式报错</li>
+<li>对模块纯Swift编码支持不太友好</li>
+</ul>
+<p><strong>4. 通知广播模式</strong></p>
+<p>基于通知的模块间通讯方案，实现思路非常简单, 直接基于系统的 NSNotificationCenter 即可。 优势是实现简单，非常适合处理一对多的通讯场景。 劣势是仅适用于简单通讯场景。复杂数据传输，同步调用等方式都不太方便。 模块化通讯方案中，更多的是把通知方案作为以上几种方案的补充。</p>
+<h4 id="三、木仓组件化第零阶段组件化实践"><a href="#三、木仓组件化第零阶段组件化实践" class="headerlink" title="三、木仓组件化第零阶段组件化实践"></a>三、木仓组件化第零阶段组件化实践</h4><h5 id="1-模块间通信方案设计"><a href="#1-模块间通信方案设计" class="headerlink" title="1. 模块间通信方案设计"></a>1. 模块间通信方案设计</h5><p>首先是梳理我们的模块间通信需求，主要包括以下三种：</p>
+<ol>
+<li><strong>UI 页面跳转</strong>。比如社区点击选择驾校详情页。</li>
+<li><strong>动作执行及复杂数据传输</strong>。比如社区模块跳转选车模块传递数据并获取选车模型数据。</li>
+<li><strong>一对多的通知广播</strong>。比如消息盒子消息数量变化通知各业务模块红点数量变化。</li>
+</ol>
+<p>我们选择了路由 URL(<a href="https://git.mucang.cn/ios-mucang/ios-core/-/tree/master/src/mucang-core/urlActionManager" target="_blank" rel="noopener">MCCURLActionManager</a>) + Protocol接口调用封装(<a href="https://git.mucang.cn/ios-mucang/MCProtocolRouter" target="_blank" rel="noopener">MCProtocolRouter</a>) + 广播相结合(<a href="https://git.mucang.cn/ios-mucang/MCNotificationCenter" target="_blank" rel="noopener">MCNotificationCenter</a>)的方式。</p>
+<h5 id="2-Interface模式"><a href="#2-Interface模式" class="headerlink" title="2. Interface模式"></a>2. Interface模式</h5><p>为子系统中的一组接口提供一个一致的界面， Interface 模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。引入外观角色之后，用户只需要直接与外观角色交互，用户与子系统之间的复杂关系由外观角色来实现，外观角色内部还可以统一处理内部错误，从而降低了系统的耦合度。</p>
+<p><img src="/2022/08/04/iOS组件化几种方案调研和实践/2.png" alt="img"></p>
+<h5 id="3-复杂对象传输"><a href="#3-复杂对象传输" class="headerlink" title="3. 复杂对象传输"></a>3. 复杂对象传输</h5><p>复杂对象的传输。例如选车模型，它包含几十个字段。如果是传字典或传 json, 那么数据提供方（选车sdk）和使用方（社区）都需要专门理解并实现一下这种模型的各种字段，对开发效率影响很大。服务提供方和使用方共同依赖同一个 Protocol，如果model对象无其他任何依赖，可以考虑把model文件直接提取到共同依赖Protocol文件夹中。如果model对象内部有其他依赖这种方式不太合适，可以把使用放需要的model属性抽到一个XXXModelProtocol中，然后model内部实现这个XXXModelProtocol协议，XXXModelProtocol协议放在数据提供方的Protocol文件即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@protocol MCXCarBrandModelProtocol &lt;MCXBaseModelProtocol&gt;</span><br><span class="line"></span><br><span class="line">@required</span><br><span class="line"></span><br><span class="line">@property (nonatomic, strong) NSString *name;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, strong) NSString *logoUrl;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@protocol MCXuancheProtocol &lt;NSObject&gt;</span><br><span class="line"></span><br><span class="line">+ (void)notifySelectedBrand:(id&lt;MCXCarBrandModelProtocol&gt;)brandModel</span><br><span class="line"></span><br><span class="line">                serialModel:(id&lt;MCXCarSerialModelProtocol&gt;)serialModel</span><br><span class="line"></span><br><span class="line">                  typeModel:(id&lt;MCXCarTypeModelProtocol&gt;)typeModel;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h5 id="4-改造后架构和项目结构"><a href="#4-改造后架构和项目结构" class="headerlink" title="4. 改造后架构和项目结构"></a>4. 改造后架构和项目结构</h5><p>通常ModuleProtocol单独抽出一个pod库，主要包含ModuleInterface、ModuleProtocol、ModuleNotification等文件，例如选择mucang-selectschool-sdk-protocol：</p>
+<p><img src="/2022/08/04/iOS组件化几种方案调研和实践/3.png" alt="img"></p>
+<p>基于以上设计，木仓第零阶段改造后，App 架构关系如图:</p>
+<p><img src="/2022/08/04/iOS组件化几种方案调研和实践/4.png" alt="img"></p>
+<p>App项目结构图</p>
+<p><img src="/2022/08/04/iOS组件化几种方案调研和实践/5.png" alt="img"></p>
+<h5 id="5-MCProtocolRouter需要改进的"><a href="#5-MCProtocolRouter需要改进的" class="headerlink" title="5. MCProtocolRouter需要改进的"></a>5. MCProtocolRouter需要改进的</h5><p>1.可以增加一个继承 UIApplicationDelegate 的协议 ，令每个模块的 Module 对象都遵守这个协议。 AppDelegate接收代理方法后，轮询所有注册了的业务模块并进行必要的调用；</p>
+<p>2.Module之间的依赖，有时候需要AModule在BModule之前加载，现在都在+ (void)load注册，可能无法控制Module的加载顺序。</p>
+<h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><p>移动应用的业务模块化架构设计，其真正的目标是提升开发质量和效率。单从实现角度来看并没有什么黑魔法或技术难点，更多的是结合团队实际开发协作方式和业务场景的具体考量，适合自己的才是最好的。一味的追求性能，绝对的追求模块间编译隔离，过早的追求模块代码管理隔离等方式都偏离了模块化设计的真正目的，是得不偿失的。更合适的方式是在可控的改造代价下，一定程度考虑未来的优化方式，更多的考虑当前的实际场景，来设计适合自己的模块化方式。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/方法总结/" rel="tag"># 方法总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/07/21/Hexo添加pwa功能/" rel="next" title="Hexo添加pwa功能">
+                <i class="fa fa-chevron-left"></i> Hexo添加pwa功能
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/03/01/chatGPT注册教程/" rel="prev" title="chatGPT注册教程">
+                chatGPT注册教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">sophistWY</p>
+              <p class="site-description motion-element" itemprop="description">keep Hungry, keep Fool</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sophistWY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS组件化几种方案调研和实践"><span class="nav-number">1.</span> <span class="nav-text">iOS组件化几种方案调研和实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、背景"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、组件化几种方案"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、组件化几种方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、木仓组件化第零阶段组件化实践"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、木仓组件化第零阶段组件化实践</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-模块间通信方案设计"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">1. 模块间通信方案设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Interface模式"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">2. Interface模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-复杂对象传输"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">3. 复杂对象传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-改造后架构和项目结构"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">4. 改造后架构和项目结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-MCProtocolRouter需要改进的"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">5. MCProtocolRouter需要改进的</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、总结</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sophistWY</span>
+
+  
+<!--
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+-->
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共76.5k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1711381646092')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
