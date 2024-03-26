@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><link rel=manifest href=/manifest.json>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="方法总结," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="浅谈编程思想">
+<meta name="keywords" content="方法总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈编程思想">
+<meta property="og:url" content="http://yoursite.com/2021/09/01/浅谈编程思想/index.html">
+<meta property="og:site_name" content="汪洋的博客">
+<meta property="og:description" content="浅谈编程思想">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-09-12T08:33:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈编程思想">
+<meta name="twitter:description" content="浅谈编程思想">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/09/01/浅谈编程思想/"/>
+
+
+
+
+
+  <title>浅谈编程思想 | 汪洋的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+  
+  <a href="https://github.com/sophistWY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">汪洋的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep Hungry, keep Fool</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/浅谈编程思想/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈编程思想</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-01T11:31:43+08:00">
+                2021-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  735 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="浅谈编程思想"><a href="#浅谈编程思想" class="headerlink" title="浅谈编程思想"></a>浅谈编程思想</h2><a id="more"></a>
+<h3 id="一-常见的编程思想"><a href="#一-常见的编程思想" class="headerlink" title="一. 常见的编程思想"></a>一. 常见的编程思想</h3><ul>
+<li>面向过程：以过程为中心的编程思想。分析出解决问题所需要的步骤,然后用函数把这些步骤一步一步实现,使用的时候一个一个依次调用。</li>
+<li>面向对象（OOP）：把事物抽象成对象，然后给对象赋一些属性和方法，然后让每个对象去执行自己的方法。（*封装，继承，多态）</li>
+<li>链式编程：每个方法返回一个”返回值为自身且带有一个参数项“的Block (或直接返回自身)，形成Block串联，也就是所谓的链式编程。(eg: Monsary, SnapKit )</li>
+<li>函数式编程：<br>思想上，函数式编程可谓博大精深，建议看这篇文章了解: <a href="https://link.jianshu.com/?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F28292740%2Fanswer%2F40336090%3Futm_source%3Dwechat_session%26utm_medium%3Dsocial%26utm_campaign%3Dge13_2%26utm_division%3Dge13_3" target="_blank" rel="noopener">传送门</a><br>形式上，函数是一等公民，常见函数(闭包)作为参数或返回值传递、闭包嵌套、函数组合等形式。(eg:  map, filter, reduce等高阶函数，Monsary, SnapKit 等等)</li>
+<li>响应式编程：对于输入的变动加以监听，响应式地，每次产生对应的输出。(eg: 通知，kvo)</li>
+<li>面向协议编程（POP）：面向抽象和具象而不是具体的某个类。</li>
+</ul>
+<h3 id="二-链式编程"><a href="#二-链式编程" class="headerlink" title="二. 链式编程"></a>二. 链式编程</h3><p><strong><em>核心：函数返回值为自身(或者一个返回自身的Block)。</em></strong></p>
+<h5 id="1-实现"><a href="#1-实现" class="headerlink" title="1.实现"></a>1.实现</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(num: Double)</span></span> -&gt; <span class="type">Calculator</span> &#123;</span><br><span class="line">  result -= num;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">self</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bk_add</span><span class="params">()</span></span> -&gt; (<span class="type">Double</span>)-&gt;<span class="type">Calculator</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    (number) -&gt; <span class="type">Calculator</span> <span class="keyword">in</span>      </span><br><span class="line">    <span class="keyword">self</span>.result += number</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-调用"><a href="#2-调用" class="headerlink" title="2.调用"></a>2.调用</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testA</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">self</span>.calculator.add(num: <span class="number">2</span>).sub(num: <span class="number">1</span>).multiply(num: <span class="number">1</span>).divide(num: <span class="number">1</span>)</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">"\(#function) in 结果: \(self.calculator.result)"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三-函数式编程"><a href="#三-函数式编程" class="headerlink" title="三. 函数式编程"></a>三. 函数式编程</h3><p><strong><em>核心：方法（函数）的参数或者返回值为 函数 （Block）</em></strong></p>
+<h5 id="1-实现-1"><a href="#1-实现-1" class="headerlink" title="1.实现"></a>1.实现</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">makeOperation</span><span class="params">(closure:<span class="params">(Calculator)</span></span></span>-&gt;<span class="type">Void</span>) -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> calculator = <span class="type">Calculator</span>()</span><br><span class="line">    closure(calculator)</span><br><span class="line">    <span class="keyword">return</span> calculator.result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testMap</span><span class="params">()</span></span> &#123;</span><br><span class="line">     <span class="keyword">let</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">     <span class="keyword">let</span> mapNumbers = numbers.<span class="built_in">map</span> &#123; (number) -&gt; <span class="type">String</span> <span class="keyword">in</span></span><br><span class="line">         <span class="keyword">return</span> <span class="string">"\(number + 2)"</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">print</span>(mapNumbers)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testC</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="type">Calculator</span>.makeOperation &#123; maker <span class="keyword">in</span>                                       </span><br><span class="line">        maker.add(num: <span class="number">10</span>).sub(num: <span class="number">5</span>).multiply(num: <span class="number">1</span>).divide(num: <span class="number">2</span>)                                           </span><br><span class="line">   	&#125;      </span><br><span class="line">  	<span class="built_in">print</span>(<span class="string">"\(#function) in 结果: \(result)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四-响应式编程"><a href="#四-响应式编程" class="headerlink" title="四. 响应式编程"></a>四. 响应式编程</h3><p><strong><em>核心：建立从’’输入 -&gt; 输出’’的通道 ,每次输入响应式地产出对应的输出</em></strong></p>
+<h5 id="1-实现-2"><a href="#1-实现-2" class="headerlink" title="1.实现"></a>1.实现</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">addNotification</span><span class="params">()</span></span> &#123;</span><br><span class="line">      <span class="type">NotificationCenter</span>.<span class="keyword">default</span>.addObserver(<span class="keyword">self</span>, selector: #selector(doSomeThings(notification:)), name: <span class="type">NSNotification</span>.<span class="type">Name</span>(rawValue:<span class="string">"MyNotification"</span>), object: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">postNotification</span><span class="params">()</span></span> &#123;</span><br><span class="line">      <span class="type">NotificationCenter</span>.<span class="keyword">default</span>.post(name: <span class="type">NSNotification</span>.<span class="type">Name</span>(rawValue:<span class="string">"MyNotification"</span>), object: <span class="literal">nil</span>, userInfo: [<span class="string">"Info"</span>:<span class="string">"AAA"</span>])</span><br><span class="line"> &#125;</span><br><span class="line">    </span><br><span class="line"><span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">doSomeThings</span><span class="params">(notification:NSNotification)</span></span> &#123;</span><br><span class="line">     <span class="keyword">if</span> <span class="keyword">let</span> info = notification.userInfo?[<span class="string">"Info"</span>] &#123;</span><br><span class="line">         <span class="built_in">print</span>(info)</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-使用-1"><a href="#2-使用-1" class="headerlink" title="2.使用"></a>2.使用</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.postNotification()</span><br></pre></td></tr></table></figure>
+<h3 id="五-面向协议编程"><a href="#五-面向协议编程" class="headerlink" title="五. 面向协议编程"></a>五. 面向协议编程</h3><p><strong><em>核心：Don’t start with a class.  Start with a protocol.  — WWDC 2015</em></strong></p>
+<h5 id="1-实现-3"><a href="#1-实现-3" class="headerlink" title="1.实现"></a>1.实现</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">protocol</span> <span class="title">CalculatorProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result:<span class="type">Double</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(num: Double)</span></span> -&gt; <span class="type">CalculatorProtocol</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(num: Double)</span></span> -&gt; <span class="type">CalculatorProtocol</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">multiply</span><span class="params">(num: Double)</span></span> -&gt; <span class="type">CalculatorProtocol</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">divide</span><span class="params">(num: Double)</span></span> -&gt; <span class="type">CalculatorProtocol</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-使用-2"><a href="#2-使用-2" class="headerlink" title="2.使用"></a>2.使用</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MCObject</span>:<span class="title">CalculatorProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result: <span class="type">Double</span> = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">testCalculator</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.add(num: <span class="number">1</span>).sub(num: <span class="number">2</span>).divide(num: <span class="number">3</span>).multiply(num: <span class="number">4</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="六-相关框架"><a href="#六-相关框架" class="headerlink" title="六.相关框架"></a>六.相关框架</h3><h5 id="1-ReactiveCocoa"><a href="#1-ReactiveCocoa" class="headerlink" title="1.ReactiveCocoa"></a>1.ReactiveCocoa</h5><p><strong><em><a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="noopener">https://github.com/ReactiveCocoa/ReactiveCocoa</a></em></strong></p>
+<h5 id="2-RXSwift"><a href="#2-RXSwift" class="headerlink" title="2.RXSwift"></a>2.RXSwift</h5><p><strong><em><a href="https://www.jianshu.com/p/f7d89f969ad7" target="_blank" rel="noopener">https://www.jianshu.com/p/f7d89f969ad7</a></em></strong></p>
+<p><strong><em><a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="noopener">https://github.com/ReactiveX/RxSwift</a></em></strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/方法总结/" rel="tag"># 方法总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/05/10/100+赚钱高手提供的2021年赚钱建议/" rel="next" title="100+赚钱高手提供的2021年赚钱建议">
+                <i class="fa fa-chevron-left"></i> 100+赚钱高手提供的2021年赚钱建议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/01/10/Flutter 实战/" rel="prev" title="Flutter 实战">
+                Flutter 实战 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">sophistWY</p>
+              <p class="site-description motion-element" itemprop="description">keep Hungry, keep Fool</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sophistWY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浅谈编程思想"><span class="nav-number">1.</span> <span class="nav-text">浅谈编程思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-常见的编程思想"><span class="nav-number">1.1.</span> <span class="nav-text">一. 常见的编程思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-链式编程"><span class="nav-number">1.2.</span> <span class="nav-text">二. 链式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-实现"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1.实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-调用"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2.调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-函数式编程"><span class="nav-number">1.3.</span> <span class="nav-text">三. 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-实现-1"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2.使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-响应式编程"><span class="nav-number">1.4.</span> <span class="nav-text">四. 响应式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-实现-2"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1.实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用-1"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2.使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-面向协议编程"><span class="nav-number">1.5.</span> <span class="nav-text">五. 面向协议编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-实现-3"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">1.实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用-2"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">2.使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-相关框架"><span class="nav-number">1.6.</span> <span class="nav-text">六.相关框架</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-ReactiveCocoa"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">1.ReactiveCocoa</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-RXSwift"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">2.RXSwift</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sophistWY</span>
+
+  
+<!--
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+-->
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共79.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1711449694838')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
