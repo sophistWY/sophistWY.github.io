@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://yoursite.com/2023/04/01/iOS知识整理/22.png">
 <meta property="og:image" content="http://yoursite.com/2023/04/01/iOS知识整理/23.png">
 <meta property="og:image" content="http://yoursite.com/2023/04/01/iOS知识整理/16.png">
-<meta property="og:updated_time" content="2024-03-26T10:25:17.645Z">
+<meta property="og:updated_time" content="2024-03-27T09:26:27.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 知识整理">
 <meta name="twitter:description" content="iOS 知识整理">
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  25,766 字
+                  32,965 字
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  95 分钟
+                  121 分钟
                 </span>
               
             </div>
@@ -452,6 +452,12 @@
 </tr>
 </tbody>
 </table>
+<p>6 迪米特原则（Law of Demeter 又名Least Knowledge Principle）</p>
+<p>迪米特法则来自于1987年美国东北大学(Northeastern University)一个名为“Demeter”的研究项目，又称最少知识原则(LeastKnowledge Principle, LKP)，其定义如下：</p>
+<blockquote>
+<p>迪米特法则(Law of Demeter, LoD)：一个软件实体应当尽可能少地与其他实体发生相互作用。</p>
+</blockquote>
+<p>一个类应该对自己需要调用的类知道得最少，类的内部如何实现、如何复杂都与调用者或者依赖者没关系，调用者或者依赖者只需要知道他需要的方法即可，其他的我一概不关心。</p>
 <h5 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式:"></a>设计模式:</h5><p><img src="/2023/04/01/iOS知识整理/1.png" alt="设计模式"></p>
 <h4 id="iOS常用设计模式"><a href="#iOS常用设计模式" class="headerlink" title="iOS常用设计模式:"></a>iOS常用设计模式:</h4><p><strong><em>1.单例</em></strong></p>
 <blockquote>
@@ -515,8 +521,62 @@
 <p>8.哈希表(Hash table) : 哈希表(Hash Table)也叫散列表，是根据关键码值（Key Value）而直接进行访问的数据结构。它通过把关键码值映射到哈希表中的一个位置来访问记录，以加快查找的速度。这个映射函数就做散列函数，存放记录的数组叫做散列表。</p>
 <p><a href="http://www.cocoachina.com/cms/wap.php?action=article&amp;id=26391" target="_blank" rel="noopener"><strong>Hash table 在iOS 中的各种应用</strong></a></p>
 </blockquote>
+<h4 id="哈希冲突"><a href="#哈希冲突" class="headerlink" title="哈希冲突"></a>哈希冲突</h4><p>哈希冲突是指不同的输入数据经过哈希算法处理后产生相同的哈希值。哈希冲突可能导致数据的不完整性和正确性问题。常见的哈希冲突解决方法包括以下几种：</p>
+<ol>
+<li><strong>开放定址法（Open Addressing）：</strong> 当发生哈希冲突时，采用一定的规则在哈希表中查找下一个空的位置来存放数据，常见的方法包括线性探测、二次探测和双重散列等。</li>
+<li><strong>链地址法（Chaining）：</strong> 将哈希表中的每个位置设置为链表头指针，当发生哈希冲突时，将新数据插入到对应位置的链表中，实现链式存储。</li>
+<li><strong>再哈希（Rehashing）：</strong> 当发生哈希冲突时，重新计算哈希值并找到一个空的位置来存放数据，可以采用不同的哈希函数或者哈希函数参数。</li>
+<li><strong>哈希表扩容（Resize）：</strong> 当哈希表中的元素数量超过一定阈值时，对哈希表进行扩容，重新计算哈希值并将数据重新插入到新的哈希表中，减少哈希冲突的发生。</li>
+</ol>
+<h4 id="链表拓展"><a href="#链表拓展" class="headerlink" title="链表拓展"></a>链表拓展</h4><ol>
+<li><p><strong>单向链表（Singly Linked List）：</strong> 单向链表中的节点包含两部分信息，一部分是存储的数据（值或者键值对），另一部分是指向下一个节点的指针。每个节点只有一个指针，指向下一个节点，最后一个节点的指针为空（NULL）。单向链表只能从头节点开始依次访问到尾节点，无法从尾节点反向访问到头节点。</p>
+</li>
+<li><p><strong>双向链表（Doubly Linked List）：</strong> 双向链表中的节点包含三部分信息，分别是存储的数据、指向前一个节点的指针和指向后一个节点的指针。每个节点有两个指针，分别指向前一个节点和后一个节点，头节点的前指针为空（NULL），尾节点的后指针为空（NULL）。双向链表可以从头节点或尾节点开始向前或向后遍历，具有双向遍历的特性。</p>
+</li>
+<li><p><strong>循环链表（Circular Linked List）：</strong> 循环链表是一种特殊形式的链表，它与普通链表的区别在于，尾节点的指针不为空（NULL），而是指向头节点，形成一个闭环的结构。循环链表可以从任意节点开始遍历，当遍历到尾节点时会绕回到头节点继续遍历，因此可以无限循环访问。</p>
+</li>
+<li><p><strong>带头节点链表（Head Linked List）：</strong> 带头节点链表是在链表头部添加一个空节点作为头节点的链表，头节点不存储数据，只作为链表的起始标志。带头节点链表的优点是可以统一处理头节点和其他节点的操作，使得链表操作更加统一。</p>
+</li>
+<li><p><strong>稀疏链表（Sparse Linked List）：</strong> 稀疏链表是一种特殊用途的链表，主要用于表示稀疏矩阵。稀疏矩阵中大部分元素为零，为节省存储空间，可以使用稀疏链表来表示非零元素的位置和值，从而减少存储空间的占用。</p>
+</li>
+</ol>
+<h4 id="链表结构"><a href="#链表结构" class="headerlink" title="链表结构"></a>链表结构</h4><p>链表中的节点通常可以表示为：���,�����,����<em>Key</em>,<em>Va<strong>l</strong>u**e</em>,<em>N<strong>e</strong>x**t</em>，其中：</p>
+<ul>
+<li>Key：键，用于确定节点在哈希表中的位置。</li>
+<li>Value：值，存储在节点中的具体数据。</li>
+<li>Next：指向下一个节点的指针，用于实现链表的连接。</li>
+</ul>
+<p>通过链表的这种结构，可以实现在哈希表中存储多个键值对，并且能够有效处理哈希冲突，保证数据的存储和查找效率。</p>
 <h3 id="三-算法"><a href="#三-算法" class="headerlink" title="三.算法"></a>三.算法</h3><p><img src="/2023/04/01/iOS知识整理/2.png" alt="常用排序算法复杂度"></p>
 <p><img src="/2023/04/01/iOS知识整理/3.png" alt="常见算法关系图"></p>
+<h4 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h4><p>LRU（Least Recently Used，最近最少使用）算法是一种常用的缓存淘汰策略，它根据数据的使用情况来决定哪些数据应该被淘汰，从而保留最近使用频率较高的数据，提高缓存命中率。下面是一个简单的LRU算法设计：</p>
+<ol>
+<li>使用双向链表和哈希表：<ul>
+<li>双向链表用于存储缓存数据，最近访问过的数据放在链表头部，最久未访问的数据放在链表尾部；</li>
+<li>哈希表用于快速查找数据在链表中的位置。</li>
+</ul>
+</li>
+<li>数据结构设计：<ul>
+<li>双向链表节点包括键、值以及前后指针；</li>
+<li>哈希表的键为缓存数据的键，值为对应的双向链表节点。</li>
+</ul>
+</li>
+<li>算法流程：<ul>
+<li>当需要访问缓存数据时，先在哈希表中查找该数据是否存在；</li>
+<li>如果存在，则将对应的双向链表节点移动到链表头部，并更新哈希表中的位置；</li>
+<li>如果不存在，需要将数据加载到缓存中：<ul>
+<li>如果缓存未满，则直接将新数据插入到链表头部，并在哈希表中添加对应的键值对；</li>
+<li>如果缓存已满，则需要淘汰最久未访问的数据（链表尾部节点），然后将新数据插入到链表头部，并更新哈希表中的位置。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>淘汰策略：<ul>
+<li>每次访问缓存数据时，如果缓存已满，需要淘汰链表尾部的节点，即最近最少使用的数据；</li>
+<li>淘汰时，从链表尾部删除节点，并在哈希表中删除对应的键值对。</li>
+</ul>
+</li>
+</ol>
 <h3 id="四-应用的生命周期"><a href="#四-应用的生命周期" class="headerlink" title="四.应用的生命周期"></a>四.应用的生命周期</h3><h4 id="1-main-之前经历什么"><a href="#1-main-之前经历什么" class="headerlink" title="1.main()之前经历什么:"></a><strong>1.main()之前经历什么:</strong></h4><blockquote>
 <p>1.动态库链接库 dylib</p>
 <p>2.ImageLoader加载可执行文件, 里边是被编译过的符号,代码等</p>
@@ -612,6 +672,8 @@
 <p> 类扩展与分类相比只少了分类的名称，所以称之为“匿名分类” .</p>
 <p><strong><em>extension 可以添加方法和属性(包括实例变量), 因为它是编译时被添加到类中.</em></strong></p>
 </blockquote>
+<p><strong><em>注意：</em></strong></p>
+<p>在Objective-C中，如果多个Category中的方法重名，最终的方法实现会按照编译器的编译顺序来确定。具体来说，最后编译的Category会覆盖之前编译的同名方法。</p>
 <h4 id="6-property和实例变量"><a href="#6-property和实例变量" class="headerlink" title="6.@property和实例变量"></a>6.@property和实例变量</h4><blockquote>
 <ul>
 <li>@property是是声明属性的语法</li>
@@ -634,6 +696,73 @@
 <li>使用 <code>instancetype</code> 声明的方法，返回的对象类型会与调用该方法的类相匹配，编译器会确保返回的对象是当前类的实例或者其子类的实例。</li>
 <li><code>instancetype</code> 主要用于声明工厂方法（Factory Method），用于创建并返回当前类的实例。</li>
 </ul>
+<h4 id="8-内存管理和循环引用"><a href="#8-内存管理和循环引用" class="headerlink" title="8.内存管理和循环引用"></a>8.内存管理和循环引用</h4><ol>
+<li><strong>内存管理原则：</strong><ul>
+<li>在 Objective-C 和 Swift 中，都使用了自动引用计数（ARC）来管理内存，避免手动管理内存带来的问题。</li>
+<li>ARC 会自动追踪对象的引用关系，并在引用计数为零时自动释放对象占用的内存。</li>
+</ul>
+</li>
+<li><strong>强引用（Strong Reference）：</strong><ul>
+<li>强引用是最常见的引用方式，指的是对象之间的强关联关系，一个对象强引用另一个对象时，会增加被引用对象的引用计数。</li>
+<li>当强引用的循环链中出现闭环（循环引用）时，对象之间无法被释放，导致内存泄漏。</li>
+</ul>
+</li>
+<li><strong>循环引用的产生：</strong><ul>
+<li>在闭包中捕获 <code>self</code> 时容易产生循环引用，特别是在使用 <code>[weak self]</code> 或 <code>[unowned self]</code> 时要小心处理。</li>
+<li>如果闭包中使用了强引用的 <code>self</code>，而 <code>self</code> 又持有该闭包的强引用，就会形成循环引用。</li>
+</ul>
+</li>
+<li><strong>解决循环引用：</strong><ul>
+<li>使用 <code>[weak self]</code> 或 <code>[unowned self]</code> 来避免对 <code>self</code> 的强引用，从而打破循环引用。</li>
+<li>对于可能造成循环引用的情况，应该谨慎设计代码逻辑，避免形成循环引用。</li>
+</ul>
+</li>
+<li><strong>使用捕获列表：</strong><ul>
+<li>在闭包中使用捕获列表可以明确指定对对象的引用类型，如 <code>[weak self]</code> 或 <code>[unowned self]</code>。</li>
+<li>捕获列表可以有效地解决闭包中可能出现的循环引用问题。</li>
+</ul>
+</li>
+<li><strong>使用 Instruments 进行内存检测：</strong><ul>
+<li>在开发过程中，可以使用 Xcode 的 Instruments 工具进行内存检测和分析，帮助发现和解决内存泄漏等问题。</li>
+</ul>
+</li>
+</ol>
+<p>虽然 ARC（Automatic Reference Counting，自动引用计数）在大多数情况下能够很好地管理内存，但有一些特殊情况下 ARC 处理不了，需要手动进行内存管理或者采取其他解决方案。以下是一些 ARC 处理不了的情况：</p>
+<ol>
+<li><strong>循环引用（Circular Reference）：</strong><ul>
+<li>ARC 虽然可以自动释放对象，但当对象之间形成循环引用时，会导致对象无法释放而产生内存泄漏。这时需要使用弱引用（<code>weak</code>）或者无主引用（<code>unowned</code>）来打破循环引用。</li>
+</ul>
+</li>
+<li><strong>Core Foundation 对象（Core Foundation Objects）：</strong><ul>
+<li>ARC 只负责 Objective-C 对象的内存管理，对于 Core Foundation 对象（如 CFStringRef、CFArrayRef 等）需要手动管理内存，使用 Core Foundation 的内存管理函数（如 CFRetain 和 CFRelease）来管理内存。</li>
+</ul>
+</li>
+<li><strong>Cocoa API 的一些方法（Certain Cocoa API Methods）：</strong><ul>
+<li>有些 Cocoa API 方法返回的对象不受 ARC 管理，需要手动管理内存，通常使用 <code>autorelease</code> 来延迟释放对象。</li>
+</ul>
+</li>
+<li><strong>底层数据结构（Low-Level Data Structures）：</strong><ul>
+<li>对于底层的数据结构，如操作指针、内存缓存等，需要特殊处理，避免内存泄漏或者野指针问题。</li>
+</ul>
+</li>
+<li><strong>Core Graphics 和 Core Animation 对象（Core Graphics and Core Animation Objects）：</strong><ul>
+<li>对于 Core Graphics 和 Core Animation 相关的对象，需要注意内存管理，特别是在使用 C 语言接口时，需要手动释放对象。</li>
+</ul>
+</li>
+<li><strong>跨线程操作（Cross-Thread Operations）：</strong><ul>
+<li>在多线程环境下，如果不正确地处理对象的内存管理，可能会导致线程安全问题和内存泄漏。</li>
+</ul>
+</li>
+<li><strong>Block 中的对象引用（Object References in Blocks）：</strong><ul>
+<li>在使用 Block 时，需要小心处理对象的引用关系，避免循环引用和内存泄漏。</li>
+</ul>
+</li>
+<li><strong>自定义的内存管理逻辑（Custom Memory Management Logic）：</strong><ul>
+<li>如果在项目中使用了自定义的内存管理逻辑，可能会与 ARC 的自动内存管理产生冲突，需要谨慎处理。</li>
+</ul>
+</li>
+</ol>
+<p>野指针：访问无效内存导致崩溃</p>
 <h3 id="六-Swift语言设计原理"><a href="#六-Swift语言设计原理" class="headerlink" title="六. Swift语言设计原理"></a>六. Swift语言设计原理</h3><h4 id="1-swift中高阶函数map、flatMap、filter、reduce"><a href="#1-swift中高阶函数map、flatMap、filter、reduce" class="headerlink" title="1.swift中高阶函数map、flatMap、filter、reduce"></a><strong><em>1.<a href="https://www.cnblogs.com/muzijie/p/6542650.html" target="_blank" rel="noopener">swift中高阶函数map、flatMap、filter、reduce</a></em></strong></h4><blockquote>
 <p> map：可以对数组中的每一个元素做一次处理.</p>
 <p>flatMap: 对元素进行操作同时 会解包和展开二维数组,且去除nil.</p>
@@ -700,6 +829,20 @@
 <h4 id="3-dsym符号表"><a href="#3-dsym符号表" class="headerlink" title="3.dsym符号表"></a><strong><em>3.dsym符号表</em></strong></h4><p><strong>dSYM符号表是一个在苹果操作系统（macOS和iOS）中用于调试的文件格式。dSYM是“debugging symbol（调试符号）”的缩写</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">起始地址</span>&gt;</span> <span class="tag">&lt;<span class="name">结束地址</span>&gt;</span> <span class="tag">&lt;<span class="name">函数</span>&gt;</span> [<span class="tag">&lt;<span class="name">文件名:行号</span>&gt;</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">苹果提供了一个名为"App Store Connect"的在线开发者平台，用于管理应用程序、测试人员、Crash日志和其他开发者相关的资源。开发者可以使用该平台来上传dSYM符号表文件以帮助苹果收集和分析应用程序的Crash日志。</span><br><span class="line"></span><br><span class="line">以下是上传dSYM符号表文件到App Store Connect的步骤：</span><br><span class="line"></span><br><span class="line">1.打开App Store Connect网站，并使用开发者账户登录。</span><br><span class="line">2.选择您的应用程序，并单击左侧的“Crashes”选项卡。</span><br><span class="line">3.在Crash日志页面中，单击右上角的“Settings”按钮。</span><br><span class="line">4.在“Settings”页面中，单击“Upload your app’s dSYM file”链接。</span><br><span class="line">5.按照指示选择您的应用程序的dSYM符号表文件并上传。您可以在Xcode中找到dSYM文件，路径为：Archive文件夹 -&gt; YourApp.xcarchive -&gt; dSYMs文件夹。</span><br></pre></td></tr></table></figure>
+<h5 id="dSYM-符号表"><a href="#dSYM-符号表" class="headerlink" title="dSYM 符号表"></a><code>dSYM</code> 符号表</h5><ul>
+<li><strong>作用：</strong> <code>dSYM</code> 文件包含了应用程序的符号信息，包括类、方法、变量等的名称和地址信息，可以帮助调试工具将崩溃日志中的内存地址转换为具体的类和方法名，方便开发者定位问题。</li>
+<li><strong>生成方式：</strong> 在 Xcode 中构建应用程序时，会生成 <code>.app</code> 文件和对应的 <code>dSYM</code> 文件。<code>dSYM</code> 文件通常存储在应用程序的归档文件（Archive）中，或者可以通过 Xcode 的 Organizer 导出。</li>
+<li><strong>使用场景：</strong> 当应用程序发生崩溃或者异常时，收集到的崩溃日志中通常包含了内存地址、堆栈信息等。通过 <code>dSYM</code> 文件，调试工具可以将内存地址转换为对应的类和方法名，使得开发者能够更准确地定位问题所在。</li>
+<li><strong>注意事项：</strong> 确保在发布应用程序时保留 <code>dSYM</code> 文件，并在需要进行崩溃分析时提供给调试工具使用。</li>
+</ul>
+<h5 id="Bugly-的实现原理"><a href="#Bugly-的实现原理" class="headerlink" title="Bugly 的实现原理"></a>Bugly 的实现原理</h5><p>Bugly 是一个专注于移动应用异常监控和实时崩溃分析的第三方服务，其实现原理主要包括以下几个方面：</p>
+<ul>
+<li><strong>异常捕获：</strong> Bugly SDK 集成到应用程序中，通过监控异常信号、崩溃日志等方式，实时捕获应用程序的异常情况。</li>
+<li><strong>崩溃信息采集：</strong> 当应用程序发生异常或者崩溃时，Bugly SDK会收集相关的崩溃信息，包括堆栈信息、设备信息、应用版本等。</li>
+<li><strong>崩溃日志上传：</strong> Bugly SDK将收集到的崩溃日志上传到 Bugly 服务器，供开发者分析和查看。</li>
+<li><strong>符号化：</strong> 在收到崩溃日志后，Bugly 服务器会使用相应的 <code>dSYM</code> 文件对日志中的内存地址进行符号化，将内存地址转换为具体的类和方法名。</li>
+<li><strong>实时监控和分析：</strong> Bugly 提供实时的异常监控和崩溃分析服务，开发者可以通过 Bugly 后台实时查看应用程序的异常情况、崩溃日志以及分析报告，帮助定位和解决应用程序的问题。</li>
+</ul>
 <h4 id="4-NULL"><a href="#4-NULL" class="headerlink" title="4.NULL"></a><strong><em>4.NULL</em></strong></h4><blockquote>
 <p>标识                  值                          含义<br>NULL         (void *)0            C指针的字面零值<br>nil                  (id)0                Objective-C对象的字面零值<br>Nil               (Class)0            Objective-C类的字面零值<br>NSNull   [NSNull null]        用来表示零值的单独的对象</p>
 </blockquote>
@@ -986,7 +1129,37 @@
 第三次：服务器向客户端发送一个带有结束标记的报文 (FIN + ACK + seq)
 
 第四次：客户端收到报文后，向服务器发送一个确认序号，链接关闭。(ACK + seq)
-</code></pre><h5 id="4-Socket"><a href="#4-Socket" class="headerlink" title="4.Socket"></a>4.Socket</h5><blockquote>
+</code></pre><h5 id="关于为什么3次握手4次挥手"><a href="#关于为什么3次握手4次挥手" class="headerlink" title="关于为什么3次握手4次挥手"></a>关于为什么3次握手4次挥手</h5><p><strong><em>握手</em></strong></p>
+<ol>
+<li><strong>建立连接的双向确认</strong>： 在 TCP 握手过程中，客户端首先向服务器发送连接请求（SYN），服务器收到后回复确认消息（ACK）和自己的连接请求（SYN），客户端再次回复确认消息（ACK），这样双方都确认了对方的连接请求，建立了双向连接。</li>
+<li><strong>避免旧连接请求的影响</strong>： 如果只进行两次握手，那么可能会因为网络延迟或其他原因导致第一次握手的连接请求在网络中滞留，而第二次握手的连接请求却达到了服务器。此时服务器会误认为是一个新的连接请求，导致连接的混乱和不确定性。</li>
+<li><strong>防止过期连接的干扰</strong>： 如果只进行两次握手，那么可能会出现已经失效的连接请求在网络中重新被传递到服务器，导致服务器与客户端建立错误的连接。</li>
+</ol>
+<p><strong><em>挥手</em></strong></p>
+<ol>
+<li><strong>双向连接</strong>： TCP 是一种全双工的通信协议，即客户端和服务器可以同时向对方发送和接收数据。因此，在关闭连接时，双方需要分别通知对方自己的关闭意图。</li>
+<li><strong>保证数据传输完整性</strong>： 在进行关闭连接之前，双方可能还有未传输完的数据，需要等待对方接收完毕或确认已经接收到数据，以确保数据传输的完整性。</li>
+<li><strong>保证数据可靠性</strong>： TCP 通过确认机制（ACK）来确保数据的可靠传输，需要进行多次确认来确认对方已经接收到数据。</li>
+</ol>
+<p>基于以上原因，TCP 进行连接关闭时的过程是：</p>
+<ul>
+<li>客户端发送关闭连接请求（FIN）给服务器，进入 FIN_WAIT_1 状态。</li>
+<li>服务器收到关闭请求后，回复确认消息（ACK），进入 CLOSE_WAIT 状态。</li>
+<li>服务器关闭发送数据的通道，发送关闭连接请求（FIN）给客户端，进入 LAST_ACK 状态。</li>
+<li>客户端收到服务器的关闭请求后，回复确认消息（ACK），进入 TIME_WAIT 状态，等待一段时间（2MSL，两个最大报文段生存时间），确保服务器收到确认消息。</li>
+<li>服务器收到客户端的确认消息后，进入 CLOSED 状态，连接关闭完成。</li>
+<li>客户端在等待时间结束后，也进入 CLOSED 状态，连接关闭完成。</li>
+</ul>
+<p>这样的挥手过程可以确保数据的完整性、可靠传输和正常关闭连接，防止数据丢失或混乱，保证通信的可靠性和稳定性</p>
+<h5 id="Charles抓包原理"><a href="#Charles抓包原理" class="headerlink" title="Charles抓包原理"></a>Charles抓包原理</h5><p>Charles 是一款常用的网络调试工具，它可以用于网络抓包、查看请求和响应数据、模拟网络环境等功能。Charles 的劫持原理主要涉及以下几个方面：</p>
+<ol>
+<li><strong>中间人攻击</strong>： Charles 实际上通过中间人攻击的方式来实现网络请求和响应的劫持。它作为一个代理服务器，客户端和服务器之间的所有网络通信都经过 Charles，Charles 可以解析和修改这些通信数据。</li>
+<li><strong>证书生成</strong>： 为了使中间人攻击能够顺利进行，Charles 在启动时会生成自签名的根证书，并将这个证书安装到操作系统的信任列表中。这样，当客户端发起 HTTPS 请求时，Charles 可以使用自签名的证书来模拟服务器证书，使得客户端可以建立连接并信任 Charles 的证书。</li>
+<li><strong>数据截获与修改</strong>： 当客户端发送请求或服务器返回响应时，数据会经过 Charles 的代理服务器。Charles 可以截获这些数据并显示在界面上，用户可以查看请求和响应的详细信息，包括请求头、请求体、响应头、响应体等。此外，Charles 还可以对这些数据进行修改，比如修改请求参数、修改响应内容等。</li>
+<li><strong>SSL/TLS 解密</strong>： 对于 HTTPS 请求，Charles 可以通过自身的证书来解密 SSL/TLS 加密的数据，这样即使是加密的通信内容，也可以在 Charles 中查看明文数据，便于调试和分析。</li>
+</ol>
+<p>总体来说，Charles 的劫持原理是利用自身作为代理服务器，截获客户端和服务器之间的网络通信数据，并提供查看和修改这些数据的功能，以实现网络请求和响应的劫持、调试和分析。需要注意的是，在实际使用中应谨慎处理敏感数据，避免泄露隐私信息。</p>
+<h5 id="4-Socket"><a href="#4-Socket" class="headerlink" title="4.Socket"></a>4.Socket</h5><blockquote>
 <p>socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），通过Socket，我们才能使用TCP/IP协议。实际上，Socket跟TCP/IP协议没有必然的联系。Socket编程接口在设计的时候，就希望也能适应其他的网络协议。所以说，Socket的出现只是使得程序员更方便地使用TCP/IP协议栈而已，是对TCP/IP协议的抽象，从而形成了我们知道的一些最基本的函数接口，比如create、listen、connect、accept、send、read和write等等。网络有一段关于socket和TCP/IP协议关系的说法比较容易理解：</p>
 <p>  “TCP/IP只是一个协议栈，就像操作系统的运行机制一样，必须要具体实现，同时还要提供对外的操作接口。这个就像操作系统会提供标准的编程接口，比如win32编程接口一样，TCP/IP也要提供可供程序员做网络开发所用的接口，这就是Socket编程接口。”</p>
 <p>socket是纯C语言的,跨平台</p>
@@ -1041,6 +1214,19 @@
 </ul>
 </li>
 </ol>
+<h5 id="关于客户端公钥的验证-SSL-TLS-证书"><a href="#关于客户端公钥的验证-SSL-TLS-证书" class="headerlink" title="关于客户端公钥的验证(SSL/TLS 证书)"></a>关于客户端公钥的验证(SSL/TLS 证书)</h5><ol>
+<li><strong>获取服务器证书</strong>： iOS 客户端在建立 HTTPS 连接时，会从服务器端获取证书。证书包含了服务器的公钥以及其他信息，如证书颁发者、有效期等。</li>
+<li><strong>验证证书链</strong>： iOS 客户端会首先验证服务器证书的有效性，包括：<ul>
+<li>是否由信任的证书颁发机构颁发（如根证书或中间证书颁发机构）。</li>
+<li>证书的有效期是否在当前时间范围内。</li>
+<li>证书的域名是否与服务器域名匹配（域名验证）。</li>
+</ul>
+</li>
+<li><strong>获取服务器公钥</strong>： 验证证书链通过后，iOS 客户端会从服务器证书中提取服务器的公钥。</li>
+<li><strong>验证公钥有效性</strong>： iOS 客户端会使用系统内置的信任链（Trust Store）来验证服务器公钥的有效性。这些信任链包含了信任的根证书和中间证书颁发机构的证书。</li>
+<li><strong>验证证书是否被吊销</strong>： iOS 客户端还会检查服务器证书是否被吊销，通常会通过在线的证书吊销列表（Certificate Revocation List，CRL）或在线证书状态协议（Online Certificate Status Protocol，OCSP）来检查证书的状态。</li>
+<li><strong>建立安全连接</strong>： 如果服务器公钥验证通过，iOS 客户端会使用服务器的公钥来建立安全连接，并开始加密通信。</li>
+</ol>
 <p><strong>8.DNS</strong></p>
 <p>那么实现这一技术的就是 DNS 域名解析，DNS 可以将域名网址自动转换为具体的 IP 地址。 </p>
 <p>域名的层级关系 </p>
@@ -1075,6 +1261,33 @@
 </blockquote>
 <p><strong>12.客户端发起网络请求的完整过程</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.DNS解析：客户端首先需要将请求的域名解析成对应的IP地址，以便能够建立与服务器的连接。</span><br><span class="line"></span><br><span class="line">2.建立连接：客户端使用TCP协议与服务器建立连接。这涉及三次握手的过程，即客户端发送SYN，服务器回复SYN-ACK，最后客户端发送ACK确认连接建立。</span><br><span class="line"></span><br><span class="line">3.发送请求：客户端发送HTTP请求到服务器，请求中包含请求的资源路径、请求方法、请求头等信息。</span><br><span class="line"></span><br><span class="line">4.服务器响应：服务器接收到请求后，会根据请求内容处理并返回响应。响应包括HTTP状态码、响应头和响应体。</span><br><span class="line"></span><br><span class="line">5.接收响应：客户端接收到服务器响应后，会对响应进行处理。如果响应状态码表示成功，那么客户端会解析响应体中的数据并显示在界面上。</span><br><span class="line"></span><br><span class="line">6.断开连接：客户端与服务器断开连接。这也涉及到三次握手的过程，即客户端发送FIN，服务器回复ACK，最后服务器发送FIN，客户端回复ACK确认连接断开。</span><br></pre></td></tr></table></figure>
+<p><strong>13.计算机网络分层</strong></p>
+<p>网络分层是指将计算机网络功能分解为不同的层次，每个层次负责特定的任务和功能，以实现网络通信的可靠性、灵活性和可维护性。常见的网络分层模型包括 OSI 模型（Open Systems Interconnection，开放系统互联模型）和 TCP/IP 模型（Transmission Control Protocol/Internet Protocol，传输控制协议/互联网协议）。</p>
+<ol>
+<li>OSI 模型： OSI 模型将网络通信划分为七个层次，从底层到顶层依次是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。每个层次都有特定的功能和责任：<ul>
+<li>物理层：负责传输原始比特流，定义物理介质和电信号规范。</li>
+<li>数据链路层：处理相邻节点之间的数据传输，提供帧的组装和解析、物理地址的寻址和流量控制等功能。</li>
+<li>网络层：负责数据包的路由和转发，实现不同网络之间的通信和数据包的传输。</li>
+<li>传输层：提供端到端的可靠数据传输，包括数据分段、流量控制、拥塞控制等。</li>
+<li>会话层：管理和协调会话（Session）的建立、维护和结束，确保数据的可靠传输。</li>
+<li>表示层：负责数据的格式转换、加密解密、压缩解压缩等，确保不同系统之间的数据交换兼容性。</li>
+<li>应用层：提供用户接口和网络服务，包括文件传输、电子邮件、远程登录等。</li>
+</ul>
+</li>
+<li>TCP/IP 模型： TCP/IP 模型将网络通信划分为四个层次，从底层到顶层依次是网络接口层（网络接入层）、网络层、传输层和应用层。它与 OSI 模型有一定的对应关系，但更加简化和实用：<ul>
+<li>网络接口层：负责将数据包封装成帧并发送到物理介质上，与 OSI 模型的物理层和数据链路层类似。</li>
+<li>网络层：处理数据包的路由和转发，与 OSI 模型的网络层功能相似。</li>
+<li>传输层：提供端到端的可靠数据传输，与 OSI 模型的传输层功能相似，主要包括 TCP 和 UDP 协议。</li>
+<li>应用层：提供各种网络应用和服务，与 OSI 模型的应用层功能类似，包括 HTTP、FTP、SMTP 等协议。</li>
+</ul>
+</li>
+</ol>
+<h5 id="关于Socket"><a href="#关于Socket" class="headerlink" title="关于Socket"></a>关于Socket</h5><p>Socket 不是一个独立的网络协议或网络层，它是一种编程接口或抽象概念，用于实现在网络上进行通信的应用程序。在计算机网络中，Socket 通常与传输层（第四层）相关联，因为它提供了应用程序与网络传输协议（如 TCP、UDP）之间的接口。</p>
+<p>具体来说，Socket 是一种编程接口，由操作系统提供，用于在网络上进行数据传输。它将传输层协议（如 TCP 或 UDP）提供的通信能力封装成一种 API，使得应用程序可以方便地使用网络进行数据交换。在实际编程中，Socket 主要用于在应用层实现网络通信，但它本身并不属于 OSI 模型或 TCP/IP 模型中的任何一个具体的网络层次。</p>
+<p>总之，Socket 是一种编程接口或抽象概念，用于在网络上进行通信的应用程序接口，它通常与传输层（第四层）相关联，但本身不属于 OSI 模型或 TCP/IP 模型中的某一具体网络层次。</p>
+<h5 id="关于MTU"><a href="#关于MTU" class="headerlink" title="关于MTU"></a>关于MTU</h5><p>MTU 是网络通信中的一个重要概念，表示最大传输单元（Maximum Transmission Unit）。它指的是网络中能够通过的最大数据包的大小，以字节为单位。如果数据包的大小超过了 MTU，那么就需要进行分片（Fragmentation）处理，将数据包分成更小的片段进行传输，然后在接收端重新组装。</p>
+<p>MTU 的大小通常由网络设备（如路由器、交换机）或网络协议（如以太网、PPP）决定，不同的网络类型和设备可能会有不同的 MTU 设置。常见的以太网 MTU 大小是 1500 字节，在一些特定网络环境下也可以设置为其他值，如 Jumbo Frames 中的 9000 字节。</p>
+<p>了解 MTU 的概念对于网络通信非常重要，特别是在处理大量数据或进行网络优化时。在开发网络应用程序时，有时需要考虑 MTU 大小，以避免数据包过大导致分片、重传等问题，从而影响网络性能。</p>
 <h3 id="九-iOS本地持久化"><a href="#九-iOS本地持久化" class="headerlink" title="九.iOS本地持久化"></a>九.iOS本地持久化</h3><blockquote>
 <ul>
 <li><p>NSUserDefaults</p>
@@ -1467,6 +1680,60 @@
 <p><strong>学习方向: 1. Leedcode  2.第三方源码解读和模仿  3.RXSwift   4.C++  5.FFmpeg  6.openGL</strong></p>
 <p><strong>线程图解</strong></p>
 <p><img src="/2023/04/01/iOS知识整理/16.png" alt="线程图解"></p>
+<h3 id="经典算法题"><a href="#经典算法题" class="headerlink" title="经典算法题"></a>经典算法题</h3><h5 id="1-N级台阶-一次可以跳1级-也可以跳2级-总共多少种跳法"><a href="#1-N级台阶-一次可以跳1级-也可以跳2级-总共多少种跳法" class="headerlink" title="1. N级台阶 一次可以跳1级 也可以跳2级 总共多少种跳法"></a>1. N级台阶 一次可以跳1级 也可以跳2级 总共多少种跳法</h5><ul>
+<li>我们可以定义一个数组<code>dp</code>，其中<code>dp[i]</code>表示跳到第i级台阶的跳法总数。</li>
+<li>初始条件是<code>dp[1] = 1</code>，表示跳到第1级台阶只有一种跳法；<code>dp[2] = 2</code>，表示跳到第2级台阶有两种跳法。</li>
+<li>然后，我们可以用动态规划的方式计算<code>dp[i]</code>，根据题意，跳到第i级台阶有两种方式：从第i-1级跳1级，或者从第i-2级跳2级。因此，<code>dp[i] = dp[i-1] + dp[i-2]</code>。</li>
+<li>最终，<code>dp[N]</code>即为所求的总跳法数。</li>
+</ul>
+<h5 id="2-有100瓶药水，其中一瓶是毒药，只要一小滴，就足以让小白鼠24小时内死亡。请问怎么在1天内用最少的老鼠找出这瓶毒药"><a href="#2-有100瓶药水，其中一瓶是毒药，只要一小滴，就足以让小白鼠24小时内死亡。请问怎么在1天内用最少的老鼠找出这瓶毒药" class="headerlink" title="2.有100瓶药水，其中一瓶是毒药，只要一小滴，就足以让小白鼠24小时内死亡。请问怎么在1天内用最少的老鼠找出这瓶毒药"></a>2.有100瓶药水，其中一瓶是毒药，只要一小滴，就足以让小白鼠24小时内死亡。请问怎么在1天内用最少的老鼠找出这瓶毒药</h5><p>假设我们有100瓶药水，编号从1到100。我们将这100瓶药水的编号转换成二进制格式，然后根据每一位二进制位的值来确定哪些药水含有毒药。例如，编号为1的药水的二进制表示为00000001，编号为2的药水的二进制表示为00000010，依此类推。</p>
+<p>我们将100瓶药水的编号从1到100按照如下方式排列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>   <span class="number">00000001</span></span><br><span class="line"><span class="number">2</span>   <span class="number">00000010</span></span><br><span class="line"><span class="number">3</span>   <span class="number">00000011</span></span><br><span class="line">...</span><br><span class="line"><span class="number">98</span>  <span class="number">01100010</span></span><br><span class="line"><span class="number">99</span>  <span class="number">01100011</span></span><br><span class="line"><span class="number">100</span> <span class="number">01100100</span></span><br></pre></td></tr></table></figure>
+<p>现在我们让第一只小白鼠尝试编号为1的药水，第二只小白鼠尝试编号为2的药水，依此类推，每只小白鼠尝试的药水编号对应着二进制位上为1的药水。例如，第一只小白鼠尝试的药水编号为1、3、5、7、…，第二只小白鼠尝试的药水编号为2、3、6、7、…，依此类推。</p>
+<p>每只小白鼠死亡的结果对应着药水编号的二进制位上为1的位置，最终我们将每只小白鼠死亡的药水编号转换成二进制格式，然后将这些二进制数相加，得到的结果即为含有毒药的药水编号。</p>
+<p>这种方法的关键在于将100瓶药水的编号按照二进制格式排列，使得每只小白鼠死亡的结果能够提供关于毒药位置的信息，从而最小化实验所需的小白鼠数量</p>
+<h5 id="3-在从1到n的正数中1出现的次数"><a href="#3-在从1到n的正数中1出现的次数" class="headerlink" title="3.在从1到n的正数中1出现的次数"></a>3.在从1到n的正数中1出现的次数</h5><ol>
+<li>数位分析：<ul>
+<li>对于每个位数（个位、十位、百位等），分别计算数字1出现的次数，然后将所有位数的次数相加即可得到总次数。</li>
+<li>以n=12345为例，分别计算个位、十位、百位、千位和万位上数字1出现的次数，然后相加。</li>
+</ul>
+</li>
+</ol>
+<p>具体步骤如下：</p>
+<ul>
+<li>首先，从个位开始逐位计算数字1出现的次数。</li>
+<li>对于当前位数（假设为x），将数字n分为两部分：高位和低位。高位是当前位及更高位的数字，低位是当前位以下的数字。</li>
+<li>分情况讨论：<ul>
+<li>如果当前位数x为0，则当前位上数字1出现的次数为高位数字乘以当前位数的权重（例如，对于百位，权重为100）。</li>
+<li>如果当前位数x为1，则当前位上数字1出现的次数为高位数字乘以当前位数的权重，再加上低位数字加1。</li>
+<li>如果当前位数x大于1，则当前位上数字1出现的次数为（高位数字加1）乘以当前位数的权重。</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-一类似于蜂窝的结构的图，进行搜索最短路径（要求5分钟）"><a href="#4-一类似于蜂窝的结构的图，进行搜索最短路径（要求5分钟）" class="headerlink" title="4.一类似于蜂窝的结构的图，进行搜索最短路径（要求5分钟）"></a>4.一类似于蜂窝的结构的图，进行搜索最短路径（要求5分钟）</h5><p>广度优先搜索（BFS）算法是一种图搜索算法，用于从起始节点开始搜索图中的节点，直到找到目标节点或者遍历完所有可达节点。以下是BFS算法的原理描述：</p>
+<ol>
+<li><strong>初始化</strong>：<ul>
+<li>创建一个空队列（通常使用队列数据结构）用于保存当前待访问的节点。</li>
+<li>将起始节点放入队列中，并标记起始节点为已访问。</li>
+</ul>
+</li>
+<li><strong>循环搜索</strong>：<ul>
+<li>在队列不为空的情况下，循环执行以下步骤：<ul>
+<li>从队列中取出一个节点作为当前节点。</li>
+<li>检查当前节点是否是目标节点，如果是，则搜索结束，返回当前节点到起始节点的最短路径。</li>
+<li>否则，将当前节点的所有未访问过的相邻节点加入队列，并标记这些相邻节点为已访问。</li>
+<li>重复以上步骤，直到队列为空或者找到目标节点为止。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>搜索结果</strong>：<ul>
+<li>如果队列为空而且仍未找到目标节点，则表示图中不存在从起始节点到目标节点的路径。</li>
+<li>如果找到目标节点，则可以通过回溯到起始节点的路径来得到最短路径。</li>
+</ul>
+</li>
+</ol>
+<p>BFS算法的关键在于利用队列数据结构进行层级遍历，从而保证搜索到的路径是最短路径。每次从队列中取出一个节点时，都会将其所有未访问过的相邻节点加入队列，保证了搜索的广度优先性质。这样一层一层地搜索，直到找到目标节点或者搜索完所有可达节点，从而得到最短路径。</p>
 
       
     </div>
@@ -1651,7 +1918,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-知识整理"><span class="nav-number">1.</span> <span class="nav-text">iOS 知识整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-设计模式"><span class="nav-number">1.1.</span> <span class="nav-text">一.设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象特性"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">面向对象特性:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象编程原则"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">面向对象编程原则:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设计模式"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">设计模式:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS常用设计模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">iOS常用设计模式:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-数据结构"><span class="nav-number">1.2.</span> <span class="nav-text">二.数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-算法"><span class="nav-number">1.3.</span> <span class="nav-text">三.算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-应用的生命周期"><span class="nav-number">1.4.</span> <span class="nav-text">四.应用的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-main-之前经历什么"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.main()之前经历什么:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-main-之后"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.main()之后:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-启动优化思路"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.启动优化思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-内存中的5大区"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.内存中的5大区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-OC语言设计原理"><span class="nav-number">1.5.</span> <span class="nav-text">五. OC语言设计原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-synthesize-dynamic"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. synthesize , dynamic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-void-load和-void-initialize"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.+(void)load和+(void)initialize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-各种关键字"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.各种关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#atomic-只能实现读写的线程安全，并不能保证该属性本身的线程安全"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">atomic : 只能实现读写的线程安全，并不能保证该属性本身的线程安全.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-ARC和MRC-AutoRelease"><span class="nav-number">1.5.4.</span> <span class="nav-text">4. ARC和MRC,AutoRelease</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Category和Extension"><span class="nav-number">1.5.5.</span> <span class="nav-text">5. Category和Extension</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Category"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">Category :</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Extension"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">Extension :</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-property和实例变量"><span class="nav-number">1.5.6.</span> <span class="nav-text">6.@property和实例变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-id和instancetype的区别"><span class="nav-number">1.5.7.</span> <span class="nav-text">7. id和instancetype的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-Swift语言设计原理"><span class="nav-number">1.6.</span> <span class="nav-text">六. Swift语言设计原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-swift中高阶函数map、flatMap、filter、reduce"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.swift中高阶函数map、flatMap、filter、reduce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-结构体和类对比"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.结构体和类对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-值类型有哪些"><span class="nav-number">1.6.3.</span> <span class="nav-text">3.值类型有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-copy-on-write"><span class="nav-number">1.6.4.</span> <span class="nav-text">4.copy on write</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-optiinal原理"><span class="nav-number">1.6.5.</span> <span class="nav-text">5.optiinal原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Swift中如何使用runtime"><span class="nav-number">1.6.6.</span> <span class="nav-text">6.Swift中如何使用runtime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-闭包"><span class="nav-number">1.6.7.</span> <span class="nav-text">7.闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-作用域修饰符"><span class="nav-number">1.6.8.</span> <span class="nav-text">8.作用域修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Swift和OC对比"><span class="nav-number">1.6.9.</span> <span class="nav-text">9.Swift和OC对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-iOS各种机制和原理"><span class="nav-number">1.7.</span> <span class="nav-text">七.iOS各种机制和原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Runloop"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.Runloop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Runtime"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.Runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">1.7.2.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Runtime-API提供的接口基本都是C语言的，源码由C-C-汇编语言编写"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Objective-C成为动态性语言的基石"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">Objective-C成为动态性语言的基石.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-dsym符号表"><span class="nav-number">1.7.3.</span> <span class="nav-text">3.dsym符号表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-NULL"><span class="nav-number">1.7.4.</span> <span class="nav-text">4.NULL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-静态库和动态库"><span class="nav-number">1.7.5.</span> <span class="nav-text">5.静态库和动态库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-KVC-、KVO"><span class="nav-number">1.7.6.</span> <span class="nav-text">6.KVC 、KVO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Notification"><span class="nav-number">1.7.7.</span> <span class="nav-text">7.Notification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-多线程"><span class="nav-number">1.7.8.</span> <span class="nav-text">8.多线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-锁"><span class="nav-number">1.7.9.</span> <span class="nav-text">9.锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pthread-mutex"><span class="nav-number">1.7.10.</span> <span class="nav-text">pthread_mutex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pthread-mutex-recursive"><span class="nav-number">1.7.11.</span> <span class="nav-text">pthread_mutex(recursive)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSLock"><span class="nav-number">1.7.12.</span> <span class="nav-text">NSLock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSCondition"><span class="nav-number">1.7.13.</span> <span class="nav-text">NSCondition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSRecursiveLock"><span class="nav-number">1.7.14.</span> <span class="nav-text">NSRecursiveLock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized"><span class="nav-number">1.7.15.</span> <span class="nav-text">@synchronized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Block和闭包"><span class="nav-number">1.7.16.</span> <span class="nav-text">10.Block和闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-响应者链"><span class="nav-number">1.7.17.</span> <span class="nav-text">11.响应者链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#应用如何找到最合适的控件来处理事件？"><span class="nav-number">1.7.17.1.</span> <span class="nav-text">应用如何找到最合适的控件来处理事件？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-网络通信原理"><span class="nav-number">1.8.</span> <span class="nav-text">八.网络通信原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-tcp的三次握手-4次挥手"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">1.tcp的三次握手,4次挥手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-三次握手实现的过程"><span class="nav-number">1.8.0.2.</span> <span class="nav-text">2.三次握手实现的过程:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-四次挥手"><span class="nav-number">1.8.0.3.</span> <span class="nav-text">3.四次挥手:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Socket"><span class="nav-number">1.8.0.4.</span> <span class="nav-text">4.Socket</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-单双工"><span class="nav-number">1.8.0.5.</span> <span class="nav-text">5.单双工</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-http和websocket的长连接区别"><span class="nav-number">1.8.0.6.</span> <span class="nav-text">6.http和websocket的长连接区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-iOS本地持久化"><span class="nav-number">1.9.</span> <span class="nav-text">九.iOS本地持久化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-hybrid-app-开发原理-flutter原理"><span class="nav-number">1.10.</span> <span class="nav-text">十.hybrid app 开发原理 , flutter原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ReactNative-和-weex-对比"><span class="nav-number">1.10.1.</span> <span class="nav-text">ReactNative 和 weex 对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flutter"><span class="nav-number">1.10.2.</span> <span class="nav-text">flutter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一-性能优化"><span class="nav-number">1.11.</span> <span class="nav-text">十一.性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-卡顿检测以及原理"><span class="nav-number">1.11.1.</span> <span class="nav-text">1.卡顿检测以及原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-性能优化-卡顿产生原理以及优化"><span class="nav-number">1.11.2.</span> <span class="nav-text">二: 性能优化,卡顿产生原理以及优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-CPU和GPU卡顿原因"><span class="nav-number">1.11.2.1.</span> <span class="nav-text">2.1 CPU和GPU卡顿原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-卡顿解决方案"><span class="nav-number">1.11.2.2.</span> <span class="nav-text">2.2 卡顿解决方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-耗电网络优化"><span class="nav-number">1.11.2.3.</span> <span class="nav-text">2.3 耗电网络优化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-app启动速度优化"><span class="nav-number">1.11.3.</span> <span class="nav-text">三: app启动速度优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-启动流程"><span class="nav-number">1.11.3.1.</span> <span class="nav-text">3.1 启动流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-启动优化"><span class="nav-number">1.11.3.2.</span> <span class="nav-text">3.2 启动优化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-包大小优化"><span class="nav-number">1.11.4.</span> <span class="nav-text">四: 包大小优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bitcode"><span class="nav-number">1.11.5.</span> <span class="nav-text">bitcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-linker-flags"><span class="nav-number">1.11.6.</span> <span class="nav-text">Other linker flags</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二-常用框架原理"><span class="nav-number">1.12.</span> <span class="nav-text">十二.常用框架原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SDWebimage"><span class="nav-number">1.12.1.</span> <span class="nav-text">1.SDWebimage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-AFNetworking"><span class="nav-number">1.12.2.</span> <span class="nav-text">2.AFNetworking</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AFNetworking-底层原理分析"><span class="nav-number">1.12.2.1.</span> <span class="nav-text">AFNetworking 底层原理分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三-编译原理"><span class="nav-number">1.13.</span> <span class="nav-text">十三.编译原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四-蓝牙-wifi原理"><span class="nav-number">1.14.</span> <span class="nav-text">十四.蓝牙,wifi原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#蓝牙"><span class="nav-number">1.14.1.</span> <span class="nav-text">蓝牙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wifi"><span class="nav-number">1.14.2.</span> <span class="nav-text">wifi</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于flutter相关问题"><span class="nav-number">1.15.</span> <span class="nav-text">关于flutter相关问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于H5相关问题"><span class="nav-number">1.16.</span> <span class="nav-text">关于H5相关问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">2.</span> <span class="nav-text">未完待续</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-知识整理"><span class="nav-number">1.</span> <span class="nav-text">iOS 知识整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-设计模式"><span class="nav-number">1.1.</span> <span class="nav-text">一.设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象特性"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">面向对象特性:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象编程原则"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">面向对象编程原则:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设计模式"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">设计模式:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS常用设计模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">iOS常用设计模式:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-数据结构"><span class="nav-number">1.2.</span> <span class="nav-text">二.数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希冲突"><span class="nav-number">1.2.1.</span> <span class="nav-text">哈希冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表拓展"><span class="nav-number">1.2.2.</span> <span class="nav-text">链表拓展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表结构"><span class="nav-number">1.2.3.</span> <span class="nav-text">链表结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-算法"><span class="nav-number">1.3.</span> <span class="nav-text">三.算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU算法"><span class="nav-number">1.3.1.</span> <span class="nav-text">LRU算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-应用的生命周期"><span class="nav-number">1.4.</span> <span class="nav-text">四.应用的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-main-之前经历什么"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.main()之前经历什么:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-main-之后"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.main()之后:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-启动优化思路"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.启动优化思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-内存中的5大区"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.内存中的5大区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-OC语言设计原理"><span class="nav-number">1.5.</span> <span class="nav-text">五. OC语言设计原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-synthesize-dynamic"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. synthesize , dynamic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-void-load和-void-initialize"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.+(void)load和+(void)initialize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-各种关键字"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.各种关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#atomic-只能实现读写的线程安全，并不能保证该属性本身的线程安全"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">atomic : 只能实现读写的线程安全，并不能保证该属性本身的线程安全.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-ARC和MRC-AutoRelease"><span class="nav-number">1.5.4.</span> <span class="nav-text">4. ARC和MRC,AutoRelease</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Category和Extension"><span class="nav-number">1.5.5.</span> <span class="nav-text">5. Category和Extension</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Category"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">Category :</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Extension"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">Extension :</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-property和实例变量"><span class="nav-number">1.5.6.</span> <span class="nav-text">6.@property和实例变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-id和instancetype的区别"><span class="nav-number">1.5.7.</span> <span class="nav-text">7. id和instancetype的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-内存管理和循环引用"><span class="nav-number">1.5.8.</span> <span class="nav-text">8.内存管理和循环引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-Swift语言设计原理"><span class="nav-number">1.6.</span> <span class="nav-text">六. Swift语言设计原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-swift中高阶函数map、flatMap、filter、reduce"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.swift中高阶函数map、flatMap、filter、reduce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-结构体和类对比"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.结构体和类对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-值类型有哪些"><span class="nav-number">1.6.3.</span> <span class="nav-text">3.值类型有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-copy-on-write"><span class="nav-number">1.6.4.</span> <span class="nav-text">4.copy on write</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-optiinal原理"><span class="nav-number">1.6.5.</span> <span class="nav-text">5.optiinal原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Swift中如何使用runtime"><span class="nav-number">1.6.6.</span> <span class="nav-text">6.Swift中如何使用runtime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-闭包"><span class="nav-number">1.6.7.</span> <span class="nav-text">7.闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-作用域修饰符"><span class="nav-number">1.6.8.</span> <span class="nav-text">8.作用域修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Swift和OC对比"><span class="nav-number">1.6.9.</span> <span class="nav-text">9.Swift和OC对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-iOS各种机制和原理"><span class="nav-number">1.7.</span> <span class="nav-text">七.iOS各种机制和原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Runloop"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.Runloop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Runtime"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.Runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">1.7.2.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Runtime-API提供的接口基本都是C语言的，源码由C-C-汇编语言编写"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Objective-C成为动态性语言的基石"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">Objective-C成为动态性语言的基石.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-dsym符号表"><span class="nav-number">1.7.3.</span> <span class="nav-text">3.dsym符号表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#dSYM-符号表"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">dSYM 符号表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bugly-的实现原理"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">Bugly 的实现原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-NULL"><span class="nav-number">1.7.4.</span> <span class="nav-text">4.NULL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-静态库和动态库"><span class="nav-number">1.7.5.</span> <span class="nav-text">5.静态库和动态库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-KVC-、KVO"><span class="nav-number">1.7.6.</span> <span class="nav-text">6.KVC 、KVO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Notification"><span class="nav-number">1.7.7.</span> <span class="nav-text">7.Notification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-多线程"><span class="nav-number">1.7.8.</span> <span class="nav-text">8.多线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-锁"><span class="nav-number">1.7.9.</span> <span class="nav-text">9.锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pthread-mutex"><span class="nav-number">1.7.10.</span> <span class="nav-text">pthread_mutex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pthread-mutex-recursive"><span class="nav-number">1.7.11.</span> <span class="nav-text">pthread_mutex(recursive)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSLock"><span class="nav-number">1.7.12.</span> <span class="nav-text">NSLock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSCondition"><span class="nav-number">1.7.13.</span> <span class="nav-text">NSCondition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSRecursiveLock"><span class="nav-number">1.7.14.</span> <span class="nav-text">NSRecursiveLock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized"><span class="nav-number">1.7.15.</span> <span class="nav-text">@synchronized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Block和闭包"><span class="nav-number">1.7.16.</span> <span class="nav-text">10.Block和闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-响应者链"><span class="nav-number">1.7.17.</span> <span class="nav-text">11.响应者链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#应用如何找到最合适的控件来处理事件？"><span class="nav-number">1.7.17.1.</span> <span class="nav-text">应用如何找到最合适的控件来处理事件？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-网络通信原理"><span class="nav-number">1.8.</span> <span class="nav-text">八.网络通信原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-tcp的三次握手-4次挥手"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">1.tcp的三次握手,4次挥手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-三次握手实现的过程"><span class="nav-number">1.8.0.2.</span> <span class="nav-text">2.三次握手实现的过程:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-四次挥手"><span class="nav-number">1.8.0.3.</span> <span class="nav-text">3.四次挥手:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于为什么3次握手4次挥手"><span class="nav-number">1.8.0.4.</span> <span class="nav-text">关于为什么3次握手4次挥手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Charles抓包原理"><span class="nav-number">1.8.0.5.</span> <span class="nav-text">Charles抓包原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Socket"><span class="nav-number">1.8.0.6.</span> <span class="nav-text">4.Socket</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-单双工"><span class="nav-number">1.8.0.7.</span> <span class="nav-text">5.单双工</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-http和websocket的长连接区别"><span class="nav-number">1.8.0.8.</span> <span class="nav-text">6.http和websocket的长连接区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于客户端公钥的验证-SSL-TLS-证书"><span class="nav-number">1.8.0.9.</span> <span class="nav-text">关于客户端公钥的验证(SSL/TLS 证书)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于Socket"><span class="nav-number">1.8.0.10.</span> <span class="nav-text">关于Socket</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于MTU"><span class="nav-number">1.8.0.11.</span> <span class="nav-text">关于MTU</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-iOS本地持久化"><span class="nav-number">1.9.</span> <span class="nav-text">九.iOS本地持久化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-hybrid-app-开发原理-flutter原理"><span class="nav-number">1.10.</span> <span class="nav-text">十.hybrid app 开发原理 , flutter原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ReactNative-和-weex-对比"><span class="nav-number">1.10.1.</span> <span class="nav-text">ReactNative 和 weex 对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flutter"><span class="nav-number">1.10.2.</span> <span class="nav-text">flutter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一-性能优化"><span class="nav-number">1.11.</span> <span class="nav-text">十一.性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-卡顿检测以及原理"><span class="nav-number">1.11.1.</span> <span class="nav-text">1.卡顿检测以及原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-性能优化-卡顿产生原理以及优化"><span class="nav-number">1.11.2.</span> <span class="nav-text">二: 性能优化,卡顿产生原理以及优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-CPU和GPU卡顿原因"><span class="nav-number">1.11.2.1.</span> <span class="nav-text">2.1 CPU和GPU卡顿原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-卡顿解决方案"><span class="nav-number">1.11.2.2.</span> <span class="nav-text">2.2 卡顿解决方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-耗电网络优化"><span class="nav-number">1.11.2.3.</span> <span class="nav-text">2.3 耗电网络优化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-app启动速度优化"><span class="nav-number">1.11.3.</span> <span class="nav-text">三: app启动速度优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-启动流程"><span class="nav-number">1.11.3.1.</span> <span class="nav-text">3.1 启动流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-启动优化"><span class="nav-number">1.11.3.2.</span> <span class="nav-text">3.2 启动优化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-包大小优化"><span class="nav-number">1.11.4.</span> <span class="nav-text">四: 包大小优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bitcode"><span class="nav-number">1.11.5.</span> <span class="nav-text">bitcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-linker-flags"><span class="nav-number">1.11.6.</span> <span class="nav-text">Other linker flags</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二-常用框架原理"><span class="nav-number">1.12.</span> <span class="nav-text">十二.常用框架原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SDWebimage"><span class="nav-number">1.12.1.</span> <span class="nav-text">1.SDWebimage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-AFNetworking"><span class="nav-number">1.12.2.</span> <span class="nav-text">2.AFNetworking</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AFNetworking-底层原理分析"><span class="nav-number">1.12.2.1.</span> <span class="nav-text">AFNetworking 底层原理分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三-编译原理"><span class="nav-number">1.13.</span> <span class="nav-text">十三.编译原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四-蓝牙-wifi原理"><span class="nav-number">1.14.</span> <span class="nav-text">十四.蓝牙,wifi原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#蓝牙"><span class="nav-number">1.14.1.</span> <span class="nav-text">蓝牙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wifi"><span class="nav-number">1.14.2.</span> <span class="nav-text">wifi</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于flutter相关问题"><span class="nav-number">1.15.</span> <span class="nav-text">关于flutter相关问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于H5相关问题"><span class="nav-number">1.16.</span> <span class="nav-text">关于H5相关问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">2.</span> <span class="nav-text">未完待续</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经典算法题"><span class="nav-number">2.1.</span> <span class="nav-text">经典算法题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-N级台阶-一次可以跳1级-也可以跳2级-总共多少种跳法"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">1. N级台阶 一次可以跳1级 也可以跳2级 总共多少种跳法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-有100瓶药水，其中一瓶是毒药，只要一小滴，就足以让小白鼠24小时内死亡。请问怎么在1天内用最少的老鼠找出这瓶毒药"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">2.有100瓶药水，其中一瓶是毒药，只要一小滴，就足以让小白鼠24小时内死亡。请问怎么在1天内用最少的老鼠找出这瓶毒药</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-在从1到n的正数中1出现的次数"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">3.在从1到n的正数中1出现的次数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-一类似于蜂窝的结构的图，进行搜索最短路径（要求5分钟）"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">4.一类似于蜂窝的结构的图，进行搜索最短路径（要求5分钟）</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1706,7 +1973,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共79.3k字</span>
+  <span class="post-count">博客全站共86.5k字</span>
 </div>
 
         
@@ -1872,7 +2139,7 @@
   
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1711449694838')
+  navigator.serviceWorker.register('/sw.js?t=1711591864595')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
