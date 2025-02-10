@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><link rel=manifest href=/manifest.json>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="方法总结," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MMKV初探">
+<meta name="keywords" content="方法总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MMKV初探">
+<meta property="og:url" content="http://yoursite.com/2021/03/20/MMKV初探/index.html">
+<meta property="og:site_name" content="汪洋的博客">
+<meta property="og:description" content="MMKV初探">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/1.jpeg">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/2.jpeg">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/4.png">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/profile_android_mini.png">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/profile_android.png">
+<meta property="og:image" content="http://yoursite.com/2021/03/20/MMKV初探/profile_multiprocess.png">
+<meta property="og:updated_time" content="2021-09-12T08:32:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MMKV初探">
+<meta name="twitter:description" content="MMKV初探">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/20/MMKV初探/1.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/03/20/MMKV初探/"/>
+
+
+
+
+
+  <title>MMKV初探 | 汪洋的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+  
+  <a href="https://github.com/sophistWY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">汪洋的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep Hungry, keep Fool</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/20/MMKV初探/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MMKV初探</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-20T11:31:43+08:00">
+                2021-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,096 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MMKV初探"><a href="#MMKV初探" class="headerlink" title="MMKV初探"></a>MMKV初探</h1><a id="more"></a>
+<h4 id="一-介绍"><a href="#一-介绍" class="headerlink" title="一.介绍"></a>一.介绍</h4><p><strong><em>功能：</em></strong>一个高性能的 key-value 存储组件。</p>
+<p><strong><em>诞生：</em></strong>在微信客户端的日常运营中，时不时就会爆发特殊文字引起系统的 crash。微信团队设计一套技术方案来检测crash（<a href="https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&amp;mid=2649286826&amp;idx=1&amp;sn=35601cb1156617aa235b7fd4b085bfc4" target="_blank" rel="noopener">微信特殊字符保护方案</a>）: <strong><em>关键代码前后进行计数器的加减，通过检查计数器的异常，来发现引起闪退的异常文字</em></strong>。而这个计数器需要永久存储下来——因为闪退随时可能发生，希望新加的计时器不会影响滑动性能，mmap内存映射文件刚好满足，然后基于mmap的MMKV应运而生。</p>
+<p><strong><em>核心：</em></strong>利用mmap 内存映射文件。（<a href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemAdvancedPT/MappingFilesIntoMemory/MappingFilesIntoMemory.html" target="_blank" rel="noopener">mmap官方文档</a>）</p>
+<h4 id="二-mmap-原理"><a href="#二-mmap-原理" class="headerlink" title="二.mmap 原理"></a>二.mmap 原理</h4><h5 id="1-普通文件访问流程："><a href="#1-普通文件访问流程：" class="headerlink" title="1.普通文件访问流程："></a>1.普通文件访问流程：</h5><p>从代码层面上看，从硬盘上将文件读入内存，都要经过文件系统进行数据拷贝，并且数据拷贝操作是由文件系统和硬件驱动实现的，理论上来说，拷贝数据的效率是一样的。但是通过内存映射的方法访问硬盘上的文件，效率要比read和write系统调用高，这是为什么呢？原因是read()是系统调用，其中进行了数据拷贝，它首先将文件内容从硬盘拷贝到内核空间的一个缓冲区，如图2中过程1，然后再将这些数据拷贝到用户空间，如图2中过程2，在这个过程中，实际上完成了 两次数据拷贝 ；而mmap()也是系统调用，如前所述，mmap()中没有进行数据拷贝，真正的数据拷贝是在缺页中断处理时进行的，由于mmap()将文件直接映射到用户空间，所以中断处理函数根据这个映射关系，直接将文件从硬盘拷贝到用户空间，只进行了 一次数据拷贝 。因此，内存映射的效率要比read/write效率高。</p>
+<p><img src="/2021/03/20/MMKV初探/1.jpeg" alt="1"></p>
+<h5 id="2-mmap过程"><a href="#2-mmap过程" class="headerlink" title="2.mmap过程"></a>2.mmap过程</h5><p> “映射” → 建立一种一一对应关系 :  硬盘上文件 的位置与进程 逻辑地址空间 中一块大小相同的区域之间的一一对应 。</p>
+<p><a href="https://www.zhihu.com/question/338216744/answer/781935310" target="_blank" rel="noopener">详解地址</a></p>
+<blockquote>
+<p>在内存映射的过程中，并没有实际的数据拷贝，<strong><em>文件没有被载入内存，只是逻辑上被放入了内存</em></strong>，具体到代码，就是建立并初始化了相关的数据结构（struct address_space），这个过程有系统调用mmap()实现，所以建立内存映射的效率很高</p>
+</blockquote>
+<p><img src="/2021/03/20/MMKV初探/2.jpeg" alt="2"></p>
+<p>内存映射原理：</p>
+<p>既然建立内存映射没有进行实际的数据拷贝，那么进程又怎么能最终直接通过内存操作访问到硬盘上的文件呢？那就要看内存映射之后的几个相关的过程了。</p>
+<p>mmap()会返回一个指针ptr，它指向进程逻辑地址空间中的一个地址，这样以后，进程无需再调用read或write对文件进行读写，而只需要通过ptr就能够操作文件。但是ptr所指向的是一个逻辑地址，要操作其中的数据，必须通过MMU将逻辑地址转换成物理地址，如图1中过程2所示。这个过程与内存映射无关。</p>
+<p>前面讲过，建立内存映射并没有实际拷贝数据，这时，MMU在地址映射表中是无法找到与ptr相对应的物理地址的，也就是MMU失败，将产生一个缺页中断，缺页中断的中断响应函数会在swap中寻找相对应的页面，如果找不到（也就是该文件从来没有被读入内存的情况），则会通过mmap()建立的映射关系，从硬盘上将文件读取到物理内存中，如图1中过程3所示。这个过程与内存映射无关。</p>
+<p>如果在拷贝数据时，发现物理内存不够用，则会通过虚拟内存机制（swap）将暂时不用的物理页面交换到硬盘上，如图1中过程4所示。这个过程也与内存映射无关。</p>
+<h4 id="三-MMKV-原理"><a href="#三-MMKV-原理" class="headerlink" title="三.MMKV 原理"></a>三.MMKV 原理</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="/2021/03/20/MMKV初探/3.jpg" alt="3"></h4><p><img src="/2021/03/20/MMKV初探/4.png" alt="4"></p>
+<ul>
+<li><p><strong>内存准备</strong><br>通过 mmap 内存映射文件，提供一段可供随时写入的内存块，App 只管往里面写数据，由操作系统负责将内存回写到文件，不必担心 crash 导致数据丢失。</p>
+</li>
+<li><p><strong>数据组织</strong><br>数据序列化方面我们选用 protobuf 协议，pb 在性能和空间占用上都有不错的表现。(protobuf 协议 : 基于128bits的数值存储方式（Base 128 Varints）)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">message KV &#123;</span><br><span class="line">	string key = 1;</span><br><span class="line">	buffer value = 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(BOOL)setInt32:(int32_t)value forKey:(NSString*)key &#123;</span><br><span class="line">	auto data = PBEncode(value);</span><br><span class="line">	return [self setData:data forKey:key];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(BOOL)setData:(NSData*)data forKey:(NSString*)key &#123;</span><br><span class="line">	auto kv = KV &#123; key, data &#125;;</span><br><span class="line">	auto buf = PBEncode(kv);</span><br><span class="line">	return [self write:buf];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>写入优化</strong><br>考虑到主要使用场景是频繁地进行写入更新，我们需要有增量更新的能力。我们考虑将增量 kv 对象序列化后，append 到内存末尾。</p>
+</li>
+</ul>
+<ul>
+<li><strong>空间增长</strong><br>使用 append 实现增量更新带来了一个新的问题，就是不断 append 的话，文件大小会增长得不可控。我们需要在性能和空间上做个折中。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="built_in">BOOL</span>)append:(<span class="built_in">NSData</span>*)data &#123;</span><br><span class="line">	<span class="keyword">if</span> (space &gt;= data.length) &#123;</span><br><span class="line">		append(fd, data);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		newData = unique(m_allKV);</span><br><span class="line">		<span class="keyword">if</span> (total_space &gt;= newData.length) &#123;</span><br><span class="line">			write(fd, newData);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">while</span> (total_space &lt; newData.length) &#123;</span><br><span class="line">				total_space *= <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			ftruncate(fd, total_space);</span><br><span class="line">			write(fd, newData);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>数据有效性</strong></li>
+</ul>
+<p>考虑到文件系统、操作系统都有一定的不稳定性，额外增加了 crc 校验，对无效数据进行甄别。</p>
+<blockquote>
+<p>CRC（Cyclic Redundancy Check，循环冗余校验）算法</p>
+<p>   在数据通讯过程中，用于检测接收到的数据是否正确。所谓的校验就是在传输的数据中加入一些附加信息，这些附加信息用于检验接收方接收到的数据是否和发送发发送的数据是否相同。</p>
+</blockquote>
+<h3 id="四-性能"><a href="#四-性能" class="headerlink" title="四. 性能"></a>四. 性能</h3><p>循环写入随机的<code>int</code> 1k 次，有如下性能对比</p>
+<p><img src="/2021/03/20/MMKV初探/profile_android_mini.png" alt="profile_android_mini"></p>
+<p>以下基于 <strong>华为 Mate 20 Pro 128G，Android 10，每组操作重复 1k 次，时间单位是 ms。</strong></p>
+<ul>
+<li><p>单进程</p>
+<p><img src="/2021/03/20/MMKV初探/profile_android.png" alt="profile_android"></p>
+</li>
+<li><p>多进程</p>
+</li>
+</ul>
+<p><img src="/2021/03/20/MMKV初探/profile_multiprocess.png" alt="profile_multiprocess"></p>
+<h3 id="五-应用场景"><a href="#五-应用场景" class="headerlink" title="五. 应用场景"></a>五. 应用场景</h3><h4 id="1-适合的场景"><a href="#1-适合的场景" class="headerlink" title="1. 适合的场景"></a>1. 适合的场景</h4><blockquote>
+<ul>
+<li>有一个很大的文件，因为映射有额外的性能消耗，所以适用于频繁读操作的场景；（单次使用的场景不建议使用）</li>
+<li>有一个小文件，它的内容您想要立即读入内存并经常访问。这种技术最适合那些大小不超过几个虚拟内存页的文件。（页是地址空间的最小单位，虚拟页和物理页的大小是一样的，通常为 4KB。）</li>
+<li>需要在内存中缓存文件的特定部分。文件映射消除了缓存数据的需要，这使得系统磁盘缓存中的其他数据空间更大</li>
+</ul>
+<p>当随机访问一个非常大的文件时，通常最好只映射文件的一小部分。映射大文件的问题是文件会消耗活动内存。如果文件足够大，系统可能会被迫将其他部分的内存分页以加载文件。将多个文件映射到内存中会使这个问题更加复杂。</p>
+</blockquote>
+<h4 id="2-不适合的场景"><a href="#2-不适合的场景" class="headerlink" title="2.不适合的场景"></a>2.不适合的场景</h4><blockquote>
+<ul>
+<li>希望从开始到结束的顺序从头到尾读取一个文件</li>
+<li>文件有几百兆字节或者更大。将大文件映射到内存中会快速地填充内存，并可能导致分页，这将抵消首先映射文件的好处。对于大型顺序读取操作，禁用磁盘缓存并将文件读入一个小内存缓冲区</li>
+<li>该文件大于可用的连续虚拟内存地址空间。对于 64 位应用程序来说，这不是什么问题，但是对于 32 位应用程序来说，这是一个问题。32 位虚拟内存最大是 4GB，可以只映射部分。</li>
+<li>因为每次操作内存会同步到磁盘，所以不适用于移动磁盘或者网络磁盘上的文件；</li>
+<li>变长文件不适用；</li>
+</ul>
+</blockquote>
+<p>参考链接地址：<a href="https://blog.csdn.net/u010919133/article/details/103747510" target="_blank" rel="noopener">https://blog.csdn.net/u010919133/article/details/103747510</a></p>
+<p>项目地址：<a href="https://github.com/Tencent/MMKV" target="_blank" rel="noopener">https://github.com/Tencent/MMKV</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/方法总结/" rel="tag"># 方法总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/01/中华人民共和国民法典/" rel="next" title="中华人民共和国民法典">
+                <i class="fa fa-chevron-left"></i> 中华人民共和国民法典
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/18/WKWebView/" rel="prev" title="WKWebView">
+                WKWebView <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">sophistWY</p>
+              <p class="site-description motion-element" itemprop="description">keep Hungry, keep Fool</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sophistWY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MMKV初探"><span class="nav-number">1.</span> <span class="nav-text">MMKV初探</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-介绍"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一.介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-mmap-原理"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">二.mmap 原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-普通文件访问流程："><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">1.普通文件访问流程：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-mmap过程"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">2.mmap过程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-MMKV-原理"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">三.MMKV 原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.0.0.4.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-性能"><span class="nav-number">1.0.1.</span> <span class="nav-text">四. 性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-应用场景"><span class="nav-number">1.0.2.</span> <span class="nav-text">五. 应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-适合的场景"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">1. 适合的场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-不适合的场景"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2.不适合的场景</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sophistWY</span>
+
+  
+<!--
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+-->
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共87.5k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1739169216267')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><link rel=manifest href=/manifest.json>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Flutter 实战">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter 实战">
+<meta property="og:url" content="http://yoursite.com/2022/01/10/Flutter 实战/index.html">
+<meta property="og:site_name" content="汪洋的博客">
+<meta property="og:description" content="Flutter 实战">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-06-21T09:49:46.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flutter 实战">
+<meta name="twitter:description" content="Flutter 实战">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/01/10/Flutter 实战/"/>
+
+
+
+
+
+  <title>Flutter 实战 | 汪洋的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+  
+  <a href="https://github.com/sophistWY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">汪洋的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep Hungry, keep Fool</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/10/Flutter 实战/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sophistWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汪洋的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Flutter 实战</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-10T14:50:13+08:00">
+                2022-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flutter/" itemprop="url" rel="index">
+                    <span itemprop="name">Flutter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,448 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Flutter-实战"><a href="#Flutter-实战" class="headerlink" title="Flutter 实战"></a>Flutter 实战</h2><a id="more"></a>
+<h4 id="一-前置概念"><a href="#一-前置概念" class="headerlink" title="一.前置概念"></a>一.前置概念</h4><p><strong>1. Flutter module</strong> </p>
+<p><strong>概念：</strong></p>
+<p>将Flutter添加到你的既有 iOS 应用中(利用CocoaPods)</p>
+<p><strong>创建 :</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd some/path/</span><br><span class="line">flutter create --template module my_flutter</span><br></pre></td></tr></table></figure>
+<p><strong>2. 原生插件</strong> <strong>(Plugin packages)</strong></p>
+<p><strong>概念：</strong></p>
+<p>使用 Dart 编写的，按需使用 Java 或 Kotlin、Objective-C 或 Swift 分别在 Android 和/或 iOS 平台实现的 package。</p>
+<p><strong>创建 :</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 使用 -a 选项指定 Android 的语言，或使用 -i 选项指定 iOS 的语言</span><br><span class="line">flutter create --org com.example --template=plugin --platforms=android,ios -a kotlin -i swift flutter_plugins</span><br></pre></td></tr></table></figure>
+<p><strong>3. 纯</strong> <strong>Dart</strong> <strong>库</strong> <strong>(Dart packages)</strong> </p>
+<p><strong>概念：</strong></p>
+<p>用 Dart 编写的传统 package，比如 <a href="https://pub.flutter-io.cn/packages/path" target="_blank" rel="noopener">path</a>。其中一些可能包含 Flutter 的特定功能，因此依赖于 Flutter 框架，其使用范围仅限于 Flutter，比如 <a href="https://pub.flutter-io.cn/packages/fluro" target="_blank" rel="noopener">fluro</a>。</p>
+<p><strong>创建：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter create --template=package flutter_packages</span><br></pre></td></tr></table></figure>
+<p><strong><em> Tips：</em></strong></p>
+<ol>
+<li><p>你的应用将不能在模拟器上运行 Release 模式，因为 Flutter 还不支持将 Dart 代码编译成 x86/x86_64 ahead-of-time (AOT) 模式的二进制文件。</p>
+</li>
+<li><p><code>Flutter.framework</code> 是 Flutter engine 的框架， <code>App.framework</code> 是你的 Dart 代码的编译产物。</p>
+</li>
+<li><p><a href="https://flutter.cn/docs/development/packages-and-plugins/developing-packages" target="_blank" rel="noopener">参考文档 &gt;&gt;</a></p>
+</li>
+</ol>
+<h4 id="二-开始集成"><a href="#二-开始集成" class="headerlink" title="二. 开始集成"></a>二. 开始集成</h4><h5 id="修改Podfile"><a href="#修改Podfile" class="headerlink" title="修改Podfile"></a>修改Podfile</h5><ol>
+<li><p>在 <code>Podfile</code> 中添加下面代码：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter_application_path = <span class="string">'$&#123;flutter module目录&#125;'</span></span><br><span class="line">load File.join(flutter_application_path, <span class="string">'.ios'</span>, <span class="string">'Flutter'</span>, <span class="string">'podhelper.rb'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每个需要集成 Flutter 的 <a href="https://guides.cocoapods.org/syntax/podfile.html#target" target="_blank" rel="noopener">Podfile target</a>，执行 <code>install_all_flutter_pods(flutter_application_path)</code>：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target <span class="string">'MyApp'</span> <span class="keyword">do</span></span><br><span class="line">  install_all_flutter_pods(flutter_application_path)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行 <code>pod install</code>。</p>
+</li>
+</ol>
+<p><strong><em> Tips：</em></strong></p>
+<ol>
+<li>podhelper.rb 脚本会把你的 plugins， Flutter.framework，和 App.framework 集成到你的项目中</li>
+<li>运行一个集成flutter module的项目：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $&#123;flutter module目录&#125;</span><br><span class="line">flutter pub upgrade</span><br><span class="line">cd $&#123;iOS工程目录&#125;</span><br><span class="line">pod install</span><br></pre></td></tr></table></figure>
+<h4 id="三-Flutter-Engine"><a href="#三-Flutter-Engine" class="headerlink" title="三. Flutter Engine"></a>三. Flutter Engine</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> flutterEngine = <span class="type">FlutterEngine</span>(name: <span class="string">"flutter engine"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">      <span class="comment">// 启动引擎</span></span><br><span class="line">      <span class="keyword">self</span>.flutterEngine.run()</span><br><span class="line">      <span class="comment">// 注册插件</span></span><br><span class="line">      <span class="type">GeneratedPluginRegistrant</span>.register(with: <span class="keyword">self</span>.flutterEngine);</span><br><span class="line">      <span class="comment">// 平台视图</span></span><br><span class="line">      <span class="keyword">let</span> factory = <span class="type">FLNativeViewFactory</span>(messenger: <span class="keyword">self</span>.flutterEngine.binaryMessenger)</span><br><span class="line">      <span class="keyword">self</span>.flutterEngine.registrar(forPlugin: <span class="string">"&lt;plugin-name&gt;"</span>)?.register(factory, withId: <span class="string">"&lt;platform-view-type&gt;"</span>)</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><strong><em> Tips：</em></strong></p>
+<p>1.<strong><em> IDE推荐Android Studio</em></strong></p>
+<p>2.在 <code>FlutterEngine</code> 上调用 <code>run</code>，默认将会调用你的 <code>lib/main.dart</code> 文件里的 <code>main()</code> 函数。</p>
+<h4 id="四-Flutter和iOS原生交互"><a href="#四-Flutter和iOS原生交互" class="headerlink" title="四. Flutter和iOS原生交互"></a>四. Flutter和iOS原生交互</h4><h5 id="1-Methods-Channel"><a href="#1-Methods-Channel" class="headerlink" title="1. Methods Channel"></a>1. Methods Channel</h5><h5 id="dart-To-iOS"><a href="#dart-To-iOS" class="headerlink" title="dart To iOS"></a>dart To iOS</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 methodChannel  dart -&gt; iOS</span></span><br><span class="line">MethodChannel methodChannel = <span class="keyword">const</span> MethodChannel(<span class="string">'samples.flutter.dev'</span>);</span><br><span class="line">Future&lt;<span class="keyword">void</span>&gt; _getDeviceInfo() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">String</span> result = <span class="keyword">await</span> methodChannel.invokeMethod(<span class="string">'getDeviceInfo'</span>, &#123;<span class="string">"key"</span>: <span class="string">"value"</span>&#125;);</span><br><span class="line">    _deviceInfo = result;</span><br><span class="line">    debugPrint(result);</span><br><span class="line">  &#125; on PlatformException <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    _deviceInfo = <span class="string">"Failed to get device info: '<span class="subst">$&#123;e.message&#125;</span>'."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  setState(() &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iOS 端</span></span><br><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> methodChannel:<span class="type">FlutterMethodChannel</span> = &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">FlutterMethodChannel</span>(name: <span class="string">"samples.flutter.dev"</span>,</span><br><span class="line">                  binaryMessenger: <span class="keyword">self</span>.flutterEngine.binaryMessenger);</span><br><span class="line">  &#125;()</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">initChannel</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">self</span>.methodChannel.setMethodCallHandler(&#123;</span><br><span class="line">      (call: <span class="type">FlutterMethodCall</span>, result: @escaping <span class="type">FlutterResult</span>) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">      <span class="comment">// Note: this method is invoked on the UI thread.</span></span><br><span class="line">      <span class="comment">// Handle battery messages.</span></span><br><span class="line">      <span class="keyword">if</span> (call.method == <span class="string">"getDeviceInfo"</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> device = <span class="type">UIDevice</span>.current</span><br><span class="line">        result(device.identifierForVendor?.uuidString)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        result(<span class="type">FlutterMethodNotImplemented</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="iOS-To-dart"><a href="#iOS-To-dart" class="headerlink" title="iOS To dart"></a>iOS To dart</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iOS 端</span></span><br><span class="line"> <span class="keyword">self</span>.methodChannel.invokeMethod(<span class="string">"callToDart"</span>, arguments: [<span class="string">"我是原生端"</span>:<span class="string">"呵呵🙂"</span>]) &#123; data <span class="keyword">in</span></span><br><span class="line">      <span class="comment">// Dart 返回的数据</span></span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">let</span> content = data <span class="keyword">as</span>? <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="string">"Dart返回的数据"</span>, message: content, preferredStyle: <span class="type">UIAlertController</span>.<span class="type">Style</span>.alert)</span><br><span class="line">        alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"确定"</span>, style: <span class="type">UIAlertAction</span>.<span class="type">Style</span>.<span class="keyword">default</span>, handler: &#123; action <span class="keyword">in</span></span><br><span class="line">           </span><br><span class="line">        &#125;))</span><br><span class="line">        <span class="keyword">self</span>.present(alert, animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dart 端</span></span><br><span class="line">MethodChannel methodChannel = <span class="keyword">const</span> MethodChannel(<span class="string">'samples.flutter.dev'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> _listenFromNative() &#123;</span><br><span class="line">  methodChannel.setMethodCallHandler(_fromNative);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Future&lt;<span class="keyword">dynamic</span>&gt; _fromNative(MethodCall call) <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (call.method == <span class="string">"callToDart"</span>) &#123;</span><br><span class="line">    debugPrint(call.arguments.toString());</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      _nativeData = call.arguments.toString();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> FlutterError(<span class="string">"FlutterMethodNotImplemented"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;<span class="string">"FlutterKey"</span>: <span class="string">"呵呵🙂"</span>&#125;.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-平台视图托管-PlatformView"><a href="#2-平台视图托管-PlatformView" class="headerlink" title="2.平台视图托管 (PlatformView)"></a>2.平台视图托管 (PlatformView)</h5><p>集成平台视图（后称为平台视图）允许将原生视图嵌入到 Flutter 应用中，所以您可以通过 Dart 将变换、裁剪和不透明度等效果应用到原生视图。（eg: Map,Webview … ）</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dart 端</span></span><br><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line">  <span class="comment">// This is used in the platform side to register the view.</span></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> viewType = <span class="string">'&lt;platform-view-type&gt;'</span>;</span><br><span class="line">  <span class="comment">// Pass parameters to the platform side.</span></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="keyword">dynamic</span>&gt; creationParams = &lt;<span class="built_in">String</span>, <span class="keyword">dynamic</span>&gt;&#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> UiKitView(</span><br><span class="line">    viewType: viewType,</span><br><span class="line">    layoutDirection: TextDirection.ltr,</span><br><span class="line">    creationParams: creationParams,</span><br><span class="line">    creationParamsCodec: <span class="keyword">const</span> StandardMessageCodec(),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iOS 端</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FLNativeViewFactory</span>: <span class="title">NSObject</span>, <span class="title">FlutterPlatformViewFactory</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">var</span> messenger: <span class="type">FlutterBinaryMessenger</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">init</span>(messenger: <span class="type">FlutterBinaryMessenger</span>) &#123;</span><br><span class="line">    <span class="keyword">self</span>.messenger = messenger</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">create</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    withFrame frame: CGRect,</span></span></span><br><span class="line"><span class="function"><span class="params">    viewIdentifier viewId: Int64,</span></span></span><br><span class="line"><span class="function"><span class="params">    arguments args: Any?</span></span></span><br><span class="line"><span class="function"><span class="params">  )</span></span> -&gt; <span class="type">FlutterPlatformView</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">FLNativeView</span>(</span><br><span class="line">      frame: frame,</span><br><span class="line">      viewIdentifier: viewId,</span><br><span class="line">      arguments: args,</span><br><span class="line">      binaryMessenger: messenger)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FLNativeView</span>: <span class="title">NSObject</span>, <span class="title">FlutterPlatformView</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">var</span> _view: <span class="type">UIView</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">init</span>(</span><br><span class="line">    frame: <span class="type">CGRect</span>,</span><br><span class="line">    viewIdentifier viewId: <span class="type">Int64</span>,</span><br><span class="line">    arguments args: <span class="type">Any</span>?,</span><br><span class="line">    binaryMessenger messenger: <span class="type">FlutterBinaryMessenger</span>?</span><br><span class="line">  ) &#123;</span><br><span class="line">    _view = <span class="type">UIView</span>()</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">    <span class="comment">// iOS views can be created here</span></span><br><span class="line">    createNativeView(view: _view)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">view</span><span class="params">()</span></span> -&gt; <span class="type">UIView</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> _view</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">createNativeView</span><span class="params">(view _view: UIView)</span></span>&#123;</span><br><span class="line">    _view.backgroundColor = <span class="type">UIColor</span>.gray</span><br><span class="line">    <span class="keyword">let</span> nativeLabel = <span class="type">UILabel</span>()</span><br><span class="line">    nativeLabel.text = <span class="string">"Native text from iOS"</span></span><br><span class="line">    nativeLabel.textColor = <span class="type">UIColor</span>.cyan</span><br><span class="line">    nativeLabel.textAlignment = .center</span><br><span class="line">    nativeLabel.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">20</span>, width: <span class="number">200</span>, height:<span class="number">100</span>)</span><br><span class="line">    _view.addSubview(nativeLabel)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册平台视图</span></span><br><span class="line">  <span class="built_in">lazy</span> <span class="keyword">var</span> flutterEngine = <span class="type">FlutterEngine</span>(name: <span class="string">"flutter engine"</span>)</span><br><span class="line">  <span class="keyword">let</span> factory = <span class="type">FLNativeViewFactory</span>(messenger: <span class="keyword">self</span>.flutterEngine.binaryMessenger)</span><br><span class="line">  <span class="keyword">self</span>.flutterEngine.registrar(forPlugin: <span class="string">"&lt;plugin-name&gt;"</span>)?.register(factory, withId: <span class="string">"&lt;platform-view-type&gt;"</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="3-Event-Channel"><a href="#3-Event-Channel" class="headerlink" title="3.Event Channel"></a>3.Event Channel</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// swift</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EventChannelDemo</span>:<span class="title">NSObject</span>, <span class="title">FlutterStreamHandler</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> channel:<span class="type">FlutterEventChannel</span>?</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span> =  <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> events:<span class="type">FlutterEventSink</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>(messenger: <span class="type">FlutterBinaryMessenger</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>()</span><br><span class="line">        channel = <span class="type">FlutterEventChannel</span>(name: <span class="string">"samples.flutter.dev.EventChannel"</span>, binaryMessenger: messenger)</span><br><span class="line">        channel?.setStreamHandler(<span class="keyword">self</span>)</span><br><span class="line">        startTimer()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">startTimer</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> timer = <span class="type">Timer</span>.scheduledTimer(timeInterval:<span class="number">1</span>, target: <span class="keyword">self</span>, selector:#selector(<span class="keyword">self</span>.tickDown),userInfo:<span class="literal">nil</span>,repeats: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">tickDown</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">        <span class="keyword">let</span> args = [<span class="string">"count"</span>:<span class="built_in">count</span>]</span><br><span class="line">        <span class="keyword">if</span>(events != <span class="literal">nil</span>)&#123;</span><br><span class="line">            events!(args)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">onListen</span><span class="params">(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink)</span></span> -&gt; <span class="type">FlutterError</span>? &#123;</span><br><span class="line">        <span class="keyword">self</span>.events = events</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">onCancel</span><span class="params">(withArguments arguments: Any?)</span></span> -&gt; <span class="type">FlutterError</span>? &#123;</span><br><span class="line">        <span class="keyword">self</span>.events = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dart </span></span><br><span class="line"><span class="keyword">this</span>.eventChannel = EventChannel(<span class="string">"samples.flutter.dev.EventChannel"</span>);</span><br><span class="line"><span class="keyword">this</span>.eventChannel.receiveBroadcastStream().listen((event) &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong><em> Tips：</em></strong></p>
+<ol>
+<li><p><a href="https://flutter.cn/docs/development/platform-integration/platform-channels?tab=type-mappings-obj-c-tab" target="_blank" rel="noopener">平台通道文档&gt;&gt;</a></p>
+</li>
+<li><p><a href="https://flutter.cn/docs/development/platform-integration/platform-views" target="_blank" rel="noopener">平台视图文档&gt;&gt;</a></p>
+</li>
+</ol>
+<h4 id="五-包体积增长和性能测试"><a href="#五-包体积增长和性能测试" class="headerlink" title="五. 包体积增长和性能测试"></a>五. 包体积增长和性能测试</h4><p>在 iOS 平台上，跟据 App Store Connect 的数据，同一应用的发布 IPA 在 iPhone X 上的下载文件体积为 10.9 MB。 IPA 比 APK 大，主要是因为 Apple 加密了 IPA 中的二进制文件，使得压缩效率降低。（可以查看 <a href="https://developer.apple.com/library/archive/qa/qa1795/_index.html#//apple_ref/doc/uid/DTS40014195-CH1-APP_STORE_CONSIDERATIONS" target="_blank" rel="noopener">iOS App Store Specific Considerations</a> 中 <a href="https://developer.apple.com/library/archive/qa/qa1795/_index.html" target="_blank" rel="noopener">QA1795</a> 关于加密的部分）</p>
+<p><strong><em>Tips：</em></strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/97244622" target="_blank" rel="noopener">包体积优化&gt;&gt;</a></p>
+<p><a href="https://flutter.cn/docs/perf" target="_blank" rel="noopener">关于性能&gt;&gt;</a> </p>
+<h4 id="六-适用业务场景"><a href="#六-适用业务场景" class="headerlink" title="六. 适用业务场景"></a>六. 适用业务场景</h4><p>几乎95%以上业务都能使用Flutter开发，即使flutter无法实现也能利用platformView进行原生视图托管实现。</p>
+<h4 id="七-相关资料"><a href="#七-相关资料" class="headerlink" title="七. 相关资料"></a>七. 相关资料</h4><p><a href="https://www.dartcn.com/guides/language/language-tour" target="_blank" rel="noopener">dart语法&gt;&gt;</a></p>
+<p><a href="https://flutter.cn" target="_blank" rel="noopener">flutter官网&gt;&gt;</a></p>
+<p><a href="https://flutter.cn/docs/reference/widgets" target="_blank" rel="noopener">组件库&gt;&gt;</a></p>
+<p><a href="https://flutter.cn/docs/resources/architectural-overview" target="_blank" rel="noopener">渲染原理&gt;&gt;</a></p>
+<p><strong><em> 翻译(二手)资料：</em></strong></p>
+<p><a href="https://book.flutterchina.club" target="_blank" rel="noopener">中文入门教程&gt;&gt;</a></p>
+<p><a href="http://laomengit.com/" target="_blank" rel="noopener">中文组件库&gt;&gt;</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/09/01/浅谈编程思想/" rel="next" title="浅谈编程思想">
+                <i class="fa fa-chevron-left"></i> 浅谈编程思想
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/02/13/Flutter 插件发布私服  /" rel="prev" title="Flutter 插件发布私服">
+                Flutter 插件发布私服 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">sophistWY</p>
+              <p class="site-description motion-element" itemprop="description">keep Hungry, keep Fool</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sophistWY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter-实战"><span class="nav-number">1.</span> <span class="nav-text">Flutter 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-前置概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">一.前置概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-开始集成"><span class="nav-number">1.0.2.</span> <span class="nav-text">二. 开始集成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修改Podfile"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">修改Podfile</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-Flutter-Engine"><span class="nav-number">1.0.3.</span> <span class="nav-text">三. Flutter Engine</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-Flutter和iOS原生交互"><span class="nav-number">1.0.4.</span> <span class="nav-text">四. Flutter和iOS原生交互</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Methods-Channel"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">1. Methods Channel</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dart-To-iOS"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">dart To iOS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS-To-dart"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">iOS To dart</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-平台视图托管-PlatformView"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">2.平台视图托管 (PlatformView)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Event-Channel"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">3.Event Channel</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-包体积增长和性能测试"><span class="nav-number">1.0.5.</span> <span class="nav-text">五. 包体积增长和性能测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-适用业务场景"><span class="nav-number">1.0.6.</span> <span class="nav-text">六. 适用业务场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七-相关资料"><span class="nav-number">1.0.7.</span> <span class="nav-text">七. 相关资料</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sophistWY</span>
+
+  
+<!--
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+-->
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共87.5k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1739169216267')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
