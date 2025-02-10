@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="博客," />
+  <meta name="keywords" content="AI," />
 
 
 
@@ -86,21 +86,18 @@
 
 
 
-<meta name="description" content="制作pod私有库">
-<meta name="keywords" content="博客">
+<meta name="description" content="关于Generative AI">
+<meta name="keywords" content="AI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CocoaPods创建私有库">
-<meta property="og:url" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/index.html">
+<meta property="og:title" content="浅谈Generative AI">
+<meta property="og:url" content="http://yoursite.com/2025/02/10/浅谈Generative AI/index.html">
 <meta property="og:site_name" content="汪洋的博客">
-<meta property="og:description" content="制作pod私有库">
+<meta property="og:description" content="关于Generative AI">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/privatePod_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/privatePod_2.png">
-<meta property="og:updated_time" content="2019-08-19T12:43:44.000Z">
+<meta property="og:updated_time" content="2025-02-10T10:47:25.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CocoaPods创建私有库">
-<meta name="twitter:description" content="制作pod私有库">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/19/CocoaPods创建私有库/privatePod_1.png">
+<meta name="twitter:title" content="浅谈Generative AI">
+<meta name="twitter:description" content="关于Generative AI">
 
 
 
@@ -130,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/19/CocoaPods创建私有库/"/>
+  <link rel="canonical" href="http://yoursite.com/2025/02/10/浅谈Generative AI/"/>
 
 
 
 
 
-  <title>CocoaPods创建私有库 | 汪洋的博客</title>
+  <title>浅谈Generative AI | 汪洋的博客</title>
   
 
 
@@ -267,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/CocoaPods创建私有库/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/10/浅谈Generative AI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sophistWY">
@@ -284,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CocoaPods创建私有库</h1>
+          <h1 class="post-title" itemprop="name headline">浅谈Generative AI</h1>
         
 
         <div class="post-meta">
@@ -296,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T16:01:37+08:00">
-                2019-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2025-02-10T18:31:43+08:00">
+                2025-02-10
               </time>
             
 
@@ -319,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
                   </a>
                 </span>
 
@@ -350,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  663 字
+                  926 字
                 </span>
               
 
@@ -387,34 +384,131 @@
       
 
       
-        <p><strong>制作pod私有库</strong></p>
-<a id="more"></a>
-<h4 id="一-Git准备两个仓库"><a href="#一-Git准备两个仓库" class="headerlink" title="一.Git准备两个仓库:"></a>一.Git准备两个仓库:</h4><p><strong>1.存放libs工程代码:</strong></p>
-<p><a href="https://github.com/sophistWY/BaseTool.git" target="_blank" rel="noopener">https://github.com/sophistWY/BaseTool.git</a></p>
-<p><strong>2.存放生成的podspec文件:</strong></p>
-<p><a href="https://github.com/sophistWY/PrivatePods.git" target="_blank" rel="noopener">https://github.com/sophistWY/PrivatePods.git</a></p>
-<h4 id="二-创建并设置一个私有的Spec-Repo"><a href="#二-创建并设置一个私有的Spec-Repo" class="headerlink" title="二.创建并设置一个私有的Spec Repo:"></a>二.创建并设置一个私有的Spec Repo:</h4><p>目的:本地 cocopod 路径Localpod 与 git 云端关联</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pod repo add [Private Repo Name] [对应的.git url]</span><br><span class="line">$ pod repo add LocalPod https://github.com/sophistWY/PrivatePods.git</span><br></pre></td></tr></table></figure>
-<p>查看命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.cocoapods/repos</span><br></pre></td></tr></table></figure>
-<p>如下图:</p>
-<p><img src="/2019/08/19/CocoaPods创建私有库/privatePod_1.png" alt=""></p>
-<h4 id="三-创建PodLib"><a href="#三-创建PodLib" class="headerlink" title="三.创建PodLib:"></a>三.创建PodLib:</h4><p><strong>1.创建存放的lib的目录:</strong></p>
-<p><strong>2.cd到该目录下执行下面命令:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod lib create BaseTool</span><br></pre></td></tr></table></figure>
-<p><strong>3.如下图交互:</strong></p>
-<p><img src="/2019/08/19/CocoaPods创建私有库/privatePod_2.png" alt=""></p>
-<p><strong>4.打开Example工程编辑BaseConfig.podspec文件:</strong></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">s.name             = <span class="string">'BaseTool '</span> <span class="comment">##名字必须与libname相同</span></span><br><span class="line">s.version          = <span class="string">'0.1.0'</span>     <span class="comment">#版本必须为0.0.0格式</span></span><br><span class="line">s.summary          = <span class="string">'demo of BaseTool.'</span> <span class="comment">#关于库的一个简短描述</span></span><br><span class="line">s.description      = <span class="string">&lt;&lt;-DESC</span></span><br><span class="line"><span class="string">TODO: 备注文字(较长描述)</span></span><br><span class="line"><span class="string">                            DESC</span></span><br><span class="line"><span class="comment">#是否支持arc</span></span><br><span class="line">s.requires_arc = <span class="literal">true</span></span><br><span class="line"><span class="comment">#文件主页</span></span><br><span class="line">s.homepage         = <span class="string">'https://github.com/sophistWY/BaseTool '</span></span><br><span class="line"><span class="comment">#开源协议</span></span><br><span class="line">s.license          = &#123; <span class="symbol">:type</span> =&gt; <span class="string">'MIT'</span>, <span class="symbol">:file</span> =&gt; <span class="string">'LICENSE'</span> &#125;</span><br><span class="line"><span class="comment">#作者信息</span></span><br><span class="line">s.author           = = &#123; <span class="string">'sophistWY'</span> =&gt; <span class="string">'sophistwy@163.com'</span> &#125;</span><br><span class="line"><span class="comment">#源文件所在网络路径</span></span><br><span class="line">s.source           = &#123; <span class="symbol">:git</span> =&gt; <span class="string">'https://github.com/sophistWY/BaseTool.git'</span>, <span class="symbol">:tag</span> =&gt; s.version.to_s &#125;</span><br><span class="line"><span class="comment">#支持版本</span></span><br><span class="line">s.ios.deployment_target = <span class="string">'7.0'</span></span><br><span class="line"><span class="comment">#公开头文件名</span></span><br><span class="line">s.public_header_files = <span class="string">'Pod/Classes/**/*.h'</span></span><br><span class="line"><span class="comment">#依赖的框架</span></span><br><span class="line">s.frameworks = <span class="string">'UIKit'</span>, <span class="string">'MapKit'</span></span><br><span class="line"><span class="comment">#依赖库</span></span><br><span class="line">s.dependency <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.3'</span></span><br></pre></td></tr></table></figure>
-<p><strong>5.验证podspec:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#测试podspec检查是否存在问题</span><br><span class="line">$ pod lib lint </span><br><span class="line">//通过结果</span><br><span class="line"> -&gt; BaseTool (0.1.0)</span><br><span class="line"></span><br><span class="line">BaseTool passed validation.</span><br><span class="line">      </span><br><span class="line">#如果有警告可以忽略</span><br><span class="line">$ pod lib lint --allow-warnings</span><br></pre></td></tr></table></figure>
-<h4 id="四-本地测试与上传工程代码"><a href="#四-本地测试与上传工程代码" class="headerlink" title="四.本地测试与上传工程代码:"></a>四.本地测试与上传工程代码:</h4><p><strong>1.cd到Example目录执行:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod install</span><br></pre></td></tr></table></figure>
-<p><strong>2.提交工程代码到git:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> #跳转到lib目录下</span><br><span class="line"> $ cd [libFolder] </span><br><span class="line"> $ git init</span><br><span class="line"> </span><br><span class="line">(** 推荐客户端操作 **</span><br><span class="line">1.add Existing Repository 2. commit to master 3.push To public)</span><br><span class="line"> </span><br><span class="line"> 地址:https://github.com/sophistWY/BaseTool.git</span><br><span class="line"> </span><br><span class="line"> **最后命令号提交tag**</span><br><span class="line"> $ git tag -m &quot;release 0.1.0&quot; &quot;0.1.0&quot;</span><br><span class="line"> $ git push --tags     #推送tag到远端仓库</span><br></pre></td></tr></table></figure>
-<h4 id="五-上传podspec代码"><a href="#五-上传podspec代码" class="headerlink" title="五.上传podspec代码:"></a>五.上传podspec代码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pod repo push LocalPod BaseTool.podspec</span><br><span class="line">#如果有警告可以忽略</span><br><span class="line">$ pod repo push LocalPod BaseTool.podspec --allow-warnings</span><br></pre></td></tr></table></figure>
-<h4 id="六-使用私有库"><a href="#六-使用私有库" class="headerlink" title="六.使用私有库:"></a>六.使用私有库:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#官方仓库的地址</span><br><span class="line">source &apos;https://github.com/CocoaPods/Specs.git&apos; </span><br><span class="line">#我们自己的私有spec仓库的地址</span><br><span class="line">source &apos;https://github.com/sophistWY/PrivatePods.git&apos; </span><br><span class="line"></span><br><span class="line">#使用私有库下的组件</span><br><span class="line">pod &apos;BaseTool&apos;</span><br></pre></td></tr></table></figure>
-<h4 id="七-其他常用命令"><a href="#七-其他常用命令" class="headerlink" title="七.其他常用命令:"></a>七.其他常用命令:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 提交本地库</span><br><span class="line">$ pod repo push LocalPod MyLibrary.podspec</span><br><span class="line"></span><br><span class="line"># 移除本地库</span><br><span class="line"># pod repo remove [Private Repo Name]</span><br><span class="line">$ pod repo remove LocalPod</span><br><span class="line"></span><br><span class="line">移除本地仓库中的lib.podspec</span><br><span class="line">1.前往~/.cocoapods/repos 将其对应文件夹文件夹删除</span><br><span class="line">2.提交修改到git</span><br><span class="line">3.pod repo update LocalPod</span><br></pre></td></tr></table></figure>
+        <h3 id="关于Generative-AI"><a href="#关于Generative-AI" class="headerlink" title="关于Generative AI"></a><strong>关于Generative AI</strong></h3><a id="more"></a>
+<h4 id="1-什么是-Generative-AI？"><a href="#1-什么是-Generative-AI？" class="headerlink" title="1. 什么是 Generative AI？"></a>1. 什么是 Generative AI？</h4><p>Generative AI（生成式人工智能）是一种基于深度学习的技术，能够生成文本、图像、音频、代码等多种内容。其核心是利用 <strong>Transformer</strong> 结构（如 GPT）进行大规模训练，使其能够理解和生成符合人类表达方式的内容。</p>
+<p>生成式 AI 近年来得到了广泛应用，例如：</p>
+<ul>
+<li><strong>自然语言处理（NLP）</strong>：ChatGPT、Claude、Gemini</li>
+<li><strong>图像生成</strong>：Stable Diffusion、MidJourney、DALL·E</li>
+<li><strong>代码补全</strong>：GitHub Copilot、Cursor、Tabnine</li>
+<li><strong>视频生成</strong>：RunwayML、Pika Labs</li>
+</ul>
+<h3 id="2-Generative-AI-主要应用"><a href="#2-Generative-AI-主要应用" class="headerlink" title="2. Generative AI 主要应用"></a>2. Generative AI 主要应用</h3><ol>
+<li><strong>内容生成</strong>：文本写作、代码补全、图片和视频生成。</li>
+<li><strong>智能助手</strong>：AI 个人助理，如 ChatGPT。</li>
+<li><strong>数据增强</strong>：自动创建数据集、合成训练数据。</li>
+<li><strong>多模态 AI</strong>：结合文本、音频、图像进行深度学习。</li>
+</ol>
+<h3 id="3-主流大模型对比"><a href="#3-主流大模型对比" class="headerlink" title="3. 主流大模型对比"></a>3. 主流大模型对比</h3><p>当前，市场上有多个领先的大模型，它们各有优劣，适用于不同的应用场景。以下是主要大模型的详细对比：</p>
+<table>
+<thead>
+<tr>
+<th><strong>模型</strong></th>
+<th><strong>提供商</strong></th>
+<th><strong>开源/闭源</strong></th>
+<th><strong>主要优势</strong></th>
+<th><strong>主要劣势</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4 Turbo</td>
+<td>OpenAI</td>
+<td>闭源</td>
+<td>强大的语言理解与推理能力，代码生成强</td>
+<td>价格较高，不开源</td>
+</tr>
+<tr>
+<td>DeepSeek-V2</td>
+<td>DeepSeek</td>
+<td>开源</td>
+<td>中文优化较好，推理速度快</td>
+<td>通用能力不及 GPT-4</td>
+</tr>
+<tr>
+<td>Claude 2</td>
+<td>Anthropic</td>
+<td>闭源</td>
+<td>长文本处理能力强，安全性高</td>
+<td>数学推理能力较弱</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>Google DeepMind</td>
+<td>闭源</td>
+<td>多模态 AI 能力强，集成 Google 生态</td>
+<td>推理速度略慢</td>
+</tr>
+<tr>
+<td>LLaMA 3</td>
+<td>Meta</td>
+<td>开源</td>
+<td>高效推理，适合企业本地部署</td>
+<td>生态支持较小</td>
+</tr>
+<tr>
+<td>Mistral</td>
+<td>Mistral AI</td>
+<td>开源</td>
+<td>轻量级推理快，可本地化</td>
+<td>通用能力不及 GPT-4</td>
+</tr>
+</tbody>
+</table>
+<p>从上表可以看出，<strong>GPT-4 Turbo</strong> 目前仍然是最强大的通用大模型，但价格较高；<strong>DeepSeek-V2 和 LLaMA 3</strong> 适合本地部署；<strong>Claude 2</strong> 则在长文本处理方面表现突出。</p>
+<h3 id="4-主流代码-AI-客户端对比"><a href="#4-主流代码-AI-客户端对比" class="headerlink" title="4. 主流代码 AI 客户端对比"></a>4. 主流代码 AI 客户端对比</h3><p>代码 AI 客户端能够帮助开发者提升编程效率，以下是主流代码 AI 客户端的特点及对比：</p>
+<table>
+<thead>
+<tr>
+<th><strong>工具</strong></th>
+<th><strong>基础模型</strong></th>
+<th><strong>主要功能</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>是否开源</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Copilot</td>
+<td>GPT-4 Turbo</td>
+<td>代码补全、代码解释</td>
+<td>通用开发</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td>GPT-4 Turbo</td>
+<td>代码自动修复、调试优化</td>
+<td>大型项目开发</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Tabnine</td>
+<td>专属 AI 模型</td>
+<td>本地代码补全、隐私保护</td>
+<td>企业内部开发</td>
+<td>是</td>
+</tr>
+<tr>
+<td>Codeium</td>
+<td>自研模型</td>
+<td>免费 AI 代码助手</td>
+<td>个人开发者</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p>在代码 AI 领域，<strong>GitHub Copilot 和 Cursor</strong> 基于 GPT-4 Turbo，适用于高效开发；<strong>Tabnine</strong> 强调隐私保护，适用于企业内部；<strong>Codeium</strong> 适合个人开发者使用。</p>
+<h3 id="5-Generative-AI-未来发展趋势"><a href="#5-Generative-AI-未来发展趋势" class="headerlink" title="5. Generative AI 未来发展趋势"></a>5. Generative AI 未来发展趋势</h3><p>Generative AI 仍在快速发展，未来可能会朝以下几个方向演进：</p>
+<ol>
+<li><strong>更强的多模态能力</strong>：AI 将整合文本、音频、视频等多种信息，增强理解和生成能力。</li>
+<li><strong>更高效的计算能力</strong>：新模型将减少计算成本，使 AI 更易用。</li>
+<li><strong>本地化部署</strong>：随着数据隐私问题的增加，更多企业将采用本地部署 AI。</li>
+<li><strong>代码 AI 进一步成熟</strong>：AI 代码助手将逐步替代部分开发工作，提高开发效率。</li>
+</ol>
+<h3 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a>6. 结论</h3><p>Generative AI 正在重塑多个行业，无论是内容生成、代码补全，还是多模态 AI，都展现出了强大的应用前景。</p>
+<p>对于个人开发者来说，GitHub Copilot 和 Cursor 是提升编程效率的利器，而对于企业来说，DeepSeek-V2 和 LLaMA 3 这样的开源 AI 可能是更好的选择。</p>
+<p>未来，Generative AI 仍将不断进步，成为工作与生活的重要工具。</p>
 
       
     </div>
@@ -432,7 +526,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
+            <a href="/tags/AI/" rel="tag"># AI</a>
           
         </div>
       
@@ -445,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/30/Swift大全/" rel="next" title="Swift大全 ">
-                <i class="fa fa-chevron-left"></i> Swift大全 
+              <a href="/2025/02/10/《DeepSeek：从入门到精通》-清华大学/" rel="next" title="《DeepSeek：从入门到精通》">
+                <i class="fa fa-chevron-left"></i> 《DeepSeek：从入门到精通》
               </a>
             
           </div>
@@ -454,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/20/Windows10合并分区/" rel="prev" title="Windows10分区合并">
-                Windows10分区合并 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-Git准备两个仓库"><span class="nav-number">1.</span> <span class="nav-text">一.Git准备两个仓库:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-创建并设置一个私有的Spec-Repo"><span class="nav-number">2.</span> <span class="nav-text">二.创建并设置一个私有的Spec Repo:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-创建PodLib"><span class="nav-number">3.</span> <span class="nav-text">三.创建PodLib:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-本地测试与上传工程代码"><span class="nav-number">4.</span> <span class="nav-text">四.本地测试与上传工程代码:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-上传podspec代码"><span class="nav-number">5.</span> <span class="nav-text">五.上传podspec代码:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-使用私有库"><span class="nav-number">6.</span> <span class="nav-text">六.使用私有库:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七-其他常用命令"><span class="nav-number">7.</span> <span class="nav-text">七.其他常用命令:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Generative-AI"><span class="nav-number">1.</span> <span class="nav-text">关于Generative AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是-Generative-AI？"><span class="nav-number">1.1.</span> <span class="nav-text">1. 什么是 Generative AI？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Generative-AI-主要应用"><span class="nav-number">2.</span> <span class="nav-text">2. Generative AI 主要应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-主流大模型对比"><span class="nav-number">3.</span> <span class="nav-text">3. 主流大模型对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-主流代码-AI-客户端对比"><span class="nav-number">4.</span> <span class="nav-text">4. 主流代码 AI 客户端对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Generative-AI-未来发展趋势"><span class="nav-number">5.</span> <span class="nav-text">5. Generative AI 未来发展趋势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-结论"><span class="nav-number">6.</span> <span class="nav-text">6. 结论</span></a></li></ol></div>
             
 
           </div>
